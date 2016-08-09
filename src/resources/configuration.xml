@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<station>
+	<name>FooStation</name>
+	<open>false</open>
+	<maxareas>10</maxareas>
+	<maxpumps>4</maxpumps>
+	
+	<balance>852945625</balance>
+	
+	<fuels>
+		<fuel>
+			<name>Benzina</name>
+			<price>123</price>
+			<wholesaleprice>100</wholesaleprice>
+			<color>#FF5689</color>
+		</fuel>
+		
+		<fuel>
+			<name>Diesel</name>
+			<price>123</price>
+			<wholesaleprice>100</wholesaleprice>
+			<color>#105689</color>
+		</fuel>
+		
+		<fuel>
+			<name>Elettricita</name>
+			<price>123</price>
+			<wholesaleprice>100</wholesaleprice>
+			<color>#00FF89</color>
+		</fuel>
+		
+		<fuel>
+			<name>Metano</name>
+			<price>123</price>
+			<wholesaleprice>100</wholesaleprice>
+			<color>#0056FF</color>
+		</fuel>
+	</fuels>
+	
+	<reserves>
+		<reserve>
+			<type>Benzina</type>
+			<capacity>100000</capacity>
+			<remaining>80000</remaining>
+		</reserve>
+		
+		<reserve>
+			<type>Diesel</type>
+			<capacity>100000</capacity>
+			<remaining>80000</remaining>
+		</reserve>
+	</reserves>
+	
+	<pumps>
+		<pump>
+			<name>Benzina100</name>
+			<fuel>Benzina</fuel>
+			<speed>100</speed>
+			<durability>100</durability>
+			<price>500</price>
+			<repairCost>10</repairCost>
+			<actualDurability>89</actualDurability>
+		</pump>
+		
+		<pump>
+			<name>Benzina200</name>
+			<fuel>Benzina</fuel>
+			<speed>100</speed>
+			<durability>200</durability>
+			<price>500</price>
+			<repairCost>10</repairCost>
+			<actualDurability>89</actualDurability>
+		</pump>
+	</pumps>
+	
+	<areas>
+		<area>
+			<xpos>0</xpos>
+			<ypos>0</ypos>
+			<pumps>
+				<pump>
+					<name>Benzina100</name>
+					<position>0</position>
+				</pump>
+				
+				<pump>
+					<name>Benzina200</name>
+					<position>1</position>
+				</pump>
+				
+				<pump>
+					<name>Benzina100</name>
+					<position>2</position>
+				</pump>
+			</pumps>
+		</area>
+		
+		<area>
+			<xpos>0</xpos>
+			<ypos>1</ypos>
+			<pumps>
+				<pump>
+					<name>Benzina100</name>
+					<position>0</position>
+				</pump>
+				
+				<pump>
+					<name>Benzina200</name>
+					<position>1</position>
+				</pump>
+				
+				<pump>
+					<name>Benzina100</name>
+					<position>2</position>
+				</pump>
+			</pumps>
+		</area>
+	</areas>
+</station>
