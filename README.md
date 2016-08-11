@@ -14,6 +14,6 @@ Currently the setup of this project is not avaiable... We're still uploading new
 
 ### Contribution ###
 
-View: Marcin Pabich
-Controller: Matteo Michelotti
-Model: Alessandro Mami
+* View: Marcin Pabich
+* Controller: Matteo Michelotti
+* Model: Alessandro Mami
