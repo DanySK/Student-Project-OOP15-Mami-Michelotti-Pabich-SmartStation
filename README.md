@@ -1,6 +1,5 @@
-# README #
+# Smart Station #
 
-Smart Station
 Your personal station manager
 
 ### What is this repository for? ###
