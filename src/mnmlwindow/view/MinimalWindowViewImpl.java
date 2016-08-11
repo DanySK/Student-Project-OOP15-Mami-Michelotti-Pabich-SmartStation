@@ -9,7 +9,6 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
@@ -43,7 +42,7 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     private final Stage stage;
     
     //References to min/max width/height and the shadow effect
-    private final int MINWIDTH, MINHEIGHT;
+    private final int minWidth, minHeight;
     
     //Things for the resizing/moving window
     private double actualX, actualY;
@@ -63,17 +62,17 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     /**
      * Constructor for the minimal window view.
-     * @param stage Stage that will be used
+     * @param stg Stage that will be used
      * @param minwidth minimum width of the window
      * @param minheight minimum height of the window
      */
-    public MinimalWindowViewImpl(final Stage stage, final int minwidth, final int minheight) {
+    public MinimalWindowViewImpl(final Stage stg, final int minwidth, final int minheight) {
         //First, take the reference to the stage
-        this.stage = stage;
+        this.stage = stg;
             
         //Taking the references to the window
-        this.MINWIDTH = minwidth;
-        this.MINHEIGHT = minheight;       
+        this.minWidth = minwidth;
+        this.minHeight = minheight;       
         
         //It's start not maximized
         this.isMaximized = false;
@@ -86,10 +85,9 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
         //Try to load
         try {
             loader.load();            
-        } catch (Exception e) {
-            e.printStackTrace();
-            //TODO Show a message error
-            System.exit(1);
+        } catch (Exception exception) {
+            this.showErrorMessage("FXML error", "MinimalWindow cannot be loaded", "An error occurred when loading MinimalWindow.fxml:\n" + exception.getMessage() + "\nAborting.");
+            System.exit(4);
         }
     }
     
@@ -101,8 +99,8 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     //Setter for the controller
     @Override
-    public void setWindowControllerer(final MinimalWindowCImpl controller) {
-        this.controller = controller;
+    public void setWindowControllerer(final MinimalWindowCImpl ctrl) {
+        this.controller = ctrl;
     }
     
     
@@ -251,7 +249,7 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     }
     @Override
     public double getWindowMinWidth() { 
-        return this.MINWIDTH; 
+        return this.minWidth;
     }
     @Override
     public double getWindowWidth() { 
@@ -266,7 +264,7 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     }
     @Override
     public double getWindowMinHeight() { 
-        return this.MINHEIGHT; 
+        return this.minHeight; 
     }
     @Override
     public double getWindowHeight() { 
@@ -320,6 +318,14 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
         this.btnResize.setVisible(status.getResizeButtonVisibility());
         this.btnMax.setStyle(status.getMaximizeLogoPath());
         this.mainWindow.setPadding(status.getShadowSpace());
+    }
+    
+    private void showErrorMessage(final String title, final String header, final String content) {
+        final Alert alertDialog = new Alert(AlertType.ERROR);
+        alertDialog.setTitle(title);
+        alertDialog.setHeaderText(header);
+        alertDialog.setContentText(content);
+        alertDialog.showAndWait();
     }
     
     
