@@ -11,18 +11,42 @@ import application.controller.tabs.FuelsEditorCtrl;
  */
 public interface FuelsEditor {
 
+    //Controller
     /**
      * Set the controller for the view.
-     * @param controller the controller
+     * @param ctrl the controller
      */
-    void setController(FuelsEditorCtrl controller);
+    void setController(FuelsEditorCtrl ctrl);
     
+    
+    
+    //Loading
     /**
      * Load the fuels in the combobox, clearing previous values.
      * @param fuels List of string describing avaiable fuels
      */
     void loadFuels(List<String> fuels);
     
+   
+    //Show/hide panel
+    /**
+     * Show the editing panel.
+     */
+    void showEditingPanel();
+    
+    /**
+     * Hide the editing panel.
+     */
+    void hideEditingPanel();
+    
+    /**
+     * Tell if the editing panel is visible.
+     * @return TRUE if it's visible, FALSE otherwise
+     */
+    boolean isEditingPanelVisible();
+    
+    
+    //Modifying
     /**
      * Get the actual selected fuel.
      * @return String that represent the fuel selected
@@ -85,6 +109,8 @@ public interface FuelsEditor {
     
     
     
+    
+    //Adding
     /**
      * Get the fuel name.
      * @return String that represent the name

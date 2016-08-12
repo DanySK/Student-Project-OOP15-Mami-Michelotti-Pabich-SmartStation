@@ -17,9 +17,9 @@ public interface StationEditor {
     //Controller
     /**
      * Set the controller for the class.
-     * @param controller the controller for the class
+     * @param ctrl the controller for the class
      */
-    void setController(StationEditorCtrl controller);
+    void setController(StationEditorCtrl ctrl);
     
     
     //Loading and refreshing

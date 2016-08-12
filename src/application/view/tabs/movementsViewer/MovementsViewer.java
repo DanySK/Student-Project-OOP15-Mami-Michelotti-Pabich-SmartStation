@@ -13,9 +13,9 @@ public interface MovementsViewer {
 
     /**
      * Set the controller for the view.
-     * @param controller the controller
+     * @param ctrl the controller
      */
-    void setController(MovementsViewerCtrl controller);
+    void setController(MovementsViewerCtrl ctrl);
     
     
     /**

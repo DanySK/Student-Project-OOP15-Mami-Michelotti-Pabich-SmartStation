@@ -2,8 +2,6 @@ package application.view.tabs.reservesEditor;
 
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-
 import application.controller.tabs.ReservesEditorCtrl;
 
 /**
@@ -15,9 +13,9 @@ public interface ReservesEditor {
 
     /**
      * Set the controller for the class.
-     * @param controller the controller for the class
+     * @param ctrl the controller for the class
      */
-    void setController(ReservesEditorCtrl controller);
+    void setController(ReservesEditorCtrl ctrl);
     
     
     
@@ -35,6 +33,24 @@ public interface ReservesEditor {
      */
     void loadFuels(List<String > fuels);
     
+    
+    
+    //Show/hide panel
+    /**
+     * Show the editing panel.
+     */
+    void showEditingPanel();
+    
+    /**
+     * Hide the editing panel.
+     */
+    void hideEditingPanel();
+    
+    /**
+     * Tell if the editing panel is visible.
+     * @return TRUE if it's visible, FALSE otherwise
+     */
+    boolean isEditingPanelVisible();
     
     
     
@@ -115,6 +131,7 @@ public interface ReservesEditor {
      * @return String that represent the value
      */
     String getRefill();
+    
     
     
     //REPAIR METHODS

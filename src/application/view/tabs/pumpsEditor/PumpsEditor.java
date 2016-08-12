@@ -3,8 +3,6 @@ package application.view.tabs.pumpsEditor;
 import java.util.List;
 
 import application.controller.tabs.PumpsEditorCtrl;
-import application.model.buildables.pump.Pump;
-import application.model.services.Fuel;
 
 /**
  * Interface containing all the logic for the Pumps Editor tab.
@@ -17,9 +15,9 @@ public interface PumpsEditor {
     
     /**
      * Set the controller for the view.
-     * @param controller the controller
+     * @param ctrl the controller
      */
-    void setController(final PumpsEditorCtrl controller);
+    void setController(final PumpsEditorCtrl ctrl);
     
     
     
@@ -48,50 +46,50 @@ public interface PumpsEditor {
     String getModifySelectedPump();
     
     /**
-     * Get the modified fuel of the pump
+     * Get the modified fuel of the pump.
      * @return String representing the value
      */
     String getModifyFuelType();
     
     /**
-     * Set the value of modified fuel combobox
+     * Set the value of modified fuel combobox.
      * @param fuelType String representing the value
      */
     void setModifyFuelType(final String fuelType);
     
     
     /**
-     * Get the modified speed of the pump
+     * Get the modified speed of the pump.
      * @return String representing the value
      */
     String getModifySpeed();
     
     /**
-     * Set the value of modified speed textfield
+     * Set the value of modified speed textfield.
      * @param speed String representing the value
      */
     void setModifySpeed(final String speed);
     
     /**
-     * Get the modified durability of the pump
+     * Get the modified durability of the pump.
      * @return String representing the value
      */
     String getModifyDurability();
     
     /**
-     * Set the value of modified durability textfield
+     * Set the value of modified durability textfield.
      * @param durability String representing the value
      */
     void setModifyDurability(final String durability);
     
     /**
-     * Get the modified price of the pump
+     * Get the modified price of the pump.
      * @return String representing the value
      */
     String getModifyPrice();
     
     /**
-     * Set the value of modified price textfield
+     * Set the value of modified price textfield.
      * @param price String representing the value
      */
     void setModifyPrice(final String price);
@@ -129,25 +127,25 @@ public interface PumpsEditor {
     //...for creating a new pump
     
     /**
-     * Get the fuel of the pump
+     * Get the fuel of the pump.
      * @return String representing the value
      */
     String getFuelType();
     
     /**
-     * Get the speed of the pump
+     * Get the speed of the pump.
      * @return String representing the value
      */
     String getSpeed();
     
     /**
-     * Get the durability of the pump
+     * Get the durability of the pump.
      * @return String representing the value
      */
     String getDurability();
     
     /**
-     * Get the price of the pump
+     * Get the price of the pump.
      * @return String representing the value
      */
     String getPrice();

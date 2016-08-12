@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import java.lang.Double?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.CheckBox?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@MovementsViewerStyle.css">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultMargin" fx:value="10" />
+	</fx:define>
+	
+	
+	<left>
+		<VBox id="controlsContainer" spacing="30" minWidth="247" maxWidth="247">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<VBox spacing="5">
+				<Label text="FILTER" id="titleLabel"></Label>
+				<ComboBox fx:id="cmbFilters" editable="false" maxWidth="9999" HBox.hgrow="ALWAYS"></ComboBox>
+				<Button text="Apply filter" onMouseClicked="#btnApplyFilter_click"></Button>
+			</VBox>			
+		</VBox>
+	</left>
+	
+	<center>
+		<ListView fx:id="lsvElements"></ListView>
+	</center>
+</fx:root>
