@@ -16,9 +16,9 @@ public interface MainContent {
 
     /**
      * Set the controller of the MainContent and of the all sub-views.
-     * @param controller the controller for the classes
+     * @param ctrl the controller for the classes
      */
-    void setController(final MainController controller);
+    void setController(final MainController ctrl);
     
     /**
      * Get the controller of the MainContent.

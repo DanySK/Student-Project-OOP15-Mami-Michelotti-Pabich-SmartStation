@@ -1,7 +1,5 @@
 package application.view.controls.reserveStatus;
 
-import javax.xml.parsers.DocumentBuilder;
-
 /**
  * Interface that contain all methods needed to manage a ReserveStatus.
  * @author Marcin Pabich

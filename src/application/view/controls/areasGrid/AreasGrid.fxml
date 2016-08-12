@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import java.lang.Double?>
+<?import application.view.controls.areaViewer.AreaViewerImpl?>
+
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="BorderPane" stylesheets="@AreasGridStyle.css">	
+	<center>
+		<ScrollPane id="scrollPane" fitToHeight="true" fitToWidth="true" vbarPolicy="AS_NEEDED" styleClass="edge-to-edge">				
+			<GridPane fx:id="grdAreas" id="grdAreas" hgap="10" vgap="10" alignment="CENTER">
+				<columnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+					<ColumnConstraints percentWidth="50" halignment="CENTER"></ColumnConstraints>
+				</columnConstraints>
+				
+				<rowConstraints>
+					<RowConstraints percentHeight="50" valignment="CENTER"></RowConstraints>
+					<RowConstraints percentHeight="50" valignment="CENTER"></RowConstraints>
+					<RowConstraints percentHeight="50" valignment="CENTER"></RowConstraints>
+					<RowConstraints percentHeight="50" valignment="CENTER"></RowConstraints>
+					<RowConstraints percentHeight="50" valignment="CENTER"></RowConstraints>
+				</rowConstraints>
+				
+				<AreaViewerImpl GridPane.rowIndex="0" GridPane.columnIndex="0"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="0" GridPane.columnIndex="1"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="0" GridPane.columnIndex="2"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="0" GridPane.columnIndex="3"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="0" GridPane.columnIndex="4"></AreaViewerImpl>
+				
+				<AreaViewerImpl GridPane.rowIndex="1" GridPane.columnIndex="0"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="1" GridPane.columnIndex="2"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="1" GridPane.columnIndex="5"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="1" GridPane.columnIndex="6"></AreaViewerImpl>
+				
+				<AreaViewerImpl GridPane.rowIndex="2" GridPane.columnIndex="0"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="3" GridPane.columnIndex="1"></AreaViewerImpl>
+				<AreaViewerImpl GridPane.rowIndex="4" GridPane.columnIndex="2"></AreaViewerImpl>
+				
+			</GridPane>
+		</ScrollPane>
+	</center>
+</fx:root>
+

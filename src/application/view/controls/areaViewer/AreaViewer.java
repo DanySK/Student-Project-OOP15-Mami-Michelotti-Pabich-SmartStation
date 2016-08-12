@@ -3,7 +3,6 @@ package application.view.controls.areaViewer;
 import java.util.List;
 
 import application.model.buildables.pump.Pump;
-import application.model.consumers.Vehicle;
 
 /**
  * Interface that contains all methods to manage the area.
