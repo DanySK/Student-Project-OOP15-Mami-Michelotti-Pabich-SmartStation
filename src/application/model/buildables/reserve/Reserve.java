@@ -5,18 +5,17 @@ import application.model.services.Fuel;
 
 public interface Reserve extends Buildable{
 	
-	Fuel getType();
+    Fuel getType();
 	
-	void setType(Fuel type);
+    void setType(final Fuel type);
 	
-	int getCapacity();
+    int getCapacity();
 	
-	void setCapacity(int capacity);
+    void setCapacity(final int capacity);
 	
-	int getRemaining();
+    int getRemaining();
 	
-	void setRemaining(int remaining);
+    void setRemaining(final int remaining);
 	
-	void refill(int refill);
-
+    void refill(final int refill);
 }

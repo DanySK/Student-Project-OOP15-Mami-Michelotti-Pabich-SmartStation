@@ -8,16 +8,23 @@ import application.model.consumers.Vehicle;
 
 public interface Area extends Buildable{	
 	
-	Vehicle getVehicle();
+    Vehicle getVehicle();
 	
-	List<Pump> getAllPumps();
+    List<Pump> getAllPumps();
+    
+    int getPumpsCount();
 	
-	int getXPosition();
+    int getXPosition();
 	
-	int getYPosition();
+    int getYPosition();
 	
-	void setPosition(int x, int y);
+    void setPosition(int x, int y);
+    
+    void addPump(final Pump pump);
+    
+    void addAllPumps(final List<Pump> pumps);
+    
+    void removePump(final Pump pump);
 	
-	boolean isOccupied();
-	
+    boolean isOccupied();
 }

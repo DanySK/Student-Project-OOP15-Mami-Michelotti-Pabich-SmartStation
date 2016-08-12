@@ -6,17 +6,17 @@ public interface Fuel {
 	
     String getName();
 	
-    void setName(String name);
+    void setName(final String name);
 	
-	int getPrice();
-	
-	void setPrice(int price);
-	
-	int getWholeSalePrice();
-	
-	void setWholeSalePrice(int wholeSalePrice);
-	
-	Color getColor();
-	
-	void setColor(Color color);
+    int getPrice();
+    	
+    void setPrice(final int price);
+    	
+    int getWholeSalePrice();
+    	
+    void setWholeSalePrice(final int wholeSalePrice);
+    	
+    Color getColor();
+    	
+    void setColor(final Color color);
 }

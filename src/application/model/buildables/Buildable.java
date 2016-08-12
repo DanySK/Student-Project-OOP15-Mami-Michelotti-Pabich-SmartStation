@@ -2,17 +2,19 @@ package application.model.buildables;
 
 public interface Buildable {
 	
-int getCost();
+    int getCost();
 	
-	void setCost(int cost);
+    void setCost(final int cost);
 	
-	int getDurability();
+    int getDurability();
+    
+    int getMaxDurability();
 	
-	void setMaxDurability(int durability);
+    void setMaxDurability(final int durability);
 	
     int getRepairCost();
 	
-	void setRepairCost(int repairCost);
+    void setRepairCost(final int repairCost);
 	
-	void repair(int percentage);
+    void repair(final int percentage);
 }

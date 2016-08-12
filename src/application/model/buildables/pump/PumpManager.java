@@ -5,13 +5,15 @@ import java.util.List;
 
 public interface PumpManager {
 	
-	Pump getPump(int i);
-	
-	List<Pump> getAllPumps();
-	
-	void addPump(Pump pump);
-	
-	void removePump(Pump pump);
-	
-	void removeAllPumps ();	
+    Pump getPump(final int i);
+    
+    Pump getPumpByName(final String name);
+    	
+    List<Pump> getAllPumps();
+    
+    void addPump(final Pump pump);
+    	
+    void removePump(final Pump pump);
+    	
+    void removeAllPumps();	
 }

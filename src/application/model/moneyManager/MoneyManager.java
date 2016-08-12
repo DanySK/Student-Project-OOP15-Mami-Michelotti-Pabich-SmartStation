@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface MoneyManager {
 	
-	Movement getMovement(int i);
-	
-	List<Movement> getAllMovements();
-	
-	int getActualBalance();
-	
-	void addMovement(Movement movement);
+    Movement getMovement(final int i);
+    	
+    List<Movement> getAllMovements();
+    	
+    int getActualBalance();
+    	
+    void addMovement(final Movement movement);
 }

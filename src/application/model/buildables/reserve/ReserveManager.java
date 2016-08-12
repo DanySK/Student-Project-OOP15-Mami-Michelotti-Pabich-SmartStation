@@ -6,7 +6,9 @@ import application.model.services.Fuel;
 
 public interface ReserveManager{
 	
-	public Reserve getReserve(Fuel type);
+    Reserve getReserve(final Fuel type);
 	
-	List<Reserve> getAllReserves();
+    List<Reserve> getAllReserves();
+    
+    void removeAllReserves();
 }

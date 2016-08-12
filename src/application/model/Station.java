@@ -8,14 +8,26 @@ import application.model.services.FuelManager;
 
 
 public interface Station {	
-	
-	void open();
-	
-	void close();
-	
-	AreaManager getAreaManager();
-	PumpManager getPumpManager();
-	ReserveManager getReserveManager();
-	FuelManager getFuelManager();
-	MoneyManager getMoneyManager();
+      
+    String getStationName();
+    
+    void setStationName(final String name);
+    
+    int getMaxAreas();
+    
+    void setMaxAreas(final int maxAreas);
+    
+    int getMaxPumps();
+    
+    void setMaxPumps(final int maxPumps);
+    
+    void open();
+    	
+    void close();
+    	
+    AreaManager getAreaManager();
+    PumpManager getPumpManager();
+    ReserveManager getReserveManager();
+    FuelManager getFuelManager();
+    MoneyManager getMoneyManager();
 }

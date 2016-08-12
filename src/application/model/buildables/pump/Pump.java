@@ -5,15 +5,15 @@ import application.model.services.Fuel;
 
 public interface Pump extends Buildable{
 	
-	String getName();
+    String getName();
 	
-	void setName(String name);
+    void setName(final String name);
 	
-	Fuel getType();
+    Fuel getType();
 	
-	void setType(Fuel type);
+    void setType(final Fuel type);
 	
-	int getSpeed();
+    int getSpeed();
 	
-	void setSpeed(int speed);
+    void setSpeed(final int speed);
 }
