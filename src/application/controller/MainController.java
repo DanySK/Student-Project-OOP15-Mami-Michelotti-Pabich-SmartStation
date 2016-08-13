@@ -69,7 +69,7 @@ public interface MainController {
     void setView(MainContent mainContent);
     
     /**
-     * Load the file
+     * Load the file and store in the model.
      */
     void loadConfiguration();
 }

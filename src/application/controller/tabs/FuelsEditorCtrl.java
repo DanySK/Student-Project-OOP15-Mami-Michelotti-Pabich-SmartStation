@@ -16,12 +16,6 @@ public interface FuelsEditorCtrl {
     void setView(final FuelsEditor fuelsEditor);
     
     /**
-     * Add new fuel.
-     * @param e mouse event
-     */
-    void btnAddFuel_click(MouseEvent e);
-    
-    /**
      * selection of the fuel and load the dates.
      * @param e mouse event
      */
@@ -50,4 +44,10 @@ public interface FuelsEditorCtrl {
      * @param e mouse event
      */
     void btnChangeColor_click (MouseEvent e);
+
+    /**
+     * Add new fuel.
+     * @param e mouse event
+     */
+    void btnAddFuel_click(MouseEvent e);
 }

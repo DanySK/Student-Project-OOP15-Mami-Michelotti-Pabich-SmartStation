@@ -53,7 +53,7 @@ public interface StationEditorCtrl {
     void btnRemoveSelected_click(final MouseEvent e);
     
     /**
-     * Add pump at area selected.
+     * Create new area whit pumps.
      * @param e mouse event
      */
     void btnAddPump_click(final MouseEvent e);
