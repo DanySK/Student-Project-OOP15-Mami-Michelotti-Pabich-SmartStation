@@ -101,10 +101,10 @@
 		<FlowPane hgap="30" vgap="30" alignment="TOP_CENTER">
 		
 			<!-- Refilling -->
-			<VBox spacing="10" minWidth="$defaultSapce" maxWidth="$defaultSapce" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
+			<VBox spacing="10" minWidth="$panelWidth" maxWidth="$panelWidth" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
 				<padding>
 					<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
-				</padding>
+				</padding>			
 				
 				<Label text="REFILL RESERVE" id="titleLabel"></Label>
 				
@@ -120,13 +120,11 @@
 					<Label text="Refill quantity"></Label>			
 					<TextField fx:id="txfRefill" maxWidth="$infinite" HBox.hgrow="ALWAYS"></TextField>				
 					<Button text="Refill" onMouseClicked="#btnRefill_click" maxWidth="$infinite"></Button>
-				</VBox>
-				
+				</VBox>	
 			</VBox>
-					
-					
+												
 			<!-- Repairing -->		
-			<VBox spacing="10" minWidth="$defaultSapce" maxWidth="$defaultSapce" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
+			<VBox spacing="10" minWidth="$panelWidth" maxWidth="$panelWidth" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
 				<padding>
 					<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
 				</padding>

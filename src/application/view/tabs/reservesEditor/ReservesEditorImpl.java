@@ -76,69 +76,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     public void setController(final ReservesEditorCtrl ctrl) {
 	this.controller = ctrl;
     }
-    
-    
-    //MODIFYING EVENT HANDLERS
-    @FXML
-    private void btnSelectEdit_click(final MouseEvent e) {
-        this.controller.btnSelectEdit_click(e);
-    }
-    
-    @FXML
-    private void btnChangeFuelType_click(final MouseEvent e) {
-        this.controller.btnChangeFuelType_click(e);
-    }
-    @FXML
-    private void btnChangeCapacity_click(final MouseEvent e) {
-        this.controller.btnChangeCapacity_click(e);
-    } 
-    
-    @FXML
-    private void btnChangeRepairCost_click(final MouseEvent e) {
-        this.controller.btnChangeRepairCost_click(e);
-    }
-        
-    @FXML
-    private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.btnChangePrice_click(e);
-    }
-    
-    @FXML
-    private void btnChangeDurability_click(final MouseEvent e) {
-        this.controller.btnChangeDurability_click(e);
-    }
-    
-
-    //REFILL EVENT HANDLERS
-    @FXML
-    private void btnSelectRefill_click(final MouseEvent e) {
-        this.controller.btnSelectRefill_click(e);
-    }
-    
-    @FXML
-    private void btnRefill_click(final MouseEvent e) {
-        this.controller.btnRefill_click(e);
-    }
-    
-    
-    //REPAIR EVENT HANDLERS
-    @FXML
-    private void btnSelectRepair_click(final MouseEvent e) {
-        this.controller.btnSelectRepair_click(e);
-    }
-    
-    @FXML
-    private void btnRepair_click(final MouseEvent e) {
-        this.controller.btnRepair_click(e);
-    }
-    
-    
-    //ADDING EVENT HANDLERS
-    @FXML
-    private void btnAddReserve_click(final MouseEvent e) {
-        this.controller.btnAddReserve_click(e);
-    }
-
+ 
     
     
     //Loading methods
@@ -161,6 +99,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
         this.cmbFuelType.getItems().addAll(fuels);
         this.cmbEditFuelType.getItems().addAll(fuels);
     }
+    
     
     
     //Show/hide panels
@@ -258,19 +197,96 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
         this.btnRepair.setText("Repair (" + value.toString() + ")");
     }
 
+    
+    
+    //Adding methods
+    @Override
+    public String getFuel() {
+        return this.cmbFuelType.getValue();
+    }
+
+    @Override
+    public String getCapacity() {
+        return this.txfCapacity.getText();
+    }
+
+    @Override
+    public String getPrice() {
+        return this.txfPrice.getText();
+    }
+
+    @Override
+    public String getDurability() {
+        return this.txfDurability.getText();
+    }
+
+    @Override
+    public String getRepairCost() {
+        return this.txfRepairCost.getText();
+    }    
 
     
     
+    //Event handlers
+    
+    //MODIFYING EVENT HANDLERS
+    @FXML
+    private void btnSelectEdit_click(final MouseEvent e) {
+        this.controller.btnSelectEdit_click(e);
+    }
+    
+    @FXML
+    private void btnChangeFuelType_click(final MouseEvent e) {
+        this.controller.btnChangeFuelType_click(e);
+    }
+    @FXML
+    private void btnChangeCapacity_click(final MouseEvent e) {
+        this.controller.btnChangeCapacity_click(e);
+    } 
+    
+    @FXML
+    private void btnChangeRepairCost_click(final MouseEvent e) {
+        this.controller.btnChangeRepairCost_click(e);
+    }
+        
+    @FXML
+    private void btnChangePrice_click(final MouseEvent e) {
+        this.controller.btnChangePrice_click(e);
+    }
+    
+    @FXML
+    private void btnChangeDurability_click(final MouseEvent e) {
+        this.controller.btnChangeDurability_click(e);
+    }
+    
 
+    //REFILL EVENT HANDLERS
+    @FXML
+    private void btnSelectRefill_click(final MouseEvent e) {
+        this.controller.btnSelectRefill_click(e);
+    }
+    
+    @FXML
+    private void btnRefill_click(final MouseEvent e) {
+        this.controller.btnRefill_click(e);
+    }
     
     
+    //REPAIR EVENT HANDLERS
+    @FXML
+    private void btnSelectRepair_click(final MouseEvent e) {
+        this.controller.btnSelectRepair_click(e);
+    }
     
-   
+    @FXML
+    private void btnRepair_click(final MouseEvent e) {
+        this.controller.btnRepair_click(e);
+    }
     
     
-    
-    
-    
-    
-    
+    //ADDING EVENT HANDLERS
+    @FXML
+    private void btnAddReserve_click(final MouseEvent e) {
+        this.controller.btnAddReserve_click(e);
+    }    
 }

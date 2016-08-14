@@ -19,8 +19,7 @@ public interface ReservesEditor {
     
     
     
-    //LOADING METHODS
-    
+    //Loading methods   
     /**
      * Load avaiable reserves into the comboboxes.
      * @param reserves List of strings that represents avaiable reserves
@@ -54,8 +53,7 @@ public interface ReservesEditor {
     
     
     
-    //GETTERS AND SETTERS FOR MODIFYING
-    
+    //Getters and setters for modifying
     /**
      * Get te vaule of the selected reserve.
      * @return String containing the value
@@ -63,69 +61,68 @@ public interface ReservesEditor {
     String getModifyReserve();
     
     /**
-     * Get te vaule of the fuel textfield.
+     * Get te vaule of the modifyied fuel textfield.
      * @return String containing the value
      */
     String getModifyFuel();
     
     /**
-     * Set the value of the fuel textfield.
+     * Set the value of the modifyied fuel textfield.
      * @param fuel String containing the value
      */
     void setModifyFuel(String fuel);
     
     /**
-     * Get te vaule of the capacity textfield.
+     * Get te vaule of the modifyied capacity textfield.
      * @return String containing the value
      */
     String getModifyCapacity();
     
     /**
-     * Set the value of the capaciy textfield.
+     * Set the value of the modifyied capaciy textfield.
      * @param capacity String containing the value
      */
     void setModifyCapacity(String capacity);
     
     /**
-     * Get te vaule of the price textfield.
+     * Get te vaule of the modifyied price textfield.
      * @return String containing the value
      */
     String getModifyPrice();
     
     /**
-     * Set the value of the price textfield.
+     * Set the value of the modifyied price textfield.
      * @param price String containing the value
      */
     void setModifyPrice(String price);
     
     /**
-     * Get the value of the durability textfield.
+     * Get the value of the modifyied durability textfield.
      * @return String containing the value
      */
     String getModifyDurability();
     
     /**
-     * Set the value of the durability textfield.
+     * Set the value of the modifyied durability textfield.
      * @param durability String containing the value
      */
     void setModifyDurability(String durability);
     
     /**
-     * Get the value of the repair cost textfield.
+     * Get the value of the modifyied repair cost textfield.
      * @return String containing the value
      */
     String getModifyRepairCost();
     
     /**
-     * Set the value of the repair cost textfield.
+     * Set the value of the modifyied repair cost textfield.
      * @param repairCost String containing the value
      */
     void setModifyRepairCost(String repairCost);
     
     
     
-    //REFILL METHODS
-    
+    //Refill methods
     /**
      * Get the refill value of the textfield.
      * @return String that represent the value
@@ -134,8 +131,7 @@ public interface ReservesEditor {
     
     
     
-    //REPAIR METHODS
-    
+    //Repair methods
     /**
      * Get the repair value of the slider.
      * @return Double from 0 to 100 that represents the value
@@ -148,4 +144,36 @@ public interface ReservesEditor {
      */
     void setRepairValue(String value);
     
+    
+    
+    //Adding methods
+    /**
+     * Get te vaule of the fuel textfield.
+     * @return String containing the value
+     */
+    String getFuel();
+    
+    /**
+     * Get te vaule of the capacity textfield.
+     * @return String containing the value
+     */
+    String getCapacity();
+    
+    /**
+     * Get te vaule of the price textfield.
+     * @return String containing the value
+     */
+    String getPrice();
+    
+    /**
+     * Get the value of the durability textfield.
+     * @return String containing the value
+     */
+    String getDurability();
+    
+    /**
+     * Get the value of the repair cost textfield.
+     * @return String containing the value
+     */
+    String getRepairCost();  
 }
