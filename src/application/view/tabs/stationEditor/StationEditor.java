@@ -22,6 +22,7 @@ public interface StationEditor {
     void setController(StationEditorCtrl ctrl);
     
     
+    
     //Loading and refreshing
     /**
      * Fill the comboboxes with selectible coordinates.
@@ -46,27 +47,41 @@ public interface StationEditor {
     
     //Disable / Enable views
     /**
-     * Show the panel that permit to modifying areas.
+     * Show the panel that permit to modifying areas, hiding other panels.
      */
-    void showModifyngPanel();  
+    void showModifyngPanel(); 
     
     /**
-     * Show details panel if selections was ok.
+     * Hide the panel that permit to modifying areas.
+     */
+    void hideModifyingPanel();  
+    
+    /**
+     * Show details panel, hiding other panels.
      */
     void showDetailsPanel();
     
     /**
-     * Show details panel if selections wasn't ok.
+     * Hide details panel.
      */
     void hideDetailsPanel();    
     
     /**
-     * Show a panel that permit to add new areas.
+     * Show the panel that permit to add new areas, hiding other panels.
      */
     void showAddingPanel();
     
-   
+    /**
+     * Hide the panel that permit to add new areas.
+     */
+    void hideAddingPanel();
     
+    /**
+     * Change the text of the "change view" button.
+     * @param s Text to view in the button
+     */
+    void changeButtonText(final String s);
+        
     /**
      * Tell if the adding panel is visible.
      * @return TRUE if it's visible, FALSE otherwise

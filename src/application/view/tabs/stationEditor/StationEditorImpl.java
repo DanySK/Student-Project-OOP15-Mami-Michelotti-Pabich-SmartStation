@@ -96,6 +96,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     }
 
 
+    
     //Set the controller    
     @Override
     public void setController(final StationEditorCtrl ctrl) {
@@ -103,51 +104,8 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     }
     
     
-    //Event Handlers
-    @FXML
-    private void btnOK_click(final MouseEvent e) {
-        this.controller.btnOK_click(e);
-    }
     
-    @FXML
-    private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.btnChangePrice_click(e);
-    }
-    
-    @FXML
-    private void btnChangePosition_click(final MouseEvent e) {
-        this.controller.btnChangePosition_click(e);
-    }
-    
-    @FXML
-    private void btnConfirmPumps_click(final MouseEvent e) {
-        this.controller.btnConfirmPumps_click(e);
-    }
-
-    
-    @FXML
-    private void btnRemoveSelected_click(final MouseEvent e) {
-        this.controller.btnRemoveSelected_click(e);
-    }
-    
-    @FXML
-    private void btnAddPump_click(final MouseEvent e) {
-        this.controller.btnAddPump_click(e);
-    }
-    
-    @FXML
-    private void btnRemoveArea_click(final MouseEvent e) {
-        this.controller.btnRemoveArea_click(e);
-    }
-    
-    @FXML
-    private void btnSwtich_click(final MouseEvent e) {
-        this.controller.btnSwitch_click(e);    
-    }
-
-
-    //Loading methods
-    
+    //Loading methods   
     @Override
     public void loadCoordinates(final int x, final int y) {      
         //Adding as many rows as the area are (x)
@@ -160,7 +118,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
             cmbModifyYCoords.getItems().add(String.valueOf(i));
         }
     }
-    
+      
     @Override
     public void loadPumps(final List<Pump> pumps) {     
         //For each pump found add it to every combobox
@@ -183,34 +141,42 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     }
 
     
-    //Show / hide panls
     
+    //Show / hide panels    
     @Override
     public void showModifyngPanel() {
         this.vbxModifyArea.setVisible(true);
-        this.vbxAddArea.setVisible(false);
-        this.btnChangeView.setText("Switch to adding panel");
+        this.hideDetailsPanel();
+        this.hideAddingPanel();
+    }
+    
+    @Override
+    public void hideModifyingPanel() {
+        this.vbxModifyArea.setVisible(false);
     }
     
     @Override
     public void showDetailsPanel() {
         this.vbxAreaDetails.setVisible(true);
-        this.btnChangeView.setText("Exit from editing area");
+        this.hideModifyingPanel();
+        this.hideAddingPanel();
     }
 
     @Override
     public void hideDetailsPanel() {
         this.vbxAreaDetails.setVisible(false);
-        this.btnChangeView.setText("Switch to adding panel");
     }  
     
     @Override
     public void showAddingPanel() {
-        //In case, hide previous panel
-        this.hideDetailsPanel();     
-        this.vbxModifyArea.setVisible(false);
         this.vbxAddArea.setVisible(true);
-        this.btnChangeView.setText("Switch to modify panel");
+        this.hideModifyingPanel();
+        this.hideDetailsPanel();
+    }
+    
+    @Override
+    public void hideAddingPanel() {
+        this.vbxAddArea.setVisible(false);
     }
     
     
@@ -228,12 +194,16 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     public boolean isDetailsPanelVisible() {
         return this.vbxAreaDetails.isVisible();
     }
+    
+    
+    @Override
+    public void changeButtonText(final String s) {
+        this.btnChangeView.setText(s);
+    }
      
 
 
-    
-    //Adding new area
-    
+    //Adding new area  
     @Override
     public String getXCoords() {
         return this.txfXCoords.getText();
@@ -264,7 +234,6 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     
     
     //Modifying area
-
     @Override
     public String getModifyX() {
         return this.cmbModifyXCoords.getValue();
@@ -327,8 +296,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     
     
 
-    //Error messages
-    
+    //Error messages   
     @Override
     public void showAddErrorMessage(final String s) {
         this.lblAddError.setVisible(true);
@@ -364,6 +332,58 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
 
 
     
+    //Event Handlers
+    @FXML
+    private void btnOK_click(final MouseEvent e) {
+        this.controller.btnOK_click(e);
+    }
+    
+    @FXML
+    private void btnChangePrice_click(final MouseEvent e) {
+        this.controller.btnChangePrice_click(e);
+    }
+    
+    @FXML
+    private void btnChangePosition_click(final MouseEvent e) {
+        this.controller.btnChangePosition_click(e);
+    }
+    
+    @FXML
+    private void btnConfirmPumps_click(final MouseEvent e) {
+        this.controller.btnConfirmPumps_click(e);
+    }
+   
+    @FXML
+    private void btnRemoveSelected_click(final MouseEvent e) {
+        this.controller.btnRemoveSelected_click(e);
+    }
+    
+    @FXML
+    private void btnAddPump_click(final MouseEvent e) {
+        this.controller.btnAddPump_click(e);
+    }
+    
+    @FXML
+    private void btnRemoveArea_click(final MouseEvent e) {
+        this.controller.btnRemoveArea_click(e);
+    }
+    
+    @FXML
+    private void btnSwtich_click(final MouseEvent e) {
+        this.controller.btnSwitch_click(e);    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
