@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import application.controller.MainController;
 import application.model.services.Fuel;
-import application.model.services.FuelImpl;
 import application.view.tabs.fuelsEditor.FuelsEditor;
 import javafx.scene.paint.Color;
 
@@ -69,11 +68,11 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
     @Override
     public void addFuel() {
 	final Fuel fuel;
-	fuel = new FuelImpl(this.fuelsEditor.getFuelName(), 
+	/*fuel = new FuelImpl(this.fuelsEditor.getFuelName(), 
 		            Integer.parseInt(this.fuelsEditor.getFuelPrice()), 
 		            Integer.parseInt(this.fuelsEditor.getFuelWhoesalePrice()), 
 		            Color.valueOf(this.fuelsEditor.getFuelColor()));
-	this.mainController.getModel().getFuelManager().addFuel(fuel);
+	this.mainController.getModel().getFuelManager().addFuel(fuel);*/
 	this.loadFuels();
     }
 

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import application.controller.MainController;
 import application.model.buildables.pump.Pump;
-import application.model.buildables.pump.PumpImpl;
 import application.model.services.FuelManager;
-import application.model.services.FuelManagerImpl;
 import application.view.tabs.pumpsEditor.PumpsEditor;
 
 public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
@@ -80,13 +78,13 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 
     @Override
     public void repair() {
-	this.mainController.getModel().getPumpManager().getPump(i).repair(this.pumpsEditor.getRepairValue());
+	//this.mainController.getModel().getPumpManager().getPump(i).repair(this.pumpsEditor.getRepairValue());
     }
 
     @Override
     public void addPump() {
 	final Pump pump;
-	final FuelManager fuelManager = new FuelManagerImpl();
+	/*final FuelManager fuelManager = new FuelManagerImpl();
 	pump = new PumpImpl(Integer.parseInt(this.pumpsEditor.getDurability()), 
 		            Integer.parseInt(this.pumpsEditor.getPrice()), 
 		            Integer.parseInt(this.pumpsEditor.getRepairCost()), 
@@ -94,8 +92,7 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 		            fuelManager.getFuel(this.pumpsEditor.getFuelType()), 
 		            Integer.parseInt(this.pumpsEditor.getSpeed()));
 	
-	
-	this.mainController.getModel().getPumpManager().addPump(pump);
+	this.mainController.getModel().getPumpManager().addPump(pump);*/
     }
     
     private void loadPumps() {

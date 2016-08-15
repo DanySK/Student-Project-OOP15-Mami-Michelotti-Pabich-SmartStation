@@ -45,7 +45,7 @@ public interface StationEditorCtrl {
     /**
      * Create new area whit pumps.
      */
-    void pump();
+    void addPump();
     
     /**
      * Delete the area selected.

@@ -39,11 +39,8 @@ public class MainControllerImpl implements MainController {
     private final StationEditorCtrl stationEditorCtrl;
     
     private Fuel f;
-    private final FuelManager fManager = new FuelManagerImpl();
     private Pump p;
-    private final PumpManager pManager = new PumpManagerImpl();
     private Area a;
-    private final AreaManager aManager = new AreaManagerImpl();
     
     private boolean name = false;
     private boolean open = false;
@@ -245,8 +242,8 @@ public class MainControllerImpl implements MainController {
 	        }
 	        if(color) {
 	            this.dColor = Color.valueOf(characters.getData());
-	            this.f = new FuelImpl(this.dName, this.dPrice, this.dWPrice, this.dColor);
-		    this.fManager.addFuel(this.f);
+	            //this.f = new FuelImpl(this.dName, this.dPrice, this.dWPrice, this.dColor);
+		    //this.fManager.addFuel(this.f);
 		    System.out.println(characters.getData());
 	            color = false;
 	        }
@@ -276,7 +273,7 @@ public class MainControllerImpl implements MainController {
 	        case XMLStreamConstants.CHARACTERS:
 	        Characters characters = event.asCharacters();
 	        if(type) {
-	            this.f = this.fManager.getFuel(characters.getData());
+	            //this.f = this.fManager.getFuel(characters.getData());
 	            System.out.println(characters.getData());
 	            type = false;
 	        }
@@ -357,8 +354,8 @@ public class MainControllerImpl implements MainController {
 	        }
 	        if(actualDurability) {
 	            this.dActualDurability = Integer.parseInt(characters.getData());
-	            this.p = new PumpImpl(this.dDurability, this.dPrice, this.dRepairCost, this.dName, this.fManager.getFuel(this.dFuel), this.dSpeed);
-	            this.pManager.addPump(this.p);
+	            //this.p = new PumpImpl(this.dDurability, this.dPrice, this.dRepairCost, this.dName, this.fManager.getFuel(this.dFuel), this.dSpeed);
+	            //this.pManager.addPump(this.p);
 	            System.out.println(characters.getData());
 	            actualDurability = false;
 	        }
@@ -369,7 +366,7 @@ public class MainControllerImpl implements MainController {
 
     private void fileArea(XMLEventReader eventReader) throws Exception{
 	final List<Pump> list = new ArrayList<>();
-        list.addAll(this.pManager.getAllPumps());
+        //list.addAll(this.pManager.getAllPumps());
         
 	while(eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
@@ -397,7 +394,7 @@ public class MainControllerImpl implements MainController {
 	        }
 	        if(yPos) {
 	            this.dYPos = Integer.parseInt(characters.getData());
-	            this.a = new AreaImpl(this.dDurability, this.dPrice, this.dRepairCost, this.dXPos, this.dYPos);
+	            //this.a = new AreaImpl(this.dDurability, this.dPrice, this.dRepairCost, this.dXPos, this.dYPos);
 	            System.out.println(characters.getData());
 	            yPos = false;
 	        }
@@ -414,7 +411,7 @@ public class MainControllerImpl implements MainController {
 	        }
 	        if(position) {
 	            this.dPosition = Integer.parseInt(characters.getData());
-	            this.aManager.addArea(this.a);
+	            //this.aManager.addArea(this.a);
 	            System.out.println(characters.getData());
 	            position = false;
 	        }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import application.controller.MainController;
 import application.model.buildables.area.Area;
-import application.model.buildables.area.AreaImpl;
 import application.model.buildables.pump.Pump;
 import application.view.tabs.stationEditor.StationEditor;
 
@@ -90,13 +89,13 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void pump() {
+    public void addPump() {
 	final int x, y;
 	x = Integer.parseInt(this.stationEditor.getXCoords());
 	y = Integer.parseInt(this.stationEditor.getYCoords());
-	final Area a = new AreaImpl(0, Integer.parseInt(this.stationEditor.getPrice()), 0, x, y);
+	//final Area a = new AreaImpl(0, Integer.parseInt(this.stationEditor.getPrice()), 0, x, y);
 	
-	this.mainController.getModel().getAreaManager().addArea(a);
+	//this.mainController.getModel().getAreaManager().addArea(a);
 	
     }
 
