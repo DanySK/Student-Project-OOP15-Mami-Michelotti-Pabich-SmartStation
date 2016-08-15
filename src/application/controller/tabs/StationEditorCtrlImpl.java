@@ -30,7 +30,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
     
     @Override
-    public void btnOK_click(MouseEvent e) {
+    public void selectionConfirm() {
 	if(this.stationEditor.getModifyX() != null && this.stationEditor.getModifyChangeY() != null) {
 	    this.stationEditor.hideModifyErrorMessage();
 	    final int x = Integer.parseInt(this.stationEditor.getModifyX());
@@ -63,12 +63,12 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void btnChangePrice_click(MouseEvent e) {
+    public void changePrice() {
 	this.area.setCost(Integer.parseInt(this.stationEditor.getPrice()));
     }
 
     @Override
-    public void btnChangePosition_click(MouseEvent e) {
+    public void changePosition() {
 	final int tempx = Integer.parseInt(this.stationEditor.getModifyChangeX());
 	final int tempy = Integer.parseInt(this.stationEditor.getModifyChangeY());
 	
@@ -81,7 +81,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void btnConfirmPumps_click(MouseEvent e) {
+    public void confirmPumps() {
 	final List<String> list = new ArrayList<>();
 	list.addAll(this.stationEditor.getModifyPumps());
 	
@@ -91,12 +91,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void btnRemoveSelected_click(MouseEvent e) {
-	
-    }
-
-    @Override
-    public void btnAddPump_click(MouseEvent e) {
+    public void addPump_click() {
 	final int x, y;
 	x = Integer.parseInt(this.stationEditor.getXCoords());
 	y = Integer.parseInt(this.stationEditor.getYCoords());
@@ -107,12 +102,12 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void btnRemoveArea_click(MouseEvent e) {
+    public void removeArea() {
 	this.mainController.getModel().getAreaManager().removeArea(this.area);
     }
 
     @Override
-    public void btnSwitch_click(MouseEvent e) {
+    public void switchPanel() {
         if (this.stationEditor.isAddingPanelVisible()) {
             this.stationEditor.showModifyngPanel();
             this.stationEditor.changeButtonText("Switch to add panel");

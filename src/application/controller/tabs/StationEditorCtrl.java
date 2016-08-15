@@ -24,49 +24,36 @@ public interface StationEditorCtrl {
     
     /**
      * Select the area and load data.
-     * @param e mouse event
      */
-    void btnOK_click(final MouseEvent e);
+    void selectionConfirm();
     
     /**
      * Change the price of area.
-     * @param e mouse event
      */
-    void btnChangePrice_click(final MouseEvent e);
+    void changePrice();
     
     /**
      * Change the position of area.
-     * @param e mouse event
      */
-    void btnChangePosition_click(final MouseEvent e);
+    void changePosition();
     
     /**
      * Confirm the change of pumps of the area.
-     * @param e mouse event
      */
-    void btnConfirmPumps_click(final MouseEvent e);
-    
-    /**
-     * Remove the pump selected?.
-     * @param e mouse event
-     */
-    void btnRemoveSelected_click(final MouseEvent e);
+    void confirmPumps();
     
     /**
      * Create new area whit pumps.
-     * @param e mouse event
      */
-    void btnAddPump_click(final MouseEvent e);
+    void addPump_click();
     
     /**
      * Delete the area selected.
-     * @param e mouse event
      */
-    void btnRemoveArea_click(final MouseEvent e);
+    void removeArea();
     
     /**
      * Switch between add and modify panel.
-     * @param e mouse event
      */
-    void btnSwitch_click(final MouseEvent e);
+    void switchPanel();
 }

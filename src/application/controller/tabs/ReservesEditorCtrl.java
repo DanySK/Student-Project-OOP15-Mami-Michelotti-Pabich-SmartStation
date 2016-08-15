@@ -17,67 +17,56 @@ public interface ReservesEditorCtrl {
     
     /**
      * Selected the reserve for modify dates.
-     * @param e mouse event
      */
-    void btnSelectEdit_click (MouseEvent e);
+    void selectEdit();
     
     /**
      * Change the type of reserve selected.
-     * @param e mouse event
      */
-    void btnChangeFuelType_click (MouseEvent e);
+    void changeFuelType();
     
     /**
      * Change the capacity of reserve selected.
-     * @param e mouse event
      */
-    void btnChangeCapacity_click (MouseEvent e);
+    void changeCapacity();
     
     /**
      * Change the repair cost of reserve selected.
-     * @param e mouse event
      */
-    void btnChangeRepairCost_click (MouseEvent e);
+    void changeRepairCost();
     
     /**
      * Change the cost of reserve selected.
-     * @param e mouse event
      */
-    void btnChangePrice_click (MouseEvent e);
+    void changePrice();
     
     /**
      * Change the durability of reserve selected.
-     * @param e mouse event
      */
-    void btnChangeDurability_click (MouseEvent e);
+    void changeDurability();
     
     /**
      * Select the reserve for refill.
-     * @param e mouse event
      */
-    void btnSelectRefill_click (MouseEvent e);
+    void selectRefill();
     
     /**
      * Refill the quantity selected for reserve select.
-     * @param e mouse event
      */
-    void btnRefill_click (MouseEvent e);
+    void refill();
     
     /**
      * Select the reserve for repair.
-     * @param e mouse event
      */
-    void btnSelectRepair_click (MouseEvent e);
+    void selectRepair();
     
     /**
      * Repair the quantity selected for reserve select.
-     * @param e mouse event
      */
-    void btnRepair_click (MouseEvent e);
+    void repair();
     
     /**
      * Add new reserve for the station.
-     * @param e mouse event
      */
-    void btnAddReserve_click (MouseEvent e);
+    void addReserve();
 }

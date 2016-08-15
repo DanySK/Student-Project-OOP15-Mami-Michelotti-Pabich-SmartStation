@@ -27,7 +27,7 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     }
 
     @Override
-    public void btnSelectEdit_click(MouseEvent e) {
+    public void selectEdit() {
 	//
 	//
 	for(int i = 0; i < this.pumps.size(); i++) {
@@ -43,32 +43,32 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     }
 
     @Override
-    public void btnChangePumpName_click(MouseEvent e) {
+    public void changePumpName() {
 	this.mainController.getModel().getPumpManager().getPump(i).setName(this.pumpsEditor.getModifyFuelType());
     }
 
     @Override
-    public void btnChangeSpeed_click(MouseEvent e) {
+    public void changeSpeed() {
 	this.mainController.getModel().getPumpManager().getPump(i).setSpeed(Integer.parseInt(this.pumpsEditor.getModifySpeed()));
     }
 
     @Override
-    public void btnChangeDurability_click(MouseEvent e) {
+    public void changeDurability() {
 	this.mainController.getModel().getPumpManager().getPump(i).setMaxDurability(Integer.parseInt(this.pumpsEditor.getModifyDurability()));
     }
 
     @Override
-    public void btnChangePrice_click(MouseEvent e) {
+    public void changePrice() {
 	this.mainController.getModel().getPumpManager().getPump(i).setCost(Integer.parseInt(this.pumpsEditor.getModifyPrice()));
     }
 
     @Override
-    public void btnChangeRepairCost_click(MouseEvent e) {
+    public void changeRepairCost() {
 	this.mainController.getModel().getPumpManager().getPump(i).setRepairCost(Integer.parseInt(this.pumpsEditor.getModifyRepairCost()));
     }
 
     @Override
-    public void btnSelectRepair_click(MouseEvent e) {
+    public void selectRepair() {
 	//
 	//
 	for(int i = 0; i < this.pumps.size(); i++) {
@@ -80,12 +80,12 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     }
 
     @Override
-    public void btnRepair_click(MouseEvent e) {
+    public void repair() {
 	this.mainController.getModel().getPumpManager().getPump(i).repair(this.pumpsEditor.getRepairValue());
     }
 
     @Override
-    public void btnAddPump_click(MouseEvent e) {
+    public void addPump() {
 	final Pump pump;
 	final FuelManager fuelManager = new FuelManagerImpl();
 	pump = new PumpImpl(Integer.parseInt(this.pumpsEditor.getDurability()), 

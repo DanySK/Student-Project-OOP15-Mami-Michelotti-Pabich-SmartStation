@@ -11,61 +11,51 @@ public interface PumpsEditorCtrl {
 
     /**
      * Set the view of the controller.
-     * @param pumpsEditor the view for the class
      */
     void setView(final PumpsEditor pumpsEditor);
     
     /**
-     * Select the pump for modify character. 
-     * @param e mouse event
+     * Select the pump for modify character.
      */
-    void btnSelectEdit_click(final MouseEvent e);
+    void selectEdit();
     
     /**
      * Change the name of pump selected.
-     * @param e mouse event
      */
-    void btnChangePumpName_click(final MouseEvent e);
+    void changePumpName();
     
     /**
      * Change the speed of pump selected.
-     * @param e mouse event
      */
-    void btnChangeSpeed_click(final MouseEvent e);
+    void changeSpeed();
     
     /**
      * Change the durability of pump selected.
-     * @param e mouse event
      */
-    void btnChangeDurability_click(final MouseEvent e);
+    void changeDurability();
     
     /**
      * Change the cost of pump selected.
-     * @param e mouse event
      */
-    void btnChangePrice_click(final MouseEvent e);
+    void changePrice();
     
     /**
      * Change the repair cost of pump selected.
-     * @param e mouse event
      */
-    void btnChangeRepairCost_click(final MouseEvent e);
+    void changeRepairCost();
     
     /**
      * Selected the pump for repair.
-     * @param e mouse event
      */
-    void btnSelectRepair_click(final MouseEvent e);
+    void selectRepair();
     
     /**
      * Repair the pump selected.
-     * @param e mouse event
      */
-    void btnRepair_click(final MouseEvent e);
+    void repair();
     
     /**
      * Create new pump.
-     * @param e mouse event
      */
-    void btnAddPump_click(final MouseEvent e);
+    void addPump();
 }

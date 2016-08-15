@@ -26,7 +26,7 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
     }
 
     @Override
-    public void btnSelect_click(MouseEvent e) {
+    public void select() {
 	this.fuelsEditor.setModifyPanelVisibility(true);
 	for(int i = 0; i < this.fuels.size(); i++) {
 	    if(this.fuels.get(i).getName() == this.fuelsEditor.getSelectedFuel()) {
@@ -40,35 +40,35 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
     }
 
     @Override
-    public void btnChangeName_click(MouseEvent e) {
+    public void changeName() {
 	this.mainController.getModel().getFuelManager().getFuel(this.fuelsEditor.getSelectedFuel())
 	                              .setName(this.fuelsEditor.getModifyName());
 	this.fuels.get(this.i).setName(this.fuelsEditor.getModifyName());
     }
 
     @Override
-    public void btnChangePrice_click(MouseEvent e) {
+    public void changePrice() {
 	this.mainController.getModel().getFuelManager().getFuel(this.fuelsEditor.getSelectedFuel())
 	                              .setPrice(Integer.parseInt(this.fuelsEditor.getModifyPrice()));
 	this.fuels.get(this.i).setPrice(Integer.parseInt(this.fuelsEditor.getModifyPrice()));
     }
 
     @Override
-    public void btnChangeWPrice_click(MouseEvent e) {
+    public void changeWPrice() {
 	this.mainController.getModel().getFuelManager().getFuel(this.fuelsEditor.getSelectedFuel())
 	                              .setWholeSalePrice(Integer.parseInt(this.fuelsEditor.getModifyWhoesalePrice()));
 	this.fuels.get(this.i).setWholeSalePrice(Integer.parseInt(this.fuelsEditor.getModifyWhoesalePrice()));
     }
 
     @Override
-    public void btnChangeColor_click(MouseEvent e) {
+    public void changeColor() {
 	this.mainController.getModel().getFuelManager().getFuel(this.fuelsEditor.getSelectedFuel())
 	                              .setColor(Color.valueOf(this.fuelsEditor.getModifyColor()));
 	this.fuels.get(this.i).setColor(Color.valueOf(this.fuelsEditor.getModifyColor()));
     }
 
     @Override
-    public void btnAddFuel_click(MouseEvent e) {
+    public void addFuel() {
 	final Fuel fuel;
 	fuel = new FuelImpl(this.fuelsEditor.getFuelName(), 
 		            Integer.parseInt(this.fuelsEditor.getFuelPrice()), 
