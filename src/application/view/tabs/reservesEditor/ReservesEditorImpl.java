@@ -232,61 +232,61 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     //MODIFYING EVENT HANDLERS
     @FXML
     private void btnSelectEdit_click(final MouseEvent e) {
-        this.controller.btnSelectEdit_click(e);
+        this.controller.selectEdit();
     }
     
     @FXML
     private void btnChangeFuelType_click(final MouseEvent e) {
-        this.controller.btnChangeFuelType_click(e);
+        this.controller.changeFuelType();
     }
     @FXML
     private void btnChangeCapacity_click(final MouseEvent e) {
-        this.controller.btnChangeCapacity_click(e);
+        this.controller.changeCapacity();
     } 
     
     @FXML
     private void btnChangeRepairCost_click(final MouseEvent e) {
-        this.controller.btnChangeRepairCost_click(e);
+        this.controller.changeRepairCost();
     }
         
     @FXML
     private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.btnChangePrice_click(e);
+        this.controller.changePrice();
     }
     
     @FXML
     private void btnChangeDurability_click(final MouseEvent e) {
-        this.controller.btnChangeDurability_click(e);
+        this.controller.changeDurability();
     }
     
 
     //REFILL EVENT HANDLERS
     @FXML
     private void btnSelectRefill_click(final MouseEvent e) {
-        this.controller.btnSelectRefill_click(e);
+        this.controller.selectRefill();
     }
     
     @FXML
     private void btnRefill_click(final MouseEvent e) {
-        this.controller.btnRefill_click(e);
+        this.controller.refill();
     }
     
     
     //REPAIR EVENT HANDLERS
     @FXML
     private void btnSelectRepair_click(final MouseEvent e) {
-        this.controller.btnSelectRepair_click(e);
+        this.controller.selectRepair();
     }
     
     @FXML
     private void btnRepair_click(final MouseEvent e) {
-        this.controller.btnRepair_click(e);
+        this.controller.repair();
     }
     
     
     //ADDING EVENT HANDLERS
     @FXML
     private void btnAddReserve_click(final MouseEvent e) {
-        this.controller.btnAddReserve_click(e);
+        this.controller.addReserve();
     }    
 }

@@ -63,32 +63,32 @@ public class FuelsEditorImpl extends BorderPane implements FuelsEditor {
     //EVENT HANDLERS      
     @FXML
     private void btnSelect_click(final MouseEvent e) {
-        this.controller.btnSelect_click(e);
+        this.controller.select();
     }
     
     @FXML
     private void btnAddFuel_click(final MouseEvent e) {
-        this.controller.btnAddFuel_click(e);
+        this.controller.addFuel();
     }
     
     @FXML
     private void btnChangeName_click(final MouseEvent e) {
-        this.controller.btnChangeName_click(e);
+        this.controller.changeName();
     }
     
     @FXML
     private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.btnChangePrice_click(e);
+        this.controller.changePrice();
     }
     
     @FXML
     private void btnChangeWPrice_click(final MouseEvent e) {
-        this.controller.btnChangeWPrice_click(e);
+        this.controller.changeWPrice();
     }
     
     @FXML
     private void btnChangeColor_click(final MouseEvent e) {
-        this.controller.btnChangeColor_click(e);
+        this.controller.changeColor();
     }
 
 

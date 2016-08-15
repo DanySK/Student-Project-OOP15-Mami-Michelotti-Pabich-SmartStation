@@ -76,32 +76,32 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     //MODIFYING EVENT HANDLERS
     @FXML
     private void btnSelectEdit_click(final MouseEvent e) {
-        this.controller.btnSelectEdit_click(e);
+        this.controller.selectEdit();
     }
     
     @FXML
     private void btnChangePumpName_click(final MouseEvent e) {
-        this.controller.btnChangePumpName_click(e);
+        this.controller.changePumpName();
     }
     
     @FXML
     private void btnChangeSpeed_click(final MouseEvent e) {
-        this.controller.btnChangeSpeed_click(e);
+        this.controller.changeSpeed();
     } 
     
     @FXML
     private void btnChangeDurability_click(final MouseEvent e) {
-        this.controller.btnChangeDurability_click(e);
+        this.controller.changeDurability();
     }
         
     @FXML
     private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.btnChangePrice_click(e);
+        this.controller.changePrice();
     }
     
     @FXML
     private void btnChangeRepairCost_click(final MouseEvent e) {
-        this.controller.btnChangeRepairCost_click(e);
+        this.controller.changeRepairCost();
     }
    
     
@@ -109,19 +109,19 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     //REPAIR EVENT HANDLERS
     @FXML
     private void btnSelectRepair_click(final MouseEvent e) {
-        this.controller.btnSelectRepair_click(e);
+        this.controller.selectRepair();
     }
     
     @FXML
     private void btnRepair_click(final MouseEvent e) {
-        this.controller.btnRepair_click(e);
+        this.controller.repair();
     }
     
     
     //ADDING EVENT HANDLERS
     @FXML
     private void btnAddPump_click(final MouseEvent e) {
-        this.controller.btnAddPump_click(e);
+        this.controller.addPump();
     }
 
 

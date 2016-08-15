@@ -335,42 +335,37 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     //Event Handlers
     @FXML
     private void btnOK_click(final MouseEvent e) {
-        this.controller.btnOK_click(e);
+        this.controller.selectionConfirm();
     }
     
     @FXML
     private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.btnChangePrice_click(e);
+        this.controller.changePrice();
     }
     
     @FXML
     private void btnChangePosition_click(final MouseEvent e) {
-        this.controller.btnChangePosition_click(e);
+        this.controller.changePosition();
     }
     
     @FXML
     private void btnConfirmPumps_click(final MouseEvent e) {
-        this.controller.btnConfirmPumps_click(e);
-    }
-   
-    @FXML
-    private void btnRemoveSelected_click(final MouseEvent e) {
-        this.controller.btnRemoveSelected_click(e);
+        this.controller.confirmPumps();
     }
     
     @FXML
     private void btnAddPump_click(final MouseEvent e) {
-        this.controller.btnAddPump_click(e);
+        this.controller.addPump();
     }
     
     @FXML
     private void btnRemoveArea_click(final MouseEvent e) {
-        this.controller.btnRemoveArea_click(e);
+        this.controller.removeArea();
     }
     
     @FXML
     private void btnSwtich_click(final MouseEvent e) {
-        this.controller.btnSwitch_click(e);    
+        this.controller.switchPanel();
     }
 
 

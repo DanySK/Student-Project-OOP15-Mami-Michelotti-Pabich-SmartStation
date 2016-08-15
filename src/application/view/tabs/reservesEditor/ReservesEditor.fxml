@@ -153,7 +153,7 @@
 	
 	<!-- Right panel contains logic for adding new reserve -->
 	<right>
-		<VBox id="controlsContainerRight" spacing="5" minWidth="$defaultSapce" maxWidth="$defaultSapce">
+		<VBox id="controlsContainerRight" spacing="5" minWidth="$panelWidth" maxWidth="$panelWidth">
 			<padding>
 				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
 			</padding>
