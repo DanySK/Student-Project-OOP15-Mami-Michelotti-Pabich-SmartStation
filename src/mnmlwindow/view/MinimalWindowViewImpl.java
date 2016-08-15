@@ -17,11 +17,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import mnmlwindow.controller.MinimalWindowC;
-import mnmlwindow.controller.MinimalWindowCImpl;
 
 /**
  * Class that implements the view of a minimal window logic.
- * @author Marcin Pabich
  */
 public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowView {
         
@@ -37,6 +35,7 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     @FXML
     private ImageView imgLogo;
+    
     
     //Reference to the primaryStage
     private final Stage stage;
@@ -74,7 +73,7 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
         this.minWidth = minwidth;
         this.minHeight = minheight;       
         
-        //It's start not maximized
+        //It starts not maximized
         this.isMaximized = false;
         
         //Then load the window, setting the root and controller
@@ -99,7 +98,7 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     //Setter for the controller
     @Override
-    public void setWindowControllerer(final MinimalWindowCImpl ctrl) {
+    public void setControllerer(final MinimalWindowC ctrl) {
         this.controller = ctrl;
     }
     
@@ -288,29 +287,25 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     
     //Private methods
-    private void changeWindowStatus(final WindowStatus status) {
-            
+    private void changeWindowStatus(final WindowStatus status) {            
         //If the window shoud be normalized
         if (status.equals(WindowStatus.NORMAL)) {
-            //Take previous bounds        
-            stage.setX(savedBounds.getMinX());
-            stage.setY(savedBounds.getMinY());
-            stage.setWidth(savedBounds.getWidth());
-            stage.setHeight(savedBounds.getHeight());        
+            //Take previous bounds     
+            this.changeStageXYWH(this.stage, savedBounds.getMinX(), savedBounds.getMinY(), savedBounds.getWidth(), savedBounds.getHeight());  
+            
         } else {
             //Take the screen size (muliscren support)
             ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
+            
+            //Take the first screen and it's bounds
             Screen screen = screensForRectangle.get(0);
             Rectangle2D visualBounds = screen.getVisualBounds();      
             
-            //Save the previous dimensions
+            //Save dimensions for restoring previous dimension
             savedBounds = new BoundingBox(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
             
-            //Take the ref (initialized when started the logic)           
-            stage.setX(visualBounds.getMinX());
-            stage.setY(visualBounds.getMinY());
-            stage.setWidth(visualBounds.getWidth());
-            stage.setHeight(visualBounds.getHeight());
+            //Maximize
+            this.changeStageXYWH(this.stage, visualBounds.getMinX(), visualBounds.getMinY(), visualBounds.getWidth(), visualBounds.getHeight());   
         }
         
         //Set some buttons and UI changes
@@ -328,79 +323,87 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
         alertDialog.showAndWait();
     }
     
+    private void changeStageXYWH(final Stage stg, final double minX, final double minY, final double width, final double height) {
+        stg.setX(minX);
+        stg.setY(minY);
+        stg.setWidth(width);
+        stg.setHeight(height);   
+    }
+    
+    
     
     /////////////////////////////
     // Event handlers
     /////////////////////////////
+      
     
     
     // MIMIZIE | MAXIMIZE | CLOSE 
-    
     //When pressed, will minimize the window to tray
     @FXML
     private void btnMin_click(final MouseEvent e) {
-            this.controller.btnMin_clickAction(e);
+            this.controller.minimize();
     }
     
     //When pressed, check if it must maximize or restore the window
     @FXML
     private void btnMax_click(final MouseEvent e) {
-            this.controller.btnMax_clickAction(e);           
+            this.controller.maximize();          
     }
     
     //When pressed, will kill the window
     @FXML
     private void btnCls_click(final MouseEvent e) {
-            this.controller.btnCls_clickAction(e);
+            this.controller.close();
     }
     
     
-    // WINDOW MOVING
     
+    // WINDOW MOVING   
     //When i must update the XY of the click
     @FXML
     private void root_onMousePressed(final MouseEvent e) {
-            this.controller.root_onMousePressedAction(e);
+        this.controller.updateValues(e);
     }
     
     //When pressing and dragging the mouse it will move the window
     @FXML
     private void root_onMouseDragged(final MouseEvent e) {
-            this.controller.root_onMouseDraggedAction(e);
+        this.controller.dragWindow(e);
     }
     
     //Update the status of the window from not movable to movable, after "normalize" effect
     //from the dragging it when it's maximized
     @FXML
     private void root_onMouseReleased(final MouseEvent e) {
-            this.controller.root_onMouseReleasedAction(e);
+        this.controller.dragWindowOver();
     }
     
     
-    // WINDOW RESIZING
-            
+    
+    // WINDOW RESIZING           
     @FXML
     private void btnResize_onMouseClicked(final MouseEvent e) {
-            this.controller.btnResize_OnMouseClickedAction(e);
+        this.controller.updateValues(e);
     }
     
     @FXML
     private void btnResize_OnMouseReleased(final MouseEvent e) {
-            this.controller.btnResize_OnMouseReleasedAction(e);
+        this.controller.setCursorToDefault(e);
     }
             
     @FXML
     private void btnResize_onMouseEntered(final MouseEvent e) {
-            this.controller.btnResize_onMouseEntered(e);
+        this.controller.setCursorToResize();
     }
     
     @FXML
     private void btnResize_onMouseExited(final MouseEvent e) {
-            this.controller.btnResize_onMouseExited(e);
+        this.controller.setCursorToDefault(e);
     }
     
     @FXML
     private void btnResize_onMouseDragged(final MouseEvent e) {
-            this.controller.btnResize_onMouseDragged(e);
+        this.controller.resizeWindow(e);
     }
 }

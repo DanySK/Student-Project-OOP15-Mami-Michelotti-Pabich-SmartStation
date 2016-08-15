@@ -3,11 +3,10 @@ package mnmlwindow.view;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
-import mnmlwindow.controller.MinimalWindowCImpl;
+import mnmlwindow.controller.MinimalWindowC;
 
 /**
  * A complete interface with methods that a window must have to work.
- * @author Marcin Pabich
  */
 public interface MinimalWindowView {
 
@@ -15,7 +14,7 @@ public interface MinimalWindowView {
      * Set the controller for the view.
      * @param controller MinimalWindowCImpl object that will be the controller for the view 
      */
-    void setWindowControllerer(MinimalWindowCImpl controller);
+    void setControllerer(MinimalWindowC controller);
     
     /**
      * Set the logo for the window.

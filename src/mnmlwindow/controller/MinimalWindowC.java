@@ -2,81 +2,68 @@ package mnmlwindow.controller;
 
 
 import javafx.scene.input.MouseEvent;
+import mnmlwindow.view.MinimalWindowView;
 
 /**
  * Interface that has all methods needed for a window.
- * @author Matteo Michelotti
  */
 public interface MinimalWindowC {
     
     /**
-     * Perform the operations to minimize the window.
-     * @param e = MouseEvent variable, if needed
+     * Set the view for the controller.
+     * @param v View that will be controlled
      */
-    void btnMin_clickAction(MouseEvent e);
+    void setView(MinimalWindowView v);
+    
+    
+    
+    /**
+     * Perform the operations to minimize the window.
+     */
+    void minimize();
     
     /**
      * Perform the operations to maximize or normalize the window.
-     * @param e = MouseEvent variable, if needed
      */
-    void btnMax_clickAction(MouseEvent e);
+    void maximize();
     
     /**
      * Perform the operations to close the window.
-     * @param e = MouseEvent variable, if needed
      */
-    void btnCls_clickAction(MouseEvent e);
+    void close();
     
+     
+
+    /**
+     * Setting the cursor to default value.
+     */
+    void setCursorToDefault(final MouseEvent e);
+    
+    /**
+     * Setting the cursor to resize value.
+     */
+    void setCursorToResize();
     
     
     /**
-     * Perform the operations when resize button is clicked.
-     * @param e = MouseEvent variable, if needed
+     * Update values needed to window management.
      */
-    void btnResize_OnMouseClickedAction(MouseEvent e);
+    void updateValues(final MouseEvent e);
+    
+     
     
     /**
-     * Perform the operations when resize button released.
-     * @param e = MouseEvent variable, if needed
+     * Perform the resizing of the window.
      */
-    void btnResize_OnMouseReleasedAction(MouseEvent e);
-    
+    void resizeWindow(final MouseEvent e);
+                        
     /**
-     * Perform the operations when the mouse enter in the resize button.
-     * @param e = MouseEvent variable, if needed
+     * Perform the dragging of the window.
      */
-    void btnResize_onMouseEntered(MouseEvent e);
-    
-    /**
-     * Perform the operations when the mouse leave the the resize button.
-     * @param e = MouseEvent variable, if needed
-     */
-    void btnResize_onMouseExited(MouseEvent e);
-    
-    /**
-     * Perform the operations when the mouse drag the resize button.
-     * @param e = MouseEvent variable, if needed
-     */
-    void btnResize_onMouseDragged(MouseEvent e);
-                    
-    
-    
-    
-    /**
-     * Perform the operations when window is pressed.
-     * @param e = MouseEvent variable, if needed
-     */
-    void root_onMousePressedAction(MouseEvent e);
-    
-    /**
-     * Perform the operations when window is dragged.
-     * @param e = MouseEvent variable, if needed
-     */
-    void root_onMouseDraggedAction(MouseEvent e);
-    
+    void dragWindow(final MouseEvent e);
+   
     /**
      * Perform the operations when window is released.
-     * @param e = MouseEvent variable, if needed
      */
-    void root_onMouseReleasedAction(MouseEvent e);
+    void dragWindowOver();
 }

@@ -5,7 +5,8 @@ import javafx.scene.image.ImageView;
 
 /**
  * Interface with useful methods for a simple custom window implementation.
- * @author Marcin Pabich
+ * 
+ * 
  */
 public interface MinimalWindow {  
     

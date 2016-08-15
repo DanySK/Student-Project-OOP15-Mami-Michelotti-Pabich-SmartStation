@@ -5,16 +5,27 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import mnmlwindow.controller.MinimalWindowC;
 import mnmlwindow.controller.MinimalWindowCImpl;
 import mnmlwindow.view.MinimalWindowViewImpl;
 
 /**
  * Class that implements the interface for a custom window logic.
- * @author Marcin Pabich
+ * 
+ * There was some solutions ready on internet, but we preferred to implement
+ * ourselves a version of the window, simplifying some of the code.
+ * 
+ * Credits to original idea could be find here:
+ * Undecorator: https://github.com/in-sideFX/Undecorator
+ * Undecorator-bis: https://github.com/in-sideFX/UndecoratorBis
+ * 
+ * Some of the code present in that library is implemented and/or modified here.
+ * Thanks to "in-sideFX" (https://github.com/in-sideFX) for this library.
  */
 public class MinimalWindowImpl implements MinimalWindow {
     
     private final MinimalWindowViewImpl view;
+    private final MinimalWindowC controller;
     private final Stage mainStage;
     
     /** 
@@ -29,7 +40,11 @@ public class MinimalWindowImpl implements MinimalWindow {
         
         //Create the VIEW and respective CONTROLLER
         this.view = new MinimalWindowViewImpl(this.mainStage, minWidth, minHeight);
-        new MinimalWindowCImpl(this.view);
+        this.controller = new MinimalWindowCImpl();
+        
+        //Setting controllers and views
+        this.view.setControllerer(controller);
+        this.controller.setView(view);
         
         //Set the scene with all it needs
         final Scene scene = new Scene(this.view, minWidth, minHeight);
@@ -79,6 +94,4 @@ public class MinimalWindowImpl implements MinimalWindow {
     public void showWindow() {
         this.mainStage.show();       
     }
-
-
 }

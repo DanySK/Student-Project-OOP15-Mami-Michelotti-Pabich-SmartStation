@@ -4,7 +4,6 @@ import javafx.geometry.Insets;
 
 /**
  * Enum that has some features to manage the maximize-normal-minimize status of the window.
- * @author Marcin Pabich
  */
 public enum WindowStatus {
     /**
