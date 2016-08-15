@@ -8,7 +8,6 @@ import application.model.buildables.pump.PumpImpl;
 import application.model.services.FuelManager;
 import application.model.services.FuelManagerImpl;
 import application.view.tabs.pumpsEditor.PumpsEditor;
-import javafx.scene.input.MouseEvent;
 
 public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 

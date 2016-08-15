@@ -2,7 +2,6 @@ package application.controller.tabs;
 
 import application.controller.MainController;
 import application.view.tabs.reservesEditor.ReservesEditor;
-import javafx.scene.input.MouseEvent;
 
 public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 

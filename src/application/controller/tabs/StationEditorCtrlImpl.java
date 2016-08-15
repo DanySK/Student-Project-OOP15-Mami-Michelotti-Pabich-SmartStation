@@ -7,7 +7,6 @@ import application.model.buildables.area.Area;
 import application.model.buildables.area.AreaImpl;
 import application.model.buildables.pump.Pump;
 import application.view.tabs.stationEditor.StationEditor;
-import javafx.scene.input.MouseEvent;
 
 public class StationEditorCtrlImpl implements StationEditorCtrl {
 
@@ -91,7 +90,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void addPump_click() {
+    public void pump() {
 	final int x, y;
 	x = Integer.parseInt(this.stationEditor.getXCoords());
 	y = Integer.parseInt(this.stationEditor.getYCoords());

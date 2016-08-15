@@ -6,7 +6,6 @@ import application.controller.MainController;
 import application.model.services.Fuel;
 import application.model.services.FuelImpl;
 import application.view.tabs.fuelsEditor.FuelsEditor;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
