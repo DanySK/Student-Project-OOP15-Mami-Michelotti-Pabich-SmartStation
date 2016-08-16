@@ -76,6 +76,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
         try {
             fxmlLoader.load();
         } catch (Exception exception) {
+            
             ExitStatus.showErrorDialog("FXML Loading Exception", "StationEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
             Main.close(ExitStatus.FXMLLoadingExcp);       
         }      

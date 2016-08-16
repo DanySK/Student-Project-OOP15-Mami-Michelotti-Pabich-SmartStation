@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.ListView?>
 <?import java.lang.Double?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.control.ListView?>
+
 <?import application.view.controls.reserveStatus.ReserveStatusImpl?>
-<?import javafx.scene.control.ScrollPane?>
 <?import application.view.controls.areasGrid.AreasGridImpl?>
 
 <fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@OverviewStyle.css">
@@ -52,7 +49,7 @@
 				<ReserveStatusImpl fx:id="reserve5" reserve="0.9" fuelName="Elettricità"></ReserveStatusImpl>
 			</VBox>
 				
-			<ListView fx:id="lsvLog" BorderPane.alignment="TOP_CENTER" GridPane.columnIndex="1" prefHeight="${vbxReserves.getHeight}" HBox.hgrow="ALWAYS"></ListView>
+			<ListView fx:id="lsvLog" BorderPane.alignment="TOP_CENTER" prefHeight="${vbxReserves.getHeight}" HBox.hgrow="ALWAYS"></ListView>
 		</HBox>
 	</bottom>
 </fx:root>

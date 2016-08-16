@@ -3,6 +3,7 @@ package application.view.tabs.reservesEditor;
 import java.util.List;
 
 import application.controller.tabs.ReservesEditorCtrl;
+import application.model.buildables.reserve.Reserve;
 
 /**
  * Interface containing all the logic for the Reserves Editor tab.
@@ -24,7 +25,7 @@ public interface ReservesEditor {
      * Load avaiable reserves into the comboboxes.
      * @param reserves List of strings that represents avaiable reserves
      */
-    void loadReserves(List<String> reserves);
+    void loadReserves(List<Reserve> reserves);
     
     /**
      * Load avaiable fuels into the comboboxes.

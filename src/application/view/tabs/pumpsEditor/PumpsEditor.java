@@ -3,6 +3,7 @@ package application.view.tabs.pumpsEditor;
 import java.util.List;
 
 import application.controller.tabs.PumpsEditorCtrl;
+import application.model.buildables.pump.Pump;
 
 /**
  * Interface containing all the logic for the Pumps Editor tab.
@@ -27,7 +28,7 @@ public interface PumpsEditor {
      * Load names of pumps into the comboboxes.
      * @param pumps List of the pumps
      */
-    void loadPumps(final List<String> pumps);
+    void loadPumps(final List<Pump> pumps);
     
     /**
      * Load names of fuels into the comboboxes.

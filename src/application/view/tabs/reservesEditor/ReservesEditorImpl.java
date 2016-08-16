@@ -5,6 +5,7 @@ import java.util.List;
 import application.ExitStatus;
 import application.Main;
 import application.controller.tabs.ReservesEditorCtrl;
+import application.model.buildables.reserve.Reserve;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -81,14 +82,16 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     
     //Loading methods
     @Override
-    public void loadReserves(final List<String> reserves) {        
+    public void loadReserves(final List<Reserve> reserves) {        
         this.cmbReserveRefill.getItems().clear();
         this.cmbReserveRepair.getItems().clear();
         this.cmbReservesEdit.getItems().clear();
         
-        this.cmbReserveRefill.getItems().addAll(reserves);
-        this.cmbReserveRepair.getItems().addAll(reserves);
-        this.cmbReservesEdit.getItems().addAll(reserves);   
+        reserves.forEach(r -> {
+            this.cmbReserveRefill.getItems().add(r.getType().getName());
+            this.cmbReserveRepair.getItems().add(r.getType().getName());
+            this.cmbReservesEdit.getItems().add(r.getType().getName());
+        });  
     }
 
     @Override

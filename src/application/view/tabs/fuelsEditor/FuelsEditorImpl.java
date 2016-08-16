@@ -1,10 +1,12 @@
 package application.view.tabs.fuelsEditor;
 
+import java.time.Year;
 import java.util.List;
 
 import application.ExitStatus;
 import application.Main;
 import application.controller.tabs.FuelsEditorCtrl;
+import application.model.services.Fuel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
@@ -198,9 +200,9 @@ public class FuelsEditorImpl extends BorderPane implements FuelsEditor {
     //LOADING METHODS
 
     @Override
-    public void loadFuels(final List<String> fuels) {
-        this.cmbFuels.getItems().clear();
-        this.cmbFuels.getItems().addAll(fuels);
+    public void loadFuels(final List<Fuel> fuels) {
+        this.cmbFuels.getItems().clear();       
+        fuels.forEach(f -> this.cmbFuels.getItems().add(f.getName()));      
     }
 
 

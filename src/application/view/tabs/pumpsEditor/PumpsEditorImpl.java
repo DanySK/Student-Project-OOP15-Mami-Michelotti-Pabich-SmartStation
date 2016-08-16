@@ -5,6 +5,7 @@ import java.util.List;
 import application.ExitStatus;
 import application.Main;
 import application.controller.tabs.PumpsEditorCtrl;
+import application.model.buildables.pump.Pump;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -133,12 +134,14 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     //LOADING
     
     @Override
-    public void loadPumps(final List<String> pumps) {
+    public void loadPumps(final List<Pump> pumps) {
         this.cmbPumpsEdit.getItems().clear();
         this.cmbPumpRepair.getItems().clear();
         
-        this.cmbPumpsEdit.getItems().addAll(pumps);
-        this.cmbPumpRepair.getItems().addAll(pumps);
+        pumps.forEach(p -> {
+            this.cmbPumpsEdit.getItems().add(p.getName());
+            this.cmbPumpRepair.getItems().add(p.getName());
+        });
     }
 
 

@@ -3,6 +3,7 @@ package application.view.tabs.fuelsEditor;
 import java.util.List;
 
 import application.controller.tabs.FuelsEditorCtrl;
+import application.model.services.Fuel;
 
 /**
  * Interface containing all the logic for the Fuels Editor tab.
@@ -25,7 +26,7 @@ public interface FuelsEditor {
      * Load the fuels in the combobox, clearing previous values.
      * @param fuels List of string describing avaiable fuels
      */
-    void loadFuels(List<String> fuels);
+    void loadFuels(List<Fuel> fuels);
     
    
     //Show/hide panel
