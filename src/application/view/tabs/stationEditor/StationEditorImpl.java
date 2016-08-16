@@ -333,6 +333,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
 
     
     //Event Handlers
+    //Modifying
     @FXML
     private void btnOK_click(final MouseEvent e) {
         this.controller.selectionConfirm();
@@ -354,15 +355,19 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     }
     
     @FXML
-    private void btnAddPump_click(final MouseEvent e) {
-        this.controller.addPump();
-    }
-    
-    @FXML
     private void btnRemoveArea_click(final MouseEvent e) {
         this.controller.removeArea();
     }
     
+    
+    //Adding
+    @FXML
+    private void btnInsertArea_click(final MouseEvent e) {
+        this.controller.insertArea();
+    }
+    
+    
+    //Switching between panels
     @FXML
     private void btnSwtich_click(final MouseEvent e) {
         this.controller.switchPanel();

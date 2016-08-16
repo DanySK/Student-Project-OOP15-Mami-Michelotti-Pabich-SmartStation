@@ -197,7 +197,7 @@
 								<ComboBox fx:id="cmbPump4" editable="false" maxWidth="$infinite"></ComboBox>
 							</VBox>
 								
-							<Button text="Insert this area" HBox.hgrow="ALWAYS" maxWidth="$infinite" ></Button>							
+							<Button text="Insert this area" HBox.hgrow="ALWAYS" maxWidth="$infinite"  onMouseClicked="#btnInsertArea_click"></Button>							
 						</VBox>
 					</VBox>
 				</VBox>		
