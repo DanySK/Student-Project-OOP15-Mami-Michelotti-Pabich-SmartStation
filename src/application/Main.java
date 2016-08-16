@@ -13,14 +13,13 @@ import mnmlwindow.MinimalWindowImpl;
 
 /**
  * Main class of the application that launch it.
- * @author Pabich, Michelotti, Mami
  */
 public class Main extends Application {
 
     @Override
     public void start(final Stage primaryStage) {
         //First set all the models, views and controllers
-        final Station model = new StationImpl(false, "<nome>", "<indirizzo>");
+        final Station model = new StationImpl();
         final MainContentImpl view = new MainContentImpl();
         final MainController controller = new MainControllerImpl();               
         

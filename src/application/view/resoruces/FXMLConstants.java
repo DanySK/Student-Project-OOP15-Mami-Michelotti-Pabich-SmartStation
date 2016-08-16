@@ -14,6 +14,8 @@ public class FXMLConstants {
     private static final DoubleProperty halfWidth = new SimpleDoubleProperty(55);
     private static final DoubleProperty notFullWidth = new SimpleDoubleProperty(70);
     private static final DoubleProperty fullWidth = new SimpleDoubleProperty(90);
+    
+   
 
 
     /**
