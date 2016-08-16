@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import application.view.tabs.reservesEditor.ReservesEditor;
-import javafx.scene.input.MouseEvent;
 
 /**
  * Interface that contain all methods needed to manage the reserves editor controller.

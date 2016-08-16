@@ -49,7 +49,6 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	    for(Pump p : pList) {
 		list.add(p.getName());
 	    }
-	    this.stationEditor.showModifyngPanel();
 	    this.stationEditor.setModifyCost(String.valueOf(this.area.getCost()));
 	    this.stationEditor.setModifyXChange(String.valueOf(this.area.getXPosition()));
 	    this.stationEditor.setModifyYChange(String.valueOf(this.area.getYPosition()));
@@ -89,14 +88,27 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
 
     @Override
-    public void addPump() {
+    public void insertArea() {
 	final int x, y;
+	final List<String> list = new ArrayList<>();
+	boolean occupation = false;
 	x = Integer.parseInt(this.stationEditor.getXCoords());
 	y = Integer.parseInt(this.stationEditor.getYCoords());
-	//final Area a = new AreaImpl(0, Integer.parseInt(this.stationEditor.getPrice()), 0, x, y);
+	list.addAll(this.stationEditor.getPumps());
 	
-	//this.mainController.getModel().getAreaManager().addArea(a);
+	//this.stationEditor.getPrice();
 	
+	for(Area a : this.mainController.getModel().getAreaManager().getAllAreas()) {
+	    if(a.getXPosition() == x && a.getYPosition() == y) {
+		occupation = true;
+	    } else if(occupation) {
+		this.stationEditor.showAddErrorMessage("Area arleady occupied");
+		break;
+	    } else {
+		//this.mainController.getModel().getAreaManager().addArea(x, y, list);
+		break;
+	    }
+	}
     }
 
     @Override

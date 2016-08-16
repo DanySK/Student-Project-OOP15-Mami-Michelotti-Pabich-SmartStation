@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import application.view.tabs.stationEditor.StationEditor;
-import javafx.scene.input.MouseEvent;
 
 /**
  * Interface that contains all methods needed to manage the station editor controller.
@@ -43,9 +42,9 @@ public interface StationEditorCtrl {
     void confirmPumps();
     
     /**
-     * Create new area whit pumps.
+     * Create new area.
      */
-    void addPump();
+    void insertArea();
     
     /**
      * Delete the area selected.

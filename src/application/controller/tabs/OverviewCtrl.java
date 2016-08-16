@@ -13,4 +13,5 @@ public interface OverviewCtrl {
      * @param overview the view for the class
      */
     void setView(final Overview overview);
+    
 }

@@ -13,4 +13,5 @@ public interface MovementsViewerCtrl {
      * @param movementsViewer the view for the class
      */
     void setView (final MovementsViewer movementsViewer);
+    
 }

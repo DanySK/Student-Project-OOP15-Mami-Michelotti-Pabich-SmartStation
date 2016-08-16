@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import application.view.tabs.pumpsEditor.PumpsEditor;
-import javafx.scene.input.MouseEvent;
 
 /**
  * Interface that contain all methods needed to manage the pump editor controller.

@@ -4,7 +4,6 @@
 	<open>false</open>
 	<maxareas>10</maxareas>
 	<maxpumps>4</maxpumps>
-	
 	<balance>852945625</balance>
 	
 	<fuels>
@@ -80,17 +79,14 @@
 			<pumps>
 				<pump>
 					<name>Benzina100</name>
-					<position>0</position>
 				</pump>
 				
 				<pump>
 					<name>Benzina200</name>
-					<position>1</position>
 				</pump>
 				
 				<pump>
 					<name>Benzina100</name>
-					<position>2</position>
 				</pump>
 			</pumps>
 		</area>
@@ -101,17 +97,14 @@
 			<pumps>
 				<pump>
 					<name>Benzina100</name>
-					<position>0</position>
 				</pump>
 				
 				<pump>
 					<name>Benzina200</name>
-					<position>1</position>
 				</pump>
 				
 				<pump>
 					<name>Benzina100</name>
-					<position>2</position>
 				</pump>
 			</pumps>
 		</area>

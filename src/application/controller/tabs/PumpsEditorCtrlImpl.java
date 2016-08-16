@@ -1,18 +1,13 @@
 package application.controller.tabs;
 
-import java.util.ArrayList;
-import java.util.List;
 import application.controller.MainController;
 import application.model.buildables.pump.Pump;
-import application.model.services.FuelManager;
 import application.view.tabs.pumpsEditor.PumpsEditor;
 
 public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 
     private final MainController mainController;
     private PumpsEditor pumpsEditor;
-    private List<Pump> pumps;
-    private int i;
     
     public PumpsEditorCtrlImpl(MainController mainController) {
 	this.mainController = mainController;
@@ -25,83 +20,65 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 
     @Override
     public void selectEdit() {
-	//
-	//
-	for(int i = 0; i < this.pumps.size(); i++) {
-	    if(this.pumps.get(i).getName() == this.pumpsEditor.getModifySelectedPump()) {
-		this.i = i;
-		this.pumpsEditor.setModifyFuelType(this.mainController.getModel().getFuelManager().getFuel(this.pumpsEditor.getModifySelectedPump()).getName());
-		this.pumpsEditor.setModifySpeed(String.valueOf(this.pumps.get(i).getSpeed()));
-		this.pumpsEditor.setModifyDurability(String.valueOf(this.pumps.get(i).getDurability()));
-		this.pumpsEditor.setModifyPrice(String.valueOf(this.pumps.get(i).getCost()));
-		this.pumpsEditor.setModifyRepairCost(String.valueOf(this.pumps.get(i).getRepairCost()));
+	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+	    if(p.getName() == this.pumpsEditor.getModifySelectedPump()) {
+		this.pumpsEditor.setModifyFuelType(p.getName());
+		this.pumpsEditor.setModifySpeed(String.valueOf(p.getSpeed()));
+		this.pumpsEditor.setModifyDurability(String.valueOf(p.getDurability()));
+		this.pumpsEditor.setModifyPrice(String.valueOf(p.getCost()));
+		this.pumpsEditor.setModifyRepairCost(String.valueOf(p.getRepairCost()));
 	    }
 	}
     }
 
     @Override
     public void changePumpName() {
-	this.mainController.getModel().getPumpManager().getPump(i).setName(this.pumpsEditor.getModifyFuelType());
+	this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getModifySelectedPump())
+	                                               .setName(this.pumpsEditor.getModifyFuelType());
     }
 
     @Override
     public void changeSpeed() {
-	this.mainController.getModel().getPumpManager().getPump(i).setSpeed(Integer.parseInt(this.pumpsEditor.getModifySpeed()));
+	this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getModifySelectedPump())
+	                                               .setSpeed(Integer.parseInt(this.pumpsEditor.getModifySpeed()));
     }
 
     @Override
     public void changeDurability() {
-	this.mainController.getModel().getPumpManager().getPump(i).setMaxDurability(Integer.parseInt(this.pumpsEditor.getModifyDurability()));
+	this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getModifySelectedPump())
+	                                               .setMaxDurability(Integer.parseInt(this.pumpsEditor.getModifyDurability()));
     }
 
     @Override
     public void changePrice() {
-	this.mainController.getModel().getPumpManager().getPump(i).setCost(Integer.parseInt(this.pumpsEditor.getModifyPrice()));
+	this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getModifySelectedPump())
+	                                               .setCost(Integer.parseInt(this.pumpsEditor.getModifyPrice()));
     }
 
     @Override
     public void changeRepairCost() {
-	this.mainController.getModel().getPumpManager().getPump(i).setRepairCost(Integer.parseInt(this.pumpsEditor.getModifyRepairCost()));
+	this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getModifySelectedPump())
+	                                               .setRepairCost(Integer.parseInt(this.pumpsEditor.getModifyRepairCost()));
     }
 
     @Override
     public void selectRepair() {
-	//
-	//
-	for(int i = 0; i < this.pumps.size(); i++) {
-	    if(this.pumps.get(i).getName() == String.valueOf(this.pumpsEditor.getRepairValue())) {
-		this.i = i;
-		this.pumpsEditor.setRepairValue(String.valueOf(this.pumps.get(i).getDurability()));
+	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+	    if(p.getName() == "// manca metodo per prendere il nome") {
+		this.pumpsEditor.setRepairValue(String.valueOf(p.getDurability()));
 	    }
 	}
     }
 
     @Override
     public void repair() {
-	//this.mainController.getModel().getPumpManager().getPump(i).repair(this.pumpsEditor.getRepairValue());
+	
     }
 
     @Override
     public void addPump() {
-	final Pump pump;
-	/*final FuelManager fuelManager = new FuelManagerImpl();
-	pump = new PumpImpl(Integer.parseInt(this.pumpsEditor.getDurability()), 
-		            Integer.parseInt(this.pumpsEditor.getPrice()), 
-		            Integer.parseInt(this.pumpsEditor.getRepairCost()), 
-		            "", //name not found
-		            fuelManager.getFuel(this.pumpsEditor.getFuelType()), 
-		            Integer.parseInt(this.pumpsEditor.getSpeed()));
-	
-	this.mainController.getModel().getPumpManager().addPump(pump);*/
-    }
-    
-    private void loadPumps() {
-	this.pumps = this.mainController.getModel().getPumpManager().getAllPumps();
-	
-	List<String> list = new ArrayList<>();
-	for(int i = 0; i < pumps.size(); i++) {
-	    list.add(pumps.get(i).getName());
-	}
-	this.pumpsEditor.loadFuels(list);
+	/*this.mainController.getModel().getPumpManager().addPump(this.pumpsEditor.getFuelType(),
+		Integer.parseInt(this.pumpsEditor.getSpeed()), Integer.parseInt(this.pumpsEditor.getDurability()),
+		Integer.parseInt(this.pumpsEditor.getPrice()), Integer.parseInt(this.pumpsEditor.getRepairCost()));*/
     }
 }

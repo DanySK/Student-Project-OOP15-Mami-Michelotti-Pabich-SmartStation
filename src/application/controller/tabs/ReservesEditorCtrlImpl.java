@@ -14,73 +14,61 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 
     @Override
     public void setView(ReservesEditor reservesEditor) {
-	// TODO Auto-generated method stub
-	
+	this.reservesEditor = reservesEditor;
     }
 
     @Override
     public void selectEdit() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void changeFuelType() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void changeCapacity() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void changeRepairCost() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void changePrice() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void changeDurability() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void selectRefill() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void refill() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void selectRepair() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void repair() {
-	// TODO Auto-generated method stub
 	
     }
 
     @Override
     public void addReserve() {
-	// TODO Auto-generated method stub
 	
     }
 }

@@ -69,6 +69,11 @@ public interface MainController {
     void setView(MainContent mainContent);
     
     /**
+     * Save dates in the file xml.
+     */
+    void saveConfiguration();
+    
+    /**
      * Load the file and store in the model.
      */
     void loadConfiguration();
