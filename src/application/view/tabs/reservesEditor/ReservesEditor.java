@@ -4,6 +4,7 @@ import java.util.List;
 
 import application.controller.tabs.ReservesEditorCtrl;
 import application.model.buildables.reserve.Reserve;
+import application.model.services.Fuel;
 
 /**
  * Interface containing all the logic for the Reserves Editor tab.
@@ -31,7 +32,7 @@ public interface ReservesEditor {
      * Load avaiable fuels into the comboboxes.
      * @param fuels List of strings that represents avaiable fuels
      */
-    void loadFuels(List<String > fuels);
+    void loadFuels(List<Fuel> fuels);
     
     
     

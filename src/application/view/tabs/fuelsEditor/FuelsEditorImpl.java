@@ -1,6 +1,5 @@
 package application.view.tabs.fuelsEditor;
 
-import java.time.Year;
 import java.util.List;
 
 import application.ExitStatus;

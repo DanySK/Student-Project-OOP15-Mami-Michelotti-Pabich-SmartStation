@@ -6,6 +6,7 @@ import application.ExitStatus;
 import application.Main;
 import application.controller.tabs.ReservesEditorCtrl;
 import application.model.buildables.reserve.Reserve;
+import application.model.services.Fuel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -95,12 +96,14 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     }
 
     @Override
-    public void loadFuels(final List<String> fuels) {
+    public void loadFuels(final List<Fuel> fuels) {
         this.cmbFuelType.getItems().clear();
         this.cmbEditFuelType.getItems().clear();
         
-        this.cmbFuelType.getItems().addAll(fuels);
-        this.cmbEditFuelType.getItems().addAll(fuels);
+        fuels.forEach(f -> {
+            this.cmbFuelType.getItems().add(f.getName());
+            this.cmbEditFuelType.getItems().add(f.getName());
+        });
     }
     
     

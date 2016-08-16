@@ -36,6 +36,7 @@ public interface MinimalWindowC {
 
     /**
      * Setting the cursor to default value.
+     * @param e MouseEvent given from the view
      */
     void setCursorToDefault(final MouseEvent e);
     
@@ -47,6 +48,7 @@ public interface MinimalWindowC {
     
     /**
      * Update values needed to window management.
+     * @param e MouseEvent given from the view
      */
     void updateValues(final MouseEvent e);
     
@@ -54,11 +56,13 @@ public interface MinimalWindowC {
     
     /**
      * Perform the resizing of the window.
+     * @param e MouseEvent given from the view
      */
     void resizeWindow(final MouseEvent e);
                         
     /**
      * Perform the dragging of the window.
+     * @param e MouseEvent given from the view
      */
     void dragWindow(final MouseEvent e);
    

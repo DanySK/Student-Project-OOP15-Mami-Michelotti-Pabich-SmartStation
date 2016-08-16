@@ -6,6 +6,7 @@ import application.ExitStatus;
 import application.Main;
 import application.controller.tabs.PumpsEditorCtrl;
 import application.model.buildables.pump.Pump;
+import application.model.services.Fuel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -146,12 +147,14 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
 
 
     @Override
-    public void loadFuels(final List<String> fuels) {
+    public void loadFuels(final List<Fuel> fuels) {
         this.cmbEditFuelType.getItems().clear();
         this.cmbFuelType.getItems().clear();
         
-        this.cmbEditFuelType.getItems().addAll(fuels);
-        this.cmbFuelType.getItems().addAll(fuels);
+       fuels.forEach(f -> {
+           this.cmbEditFuelType.getItems().add(f.getName());
+           this.cmbFuelType.getItems().add(f.getName());
+       });
     }
 
     
