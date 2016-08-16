@@ -43,7 +43,6 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		for(Pump p : this.mainController.getModel().getAreaManager().getArea(x, y).getAllPumps()) {
 		    list.add(p.getName());
 		}
-		this.stationEditor.setModifyCost(String.valueOf(this.mainController.getModel().getAreaManager().getArea(x, y).getCost()));
 		this.stationEditor.setModifyXChange(String.valueOf(this.mainController.getModel().getAreaManager().getArea(x, y).getXPosition()));
 		this.stationEditor.setModifyYChange(String.valueOf(this.mainController.getModel().getAreaManager().getArea(x, y).getYPosition()));
 		this.stationEditor.setModifyPumps(list);
