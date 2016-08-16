@@ -27,11 +27,6 @@ public interface StationEditorCtrl {
     void selectionConfirm();
     
     /**
-     * Change the price of area.
-     */
-    void changePrice();
-    
-    /**
      * Change the position of area.
      */
     void changePosition();

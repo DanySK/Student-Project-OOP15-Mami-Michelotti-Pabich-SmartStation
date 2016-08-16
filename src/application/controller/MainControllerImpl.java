@@ -264,12 +264,15 @@ public class MainControllerImpl implements MainController {
 	    TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	    Transformer transformer = transformerFactory.newTransformer();
 	    DOMSource source = new DOMSource(doc);
-	    StreamResult result = new StreamResult(new File("C:/Users/Matteo/Aworkspace/smart-station/file.xml"));
+	    StreamResult result = new StreamResult(new File(getClass()
+		    .getResource("/resources/configuration.xml").toURI()));
 	    transformer.transform(source, result);
 	} catch (ParserConfigurationException pce) {
 	    pce.printStackTrace();
 	} catch (TransformerException te) {
 	    te.printStackTrace();
+	} catch (Exception e) {
+	    e.printStackTrace();
 	}
     }
 
