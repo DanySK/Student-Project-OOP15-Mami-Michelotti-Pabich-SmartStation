@@ -1,5 +1,9 @@
 package application.controller.tabs;
 
+import java.util.List;
+
+import application.model.buildables.area.Area;
+import application.model.buildables.pump.Pump;
 import application.view.tabs.stationEditor.StationEditor;
 
 /**
@@ -15,11 +19,13 @@ public interface StationEditorCtrl {
     void setView(final StationEditor stationEditor);
     
     /**
-     * Load the coordinates for areas.
-     * @param x coordinate
-     * @param y coordinate
+     * Load configuration for station editor tab.
+     * @param x coordinates
+     * @param y coordinates
+     * @param pumps list pump for combo box
+     * @param areas list area for grid
      */
-    void loadData(final int x, final int y);
+    void loadData(final int x, final int y, final List<Pump> pumps, final List<Area> areas);
     
     /**
      * Select the area and load data.

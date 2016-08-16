@@ -1,5 +1,6 @@
 package application.controller.tabs;
 
+import java.util.List;
 import application.controller.MainController;
 import application.model.services.Fuel;
 import application.view.tabs.fuelsEditor.FuelsEditor;
@@ -17,6 +18,11 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
     @Override
     public void setView(FuelsEditor fuelsEditor) {
 	this.fuelsEditor = fuelsEditor;
+    }
+
+    @Override
+    public void loadData(final List<Fuel> fuels) {
+	this.fuelsEditor.loadFuels(fuels);
     }
 
     @Override

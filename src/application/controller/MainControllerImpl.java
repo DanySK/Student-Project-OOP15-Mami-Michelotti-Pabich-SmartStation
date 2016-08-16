@@ -329,8 +329,6 @@ public class MainControllerImpl implements MainController {
 	            }
 	            if(maxareas) {
 	        	this.getModel().setMaxAreas(Integer.parseInt(characters.getData()));
-	        	this.stationEditorCtrl.loadData(Integer.parseInt(characters.getData()),
-	        					Integer.parseInt(characters.getData()));
 	        	System.out.println(characters.getData());
 	        	maxareas = false;
 	            }
@@ -358,7 +356,7 @@ public class MainControllerImpl implements MainController {
         }
     }
     
-    private void fileFuel(XMLEventReader eventReader) throws Exception{
+    private void fileFuel(XMLEventReader eventReader) throws Exception {
 	boolean name = false;
 	boolean price = false;
 	boolean wholesaleprice = false;
@@ -419,7 +417,7 @@ public class MainControllerImpl implements MainController {
 	}
     }
     
-    private void fileReserve(XMLEventReader eventReader) throws Exception{
+    private void fileReserve(XMLEventReader eventReader) throws Exception {
 	boolean type = false;
 	boolean capacity = false;
 	boolean remaining = false;
@@ -471,7 +469,7 @@ public class MainControllerImpl implements MainController {
 	}
     }
 
-    private void filePump(XMLEventReader eventReader) throws Exception{
+    private void filePump(XMLEventReader eventReader) throws Exception {
 	boolean name = false;
 	boolean fuel = false;
 	boolean speed = false;
@@ -556,7 +554,7 @@ public class MainControllerImpl implements MainController {
 	}
     }
 
-    private void fileArea(XMLEventReader eventReader) throws Exception{
+    private void fileArea(XMLEventReader eventReader) throws Exception {
 	boolean name = false;
 	boolean xPos = false;
 	boolean yPos = false;
@@ -602,6 +600,23 @@ public class MainControllerImpl implements MainController {
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("area")) {
                     //this.getModel().getAreaManager().addArea(dXPos, dYPos, list);
                     System.out.println("asfbofbsabfoabsof");
+                }
+                //load configuration
+                if(endElement.getName().getLocalPart().equalsIgnoreCase("station")) {
+                    this.overviewCtrl.loadData(this.getModel().getAreaManager().getAllAreas());
+                    
+                    this.stationEditorCtrl.loadData(this.getModel().getMaxAreas(), 
+	                                            this.getModel().getMaxAreas(),
+	                                            this.getModel().getPumpManager().getAllPumps(),
+	                                            this.getModel().getAreaManager().getAllAreas());
+                    
+                    this.fuelsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels());
+                    
+                    this.reservesEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
+	                                             this.getModel().getReserveManager().getAllReserves());
+                    
+                    this.pumpsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
+                	                          this.getModel().getPumpManager().getAllPumps());
                 }
                 break;
             }

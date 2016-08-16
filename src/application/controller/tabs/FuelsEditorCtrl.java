@@ -1,5 +1,8 @@
 package application.controller.tabs;
 
+import java.util.List;
+
+import application.model.services.Fuel;
 import application.view.tabs.fuelsEditor.FuelsEditor;
 
 /**
@@ -12,6 +15,12 @@ public interface FuelsEditorCtrl {
      * Set the view of the controller.
      */
     void setView(final FuelsEditor fuelsEditor);
+    
+    /**
+     * Load configuration for fuels editor tab.
+     * @param fuels list of fuel
+     */
+    void loadData(final List<Fuel> fuels);
     
     /**
      * selection of the fuel and load the dates.

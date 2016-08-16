@@ -1,5 +1,9 @@
 package application.controller.tabs;
 
+import java.util.List;
+
+import application.model.buildables.reserve.Reserve;
+import application.model.services.Fuel;
 import application.view.tabs.reservesEditor.ReservesEditor;
 
 /**
@@ -13,6 +17,13 @@ public interface ReservesEditorCtrl {
      * @param reservesEditor the view for the class
      */
     void setView(final ReservesEditor reservesEditor);
+    
+    /**
+     * Load configuration for reserves editor tab.
+     * @param fuels list of fuel
+     * @param reserves list of reserve
+     */
+    void loadData(final List<Fuel> fuels, final List<Reserve> reserves);
     
     /**
      * Selected the reserve for modify dates.

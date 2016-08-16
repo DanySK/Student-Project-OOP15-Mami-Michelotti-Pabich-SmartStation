@@ -1,5 +1,8 @@
 package application.controller.tabs;
 
+import java.util.List;
+
+import application.model.buildables.area.Area;
 import application.view.tabs.overview.Overview;
 
 /**
@@ -14,4 +17,9 @@ public interface OverviewCtrl {
      */
     void setView(final Overview overview);
     
+    /**
+     * Load configuration for overview tab.
+     * @param areas list of area
+     */
+    void loadData(final List<Area> areas);
 }

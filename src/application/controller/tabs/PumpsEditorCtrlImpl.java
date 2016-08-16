@@ -1,7 +1,10 @@
 package application.controller.tabs;
 
+import java.util.List;
+
 import application.controller.MainController;
 import application.model.buildables.pump.Pump;
+import application.model.services.Fuel;
 import application.view.tabs.pumpsEditor.PumpsEditor;
 
 public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
@@ -16,6 +19,12 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     @Override
     public void setView(PumpsEditor pumpsEditor) {
 	this.pumpsEditor = pumpsEditor;
+    }
+
+    @Override
+    public void loadData(final List<Fuel> fuels, final List<Pump> pumps) {
+	this.pumpsEditor.loadFuels(fuels);
+	this.pumpsEditor.loadPumps(pumps);
     }
 
     @Override

@@ -22,8 +22,10 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
     }
     
     @Override
-    public void loadData(final int x, final int y) {
+    public void loadData(final int x, final int y, final List<Pump> pumps, final List<Area> areas) {
 	this.stationEditor.loadCoordinates(x, y);
+	this.stationEditor.loadPumps(pumps);
+	this.stationEditor.refreshGrid(areas);
     }
     
     @Override
@@ -48,7 +50,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		this.stationEditor.setModifyPumps(list);
 	    } else {
 		this.stationEditor.showModifyErrorMessage("Area not found");
-		this.stationEditor.hideModifyingPanel();
+		this.stationEditor.hideDetailsPanel();
 	    }
 	} else {
 	    this.stationEditor.showModifyErrorMessage("Select area");
@@ -67,6 +69,8 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	                                  .getArea(Integer.parseInt(this.stationEditor.getModifyX()),
 		                                   Integer.parseInt(this.stationEditor.getModifyY()))
 	                                  .setPosition(tempx, tempy);
+	    //refresh areas
+	    this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
 	} else {
 	    this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
 	}
@@ -88,8 +92,6 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	y = Integer.parseInt(this.stationEditor.getYCoords());
 	list.addAll(this.stationEditor.getPumps());
 	
-	//this.stationEditor.getPrice();
-	
 	for(Area a : this.mainController.getModel().getAreaManager().getAllAreas()) {
 	    if(a.getXPosition() == x && a.getYPosition() == y) {
 		occupation = true;
@@ -101,12 +103,16 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		break;
 	    }
 	}
+	//refresh areas
+	this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
     }
 
     @Override
     public void removeArea() {
 	this.mainController.getModel().getAreaManager().removeArea(Integer.parseInt(this.stationEditor.getModifyX()),
 		                                                   Integer.parseInt(this.stationEditor.getModifyY()));
+	//refresh areas
+	this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
     }
 
     @Override
