@@ -9,7 +9,6 @@ import application.controller.tabs.StationEditorCtrl;
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
 import application.view.controls.areasGrid.AreasGridImpl;
-import application.view.resources.FXMLConstants;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -78,10 +77,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
             fxmlLoader.load();
         } catch (Exception exception) {
             ExitStatus.showErrorDialog("FXML Loading Exception", "StationEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
-            exception.printStackTrace();
-            Main.close(ExitStatus.FXMLLoadingExcp);
-            
-           
+            Main.close(ExitStatus.FXMLLoadingExcp);       
         }      
         
         //Set max visible rows
