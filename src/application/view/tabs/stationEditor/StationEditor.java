@@ -113,15 +113,7 @@ public interface StationEditor {
      * Get the Y coordinate of a new area.
      * @return Y coordinate of a new area.
      */
-    String getYCoords();
-    
-    
-    /**
-     * Get the price of a new area.
-     * @return price of a new area.
-     */
-    String getPrice();
-    
+    String getYCoords();  
     
     /**
      * Get the pumps of a new area.
@@ -143,18 +135,6 @@ public interface StationEditor {
      * @return Y coordinate of selected area
      */
     String getModifyY();
-    
-    /**
-     * Get the cost of selected area.
-     * @return cost of selected area
-     */
-    String getModifyCost();
-    
-    /**
-     * Set the content of cost textfield.
-     * @param cost cost to show
-     */
-    void setModifyCost(String cost);
     
     /**
      * Get the modifyied X of selected area.

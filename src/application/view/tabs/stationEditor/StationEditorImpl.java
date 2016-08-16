@@ -9,6 +9,7 @@ import application.controller.tabs.StationEditorCtrl;
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
 import application.view.controls.areasGrid.AreasGridImpl;
+import application.view.resources.FXMLConstants;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -77,8 +78,11 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
             fxmlLoader.load();
         } catch (Exception exception) {
             ExitStatus.showErrorDialog("FXML Loading Exception", "StationEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
+            exception.printStackTrace();
             Main.close(ExitStatus.FXMLLoadingExcp);
-        }
+            
+           
+        }      
         
         //Set max visible rows
         this.cmbModifyXCoords.setVisibleRowCount(4);
@@ -92,7 +96,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
         this.cmbPump1.setVisibleRowCount(4);
         this.cmbPump2.setVisibleRowCount(4);
         this.cmbPump3.setVisibleRowCount(4);
-        this.cmbPump4.setVisibleRowCount(4);      
+        this.cmbPump4.setVisibleRowCount(4);     
     }
 
 
@@ -215,11 +219,6 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     }
 
     @Override
-    public String getPrice() {
-        return this.txfPrice.getText();
-    }
-
-    @Override
     public List<String> getPumps() {
         List<String> tmpPumps = new ArrayList<>();
         
@@ -242,16 +241,6 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     @Override
     public String getModifyY() {
         return this.cmbModifyYCoords.getValue();
-    }
-    
-    @Override
-    public String getModifyCost() {
-        return this.txfModifyPrice.getText();
-    }
-    
-    @Override
-    public void setModifyCost(final String cost) {
-        this.txfModifyPrice.setText(cost);
     }
 
     @Override
@@ -337,12 +326,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     @FXML
     private void btnOK_click(final MouseEvent e) {
         this.controller.selectionConfirm();
-    }
-    
-    @FXML
-    private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.changePrice();
-    }
+    }   
     
     @FXML
     private void btnChangePosition_click(final MouseEvent e) {

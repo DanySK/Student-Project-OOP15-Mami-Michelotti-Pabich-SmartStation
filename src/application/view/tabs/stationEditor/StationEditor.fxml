@@ -14,10 +14,18 @@
 
 <fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@StationEditorStyle.css">
 	<!-- Some default values -->
-	<fx:define>
+	<fx:define>	
 		<Double fx:id="defaultMargin" fx:value="10" />
 		<Double fx:id="infinite" fx:value="9999"></Double>
 		<Double fx:id="panelWidth" fx:value="250"></Double>
+		
+		<Double fx:id="smallSpacing" fx:value="3"></Double>
+		<Double fx:id="mediumSpacing" fx:value="5"></Double>
+		<Double fx:id="bigSpacing" fx:value="10"></Double>
+		
+		<Double fx:id="halfWidth" fx:value="55"></Double>		
+		<Double fx:id="fullWidth" fx:value="70"></Double>
+		<Double fx:id="notFullWidth" fx:value="90"></Double>
 	</fx:define>
 	
 	<!-- On the left panel we have all controls to modify and add an area -->	
@@ -70,26 +78,9 @@
 					<!-- If the selection was succesful, this panel will be visible to permit the modify -->
 					<VBox fx:id="vbxAreaDetails" visible="false" spacing="15"  VBox.vgrow="ALWAYS">
 					
-						<!-- Subtitle and cost options -->
+						<!-- Subtitle and position options -->
 						<VBox spacing="3">
 							<Label text="AREA OPTIONS" id="titleLabel"></Label>
-							<BorderPane>
-								<left>
-									<Label text="Cost:"  BorderPane.alignment="CENTER_LEFT"></Label>
-								</left>
-								<right>
-									<HBox alignment="CENTER" BorderPane.alignment="CENTER">
-										<TextField fx:id="txfModifyPrice" editable="true" maxWidth="70" alignment="BASELINE_RIGHT" ></TextField>
-										<Label text="€" alignment="CENTER"></Label>
-										<Label text="   " alignment="CENTER"></Label>
-										<Button text="Change" onMouseClicked="#btnChangePrice_click"></Button>
-									</HBox>					
-								</right>
-							</BorderPane>				
-						</VBox>
-						
-						<!-- Change the position -->
-						<VBox spacing="3">
 							<Label text="Change position" id="secondaryTitleLabel"></Label>					
 							<BorderPane>
 								<left>
@@ -167,28 +158,12 @@
 					
 					<!-- Price of the area -->
 					<VBox visible="true" spacing="15"  VBox.vgrow="ALWAYS">
-						<VBox spacing="3">
-							<Label text="AREA OPTIONS" id="titleLabel"></Label>
-							
-							<VBox spacing="3">
-								<BorderPane>
-									<left>
-										<Label text="Cost:"  BorderPane.alignment="CENTER_LEFT"></Label>
-									</left>
-									<right>
-										<HBox alignment="CENTER" BorderPane.alignment="CENTER">
-											<TextField fx:id="txfPrice" editable="true" maxWidth="70" alignment="BASELINE_RIGHT" ></TextField>
-											<Label text="€" alignment="CENTER"></Label>
-										</HBox>					
-									</right>
-								</BorderPane>
-							</VBox>						
-						</VBox>
-					
-						
+															
 						<!-- Pumps of the area -->
 						<VBox spacing="15" VBox.vgrow="ALWAYS">
 							<VBox spacing="3">
+								<Label text="AREA OPTIONS" id="titleLabel"></Label>
+							
 								<Label text="Pumps" id="secondaryTitleLabel"></Label>
 								
 								<ComboBox fx:id="cmbPump1" editable="false" maxWidth="$infinite"></ComboBox>
