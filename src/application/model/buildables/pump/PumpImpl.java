@@ -5,7 +5,6 @@ import application.model.services.Fuel;
 
 public class PumpImpl extends BuildableImpl implements Pump{
 	
-    //serve un limite massimo anche per speed
     private String name;
     private Fuel type;
     private int speed; 
