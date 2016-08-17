@@ -1,7 +1,7 @@
 package application.model;
 
-import application.model.buildables.area.AreaManager;
-import application.model.buildables.area.AreaManagerImpl;
+import application.model.area.AreaManager;
+import application.model.area.AreaManagerImpl;
 import application.model.buildables.pump.PumpManager;
 import application.model.buildables.pump.PumpManagerImpl;
 import application.model.buildables.reserve.ReserveManager;
