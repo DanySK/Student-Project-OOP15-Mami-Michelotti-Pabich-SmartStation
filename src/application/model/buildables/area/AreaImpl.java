@@ -6,12 +6,29 @@ import java.util.Optional;
 import application.model.buildables.pump.Pump;
 import application.model.consumers.Vehicle;
 
+/**
+ * Implements the Area interface and contains the logic of every area.
+ * @author Alessandro Mami
+ */
 public class AreaImpl implements Area{
     
+    /**
+     * Space for the vehicle inside the area.
+     */
     private final Optional<Vehicle> vehicles;
+    /**
+     * List of pumps inside the area.
+     */
     private final List<Pump> pumps;
+    /**
+     * Declaring coordinate types.
+     */
     private int x, y;
-	
+    
+    /**
+     * Constructor for the AreaImpl that builds avery area.
+     * @param Coordinates of the area.
+     */
     public AreaImpl(final int x, final int y) {
         this.vehicles = Optional.ofNullable(null);
         this.pumps = new ArrayList<Pump>();
@@ -19,6 +36,7 @@ public class AreaImpl implements Area{
         this.y = y;
     }
 
+    //PARAMETERS GETTERS
     @Override
     public Vehicle getVehicle() {
         return this.vehicles.orElse(null);   	
@@ -44,12 +62,14 @@ public class AreaImpl implements Area{
         return this.y;
     }
     
+    //PARAMETERS SETTERS
     @Override
     public void setPosition(final int x, final int y) {
 	this.x = x;
 	this.y = y;
     }
-
+    
+    //PUMP BUILDERS
     @Override
     public void addPump(final Pump pump) {
         this.pumps.add(pump);       
@@ -65,6 +85,7 @@ public class AreaImpl implements Area{
         this.pumps.remove(pump);    
     }
     
+    //VEHICLE CONTROLS
     @Override
     public boolean isOccupied() {
 	return vehicles.isPresent();
