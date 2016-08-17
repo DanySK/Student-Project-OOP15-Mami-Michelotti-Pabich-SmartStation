@@ -6,7 +6,7 @@ import application.model.buildables.Buildable;
 import application.model.buildables.pump.Pump;
 import application.model.consumers.Vehicle;
 
-public interface Area extends Buildable{	
+public interface Area{	
 	
     Vehicle getVehicle();
 	

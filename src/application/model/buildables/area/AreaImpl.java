@@ -3,18 +3,16 @@ package application.model.buildables.area;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import application.model.buildables.BuildableImpl;
 import application.model.buildables.pump.Pump;
 import application.model.consumers.Vehicle;
 
-public class AreaImpl extends BuildableImpl implements Area{
+public class AreaImpl implements Area{
     
     private final Optional<Vehicle> vehicles;
     private final List<Pump> pumps;
     private int x, y;
 	
-    public AreaImpl(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final int x, final int y) {
-	super(maxDurability, actualDurability, cost, repairCost);
+    public AreaImpl(final int x, final int y) {
         this.vehicles = Optional.ofNullable(null);
         this.pumps = new ArrayList<Pump>();
         this.x = x;

@@ -1,6 +1,6 @@
 package application.model;
 
-import application.model.area.AreaManager;
+import application.model.buildables.area.AreaManager;
 import application.model.buildables.pump.PumpManager;
 import application.model.buildables.reserve.ReserveManager;
 import application.model.moneyManager.MoneyManager;
