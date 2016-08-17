@@ -112,6 +112,8 @@ public interface PumpsEditor {
     
     //...for repairing a pump
     
+    String getRepairSelectedPump();
+    
     /**
      * Get the repair value of the slider.
      * @return Double from 0 to 100 that represents the value

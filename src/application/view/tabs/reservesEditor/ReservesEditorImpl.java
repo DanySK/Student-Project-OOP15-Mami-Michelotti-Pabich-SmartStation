@@ -267,6 +267,11 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     
 
     //REFILL EVENT HANDLERS
+    @Override
+    public String getRefillReserve() {
+        return this.cmbReserveRefill.getValue();
+    }
+    
     @FXML
     private void btnSelectRefill_click(final MouseEvent e) {
         this.controller.selectRefill();
@@ -279,6 +284,11 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     
     
     //REPAIR EVENT HANDLERS
+    @Override
+    public String getRepairReserve() {
+        return this.cmbReserveRepair.getValue();
+    }
+    
     @FXML
     private void btnSelectRepair_click(final MouseEvent e) {
         this.controller.selectRepair();
@@ -288,11 +298,12 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     private void btnRepair_click(final MouseEvent e) {
         this.controller.repair();
     }
+      
     
     
     //ADDING EVENT HANDLERS
     @FXML
     private void btnAddReserve_click(final MouseEvent e) {
         this.controller.addReserve();
-    }    
+    }
 }

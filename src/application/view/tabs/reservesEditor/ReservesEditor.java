@@ -125,6 +125,8 @@ public interface ReservesEditor {
     
     
     //Refill methods
+    String getRefillReserve();
+    
     /**
      * Get the refill value of the textfield.
      * @return String that represent the value
@@ -134,6 +136,8 @@ public interface ReservesEditor {
     
     
     //Repair methods
+    String getRepairReserve();
+    
     /**
      * Get the repair value of the slider.
      * @return Double from 0 to 100 that represents the value

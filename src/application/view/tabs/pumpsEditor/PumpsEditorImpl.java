@@ -268,11 +268,19 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
         return this.txfPrice.getText();
     }
 
+    
+    //Pump repair
+    @Override
+    public String getRepairSelectedPump() {
+        return this.cmbPumpRepair.getValue();
+    }
 
     @Override
     public String getRepairCost() {
         return this.txfRepairCost.getText();
     }
+
+
 
     
 }
