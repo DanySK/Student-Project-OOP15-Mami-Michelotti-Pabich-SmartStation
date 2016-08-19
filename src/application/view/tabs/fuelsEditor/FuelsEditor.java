@@ -4,13 +4,14 @@ import java.util.List;
 
 import application.controller.tabs.FuelsEditorCtrl;
 import application.model.services.Fuel;
+import application.view.resources.AlertManager;
 
 /**
  * Interface containing all the logic for the Fuels Editor tab.
  * @author Marcin Pabich
  *
  */
-public interface FuelsEditor {
+public interface FuelsEditor extends AlertManager  {
 
     //Controller
     /**

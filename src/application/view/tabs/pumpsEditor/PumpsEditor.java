@@ -5,13 +5,14 @@ import java.util.List;
 import application.controller.tabs.PumpsEditorCtrl;
 import application.model.buildables.pump.Pump;
 import application.model.services.Fuel;
+import application.view.resources.AlertManager;
 
 /**
  * Interface containing all the logic for the Pumps Editor tab.
  * @author Marcin Pabich
  *
  */
-public interface PumpsEditor {
+public interface PumpsEditor extends AlertManager {
 
     //The controller
     
@@ -111,7 +112,10 @@ public interface PumpsEditor {
     
     
     //...for repairing a pump
-    
+    /**
+     * Gets the selected pump to repair.
+     * @return String containing the value
+     */
     String getRepairSelectedPump();
     
     /**

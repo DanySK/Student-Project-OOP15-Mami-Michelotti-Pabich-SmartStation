@@ -5,13 +5,14 @@ import java.util.List;
 import application.controller.tabs.ReservesEditorCtrl;
 import application.model.buildables.reserve.Reserve;
 import application.model.services.Fuel;
+import application.view.resources.AlertManager;
 
 /**
  * Interface containing all the logic for the Reserves Editor tab.
  * @author Marcin Pabich
  *
  */
-public interface ReservesEditor {
+public interface ReservesEditor extends AlertManager  {
 
     /**
      * Set the controller for the class.
@@ -125,6 +126,10 @@ public interface ReservesEditor {
     
     
     //Refill methods
+    /**
+     * Gets the selected reserve to refiil.
+     * @return String containing the value
+     */
     String getRefillReserve();
     
     /**
@@ -136,6 +141,10 @@ public interface ReservesEditor {
     
     
     //Repair methods
+    /**
+     * Gets the selected reserve to repair.
+     * @return String containing the value
+     */
     String getRepairReserve();
     
     /**

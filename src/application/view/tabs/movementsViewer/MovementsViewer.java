@@ -3,13 +3,14 @@ package application.view.tabs.movementsViewer;
 import java.util.List;
 
 import application.controller.tabs.MovementsViewerCtrl;
+import application.view.resources.AlertManager;
 
 /**
  * Interface containing all the logic for the Movements Viewer tab.
  * @author Marcin Pabich
  *
  */
-public interface MovementsViewer {
+public interface MovementsViewer extends AlertManager  {
 
     /**
      * Set the controller for the view.
@@ -47,5 +48,25 @@ public interface MovementsViewer {
      * Clear the entire list.
      */
     void clearList();
+    
+    
+    
+    /**
+     * Get the description from the textbox.
+     * @return String that represent that value
+     */
+    String getDescription();
+    
+    /**
+     * Get the money earned/lost from the textbox.
+     * @return String that represent that value
+     */
+    String getMoney();
+    
+    /**
+     * Set the current balance to show.
+     * @param value String that represent current balance
+     */
+    void setCurrentBalance(String value);
 
 }

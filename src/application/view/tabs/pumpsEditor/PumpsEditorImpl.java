@@ -69,13 +69,151 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
               
     }
     
+    
 
+    //Controller
     @Override
     public void setController(final PumpsEditorCtrl ctrl) {
         this.controller = ctrl;
     }
     
-    //MODIFYING EVENT HANDLERS
+
+    
+    //Loading
+    @Override
+    public void loadPumps(final List<Pump> pumps) {
+        this.cmbPumpsEdit.getItems().clear();
+        this.cmbPumpRepair.getItems().clear();
+        
+        pumps.forEach(p -> {
+            this.cmbPumpsEdit.getItems().add(p.getName());
+            this.cmbPumpRepair.getItems().add(p.getName());
+        });
+    }
+
+    @Override
+    public void loadFuels(final List<Fuel> fuels) {
+        this.cmbEditFuelType.getItems().clear();
+        this.cmbFuelType.getItems().clear();
+        
+       fuels.forEach(f -> {
+           this.cmbEditFuelType.getItems().add(f.getName());
+           this.cmbFuelType.getItems().add(f.getName());
+       });
+    }
+
+    
+    
+    //Modifying
+    @Override
+    public String getModifySelectedPump() {
+        return this.cmbPumpsEdit.getValue();
+    }
+
+    @Override
+    public String getModifyFuelType() {
+        return this.cmbEditFuelType.getValue();
+    }
+
+    @Override
+    public void setModifyFuelType(final String fuelType) {
+        this.cmbEditFuelType.setValue(fuelType);
+    }
+
+    @Override
+    public String getModifySpeed() {
+        return this.txfEditSpeed.getText();
+    }
+
+    @Override
+    public void setModifySpeed(final String speed) {
+        this.txfEditSpeed.setText(speed);
+    }
+
+    @Override
+    public String getModifyDurability() {
+        return this.txfEditDurability.getText();
+    }
+
+    @Override
+    public void setModifyDurability(final String durability) {
+        this.txfEditDurability.setText(durability);
+    }
+
+    @Override
+    public String getModifyPrice() {
+        return this.txfEditPrice.getText();
+    }
+
+    @Override
+    public void setModifyPrice(final String price) {
+        this.txfEditPrice.setText(price);
+    }
+
+    @Override
+    public String getModifyRepairCost() {
+        return this.txfEditRepairCost.getText();
+    }
+
+    @Override
+    public void setModifyRepairCost(final String repairPrice) {
+        this.txfEditRepairCost.setText(repairPrice);
+    }
+
+    
+    
+    //Repair   
+    @Override
+    public Double getRepairValue() {
+        return this.sldRepair.getValue();
+    }
+
+    @Override
+    public void setRepairValue(final String value) {
+        this.btnRepair.setText("Repair (" + value + "%)");
+    }
+
+    
+    
+    //Adding
+    @Override
+    public String getFuelType() {
+        return this.cmbFuelType.getValue();
+    }
+
+    @Override
+    public String getSpeed() {
+        return this.txfSpeed.getText();
+    }
+
+    @Override
+    public String getDurability() {
+        return this.txfDurability.getText();
+    }
+
+    @Override
+    public String getPrice() {
+        return this.txfPrice.getText();
+    }
+
+    
+    
+    //Pump repair
+    @Override
+    public String getRepairSelectedPump() {
+        return this.cmbPumpRepair.getValue();
+    }
+
+    @Override
+    public String getRepairCost() {
+        return this.txfRepairCost.getText();
+    }   
+    
+    
+    
+    //Event handlers
+    
+    //Modifying
     @FXML
     private void btnSelectEdit_click(final MouseEvent e) {
         this.controller.selectEdit();
@@ -105,10 +243,13 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     private void btnChangeRepairCost_click(final MouseEvent e) {
         this.controller.changeRepairCost();
     }
-   
     
+    @FXML
+    private void btnDelete_click(final MouseEvent e) {
+        //this.controller.deleteFuel();
+    } 
     
-    //REPAIR EVENT HANDLERS
+    //Repair
     @FXML
     private void btnSelectRepair_click(final MouseEvent e) {
         this.controller.selectRepair();
@@ -117,170 +258,11 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     @FXML
     private void btnRepair_click(final MouseEvent e) {
         this.controller.repair();
-    }
+    }   
     
-    
-    //ADDING EVENT HANDLERS
+    //Adding
     @FXML
     private void btnAddPump_click(final MouseEvent e) {
         this.controller.addPump();
     }
-
-
-    
-    //Implemented methods
-    
-    
-    
-    //LOADING
-    
-    @Override
-    public void loadPumps(final List<Pump> pumps) {
-        this.cmbPumpsEdit.getItems().clear();
-        this.cmbPumpRepair.getItems().clear();
-        
-        pumps.forEach(p -> {
-            this.cmbPumpsEdit.getItems().add(p.getName());
-            this.cmbPumpRepair.getItems().add(p.getName());
-        });
-    }
-
-
-    @Override
-    public void loadFuels(final List<Fuel> fuels) {
-        this.cmbEditFuelType.getItems().clear();
-        this.cmbFuelType.getItems().clear();
-        
-       fuels.forEach(f -> {
-           this.cmbEditFuelType.getItems().add(f.getName());
-           this.cmbFuelType.getItems().add(f.getName());
-       });
-    }
-
-    
-    
-    //MODIFYING
-
-    @Override
-    public String getModifySelectedPump() {
-        return this.cmbPumpsEdit.getValue();
-    }
-
-
-    @Override
-    public String getModifyFuelType() {
-        return this.cmbEditFuelType.getValue();
-    }
-
-
-    @Override
-    public void setModifyFuelType(final String fuelType) {
-        this.cmbEditFuelType.setValue(fuelType);
-    }
-
-
-    @Override
-    public String getModifySpeed() {
-        return this.txfEditSpeed.getText();
-    }
-
-
-    @Override
-    public void setModifySpeed(final String speed) {
-        this.txfEditSpeed.setText(speed);
-    }
-
-
-    @Override
-    public String getModifyDurability() {
-        return this.txfEditDurability.getText();
-    }
-
-
-    @Override
-    public void setModifyDurability(final String durability) {
-        this.txfEditDurability.setText(durability);
-    }
-
-
-    @Override
-    public String getModifyPrice() {
-        return this.txfEditPrice.getText();
-    }
-
-
-    @Override
-    public void setModifyPrice(final String price) {
-        this.txfEditPrice.setText(price);
-    }
-
-
-    @Override
-    public String getModifyRepairCost() {
-        return this.txfEditRepairCost.getText();
-    }
-
-
-    @Override
-    public void setModifyRepairCost(final String repairPrice) {
-        this.txfEditRepairCost.setText(repairPrice);
-    }
-
-
-    
-    //REPAIR
-    
-    @Override
-    public Double getRepairValue() {
-        return this.sldRepair.getValue();
-    }
-
-
-    @Override
-    public void setRepairValue(final String value) {
-        this.btnRepair.setText("Repair (" + value + "%)");
-    }
-
-
-    
-    //ADDING
-    
-    @Override
-    public String getFuelType() {
-        return this.cmbFuelType.getValue();
-    }
-
-
-    @Override
-    public String getSpeed() {
-        return this.txfSpeed.getText();
-    }
-
-
-    @Override
-    public String getDurability() {
-        return this.txfDurability.getText();
-    }
-
-
-    @Override
-    public String getPrice() {
-        return this.txfPrice.getText();
-    }
-
-    
-    //Pump repair
-    @Override
-    public String getRepairSelectedPump() {
-        return this.cmbPumpRepair.getValue();
-    }
-
-    @Override
-    public String getRepairCost() {
-        return this.txfRepairCost.getText();
-    }
-
-
-
-    
 }

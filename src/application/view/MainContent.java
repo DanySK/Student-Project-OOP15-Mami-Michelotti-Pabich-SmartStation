@@ -1,6 +1,7 @@
 package application.view;
 
 import application.controller.MainController;
+import application.view.resources.AlertManager;
 import application.view.tabs.fuelsEditor.FuelsEditor;
 import application.view.tabs.movementsViewer.MovementsViewer;
 import application.view.tabs.overview.Overview;
@@ -12,7 +13,7 @@ import application.view.tabs.stationEditor.StationEditor;
  * Interface with all methods needed for maincontent management.
  * @author Marcin Pabich
  */
-public interface MainContent {
+public interface MainContent extends AlertManager {
 
     /**
      * Set the controller of the MainContent and of the all sub-views.

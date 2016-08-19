@@ -29,7 +29,7 @@
 	
 	<!-- Left panel contains modifying panel -->
 	<left>
-		<VBox id="controlsContainerLeft" spacing="30" minWidth="$panelWidth" maxWidth="$panelWidth">
+		<VBox id="controlsContainerLeft" spacing="15" minWidth="$panelWidth" maxWidth="$panelWidth">
 			<padding>
 				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
 			</padding>
@@ -78,7 +78,10 @@
 						<TextField  fx:id="txfEditColor" maxWidth="$infinite"></TextField>
 					
 						<Button text="Change color" onMouseClicked="#btnChangeColor_click"></Button>
-					</VBox>					
+					</VBox>	
+					
+					<!-- Delete fuel -->
+					<Button text="Delete this fuel" onMouseClicked="#btnDelete_click"></Button>				
 				</VBox>														
 			</VBox>
 		</VBox>

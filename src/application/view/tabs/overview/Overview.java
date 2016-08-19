@@ -4,12 +4,13 @@ import java.util.List;
 
 import application.controller.tabs.OverviewCtrl;
 import application.model.buildables.area.Area;
+import application.view.resources.AlertManager;
 
 /**
  * Interface that contains all methods to correct use of the overview tab.
  * @author Marcin Pabich
  */
-public interface Overview {
+public interface Overview extends AlertManager {
 
     /**
      * Set the controller for the overview TAB.

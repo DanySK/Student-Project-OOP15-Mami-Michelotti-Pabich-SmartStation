@@ -34,7 +34,7 @@ public class Main extends Application {
         controller.loadConfiguration();
                     
         //Creating the style for the custom window
-        final MinimalWindow minimalWindow = new MinimalWindowImpl(primaryStage, 840, 670);
+        final MinimalWindow minimalWindow = new MinimalWindowImpl(primaryStage, 840, 700);
         minimalWindow.setContent(view);
         minimalWindow.setTitle("Smart Station");
         minimalWindow.setFooter("JavaFX Project  |  Smart Station  |  M: Mami  |  V: Pabich  |  C: Michelotti");

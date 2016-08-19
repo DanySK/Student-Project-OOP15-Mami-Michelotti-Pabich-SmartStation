@@ -8,7 +8,9 @@ import application.controller.tabs.MovementsViewerCtrl;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -25,6 +27,14 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
     
     @FXML
     private ListView<String> lsvElements;
+    
+    @FXML
+    private Label lblBalance;
+    
+    @FXML
+    private TextField txfDescription, txfMoney;
+    
+    
     
     /**
      * Constructor for the StationEditor that loads the content.
@@ -51,6 +61,7 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
     }
     
       
+    
     //Loading filters
     @Override
     public void loadFilters(final List<String> filters) {
@@ -59,6 +70,7 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
     }
 
     
+    
     //Get selected filter 
     @Override
     public String getFilter() {
@@ -66,7 +78,8 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
     }
 
     
-    //Add a single element
+    
+    //Opetaitions on list
     @Override
     public void addElementToList(final String element) {
         this.lsvElements.getItems().add(element);
@@ -86,11 +99,38 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
         this.lsvElements.getItems().clear();
     }
 
-
     
-    @FXML
-    private void btnApplyFilter_click(final MouseEvent e) {
-        //this.controller.btnApplyFilter_click(e);
+    
+    //Getters for adding movements
+    @Override
+    public String getDescription() {
+        return this.txfDescription.getText();
+    }
+
+    @Override
+    public String getMoney() {
+        return this.txfMoney.getText();
     }
     
+    
+    
+    //Current balance
+    @Override
+    public void setCurrentBalance(final String value) {
+        this.lblBalance.setText(value + "€");
+    }
+    
+    
+    
+    
+    //Event handlers  
+    @FXML
+    private void btnApplyFilter_click(final MouseEvent e) {
+        //this.controller.applyFilter();
+    }
+    
+    @FXML
+    private void btnAddMovement_click(final MouseEvent e) {
+        //this.controller.addMovement();
+    }  
 }

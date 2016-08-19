@@ -33,7 +33,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     private Button btnChangeView;
     
     @FXML
-    private VBox vbxModifyArea, vbxAddArea, vbxAreaDetails;
+    private VBox vbxModifyArea, vbxAddArea, vbxAreaDetails, vbxModifySelection;
     
     
     //Controls for adding an area
@@ -71,12 +71,10 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
         //Load the FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StationEditor.fxml"));
         fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-     
+        fxmlLoader.setController(this);          
         try {
             fxmlLoader.load();
         } catch (Exception exception) {
-            
             ExitStatus.showErrorDialog("FXML Loading Exception", "StationEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
             Main.close(ExitStatus.FXMLLoadingExcp);       
         }      
@@ -180,6 +178,15 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
         this.vbxAddArea.setVisible(false);
     }
     
+    @Override
+    public void enableSelectArea() {
+        this.vbxModifySelection.setDisable(false);
+    }
+
+    @Override
+    public void disableSelectArea() {
+        this.vbxModifySelection.setDisable(true);
+    }
     
     @Override
     public boolean isAddingPanelVisible() {
@@ -194,6 +201,11 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     @Override
     public boolean isDetailsPanelVisible() {
         return this.vbxAreaDetails.isVisible();
+    }
+    
+    @Override
+    public boolean isSelectAreaEnabled() {
+        return !this.vbxModifySelection.isDisabled();
     }
     
     
@@ -339,33 +351,17 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     private void btnRemoveArea_click(final MouseEvent e) {
         this.controller.removeArea();
     }
-    
-    
+     
     //Adding
     @FXML
     private void btnInsertArea_click(final MouseEvent e) {
         this.controller.insertArea();
     }
-    
-    
+     
     //Switching between panels
     @FXML
     private void btnSwtich_click(final MouseEvent e) {
         this.controller.switchPanel();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 }

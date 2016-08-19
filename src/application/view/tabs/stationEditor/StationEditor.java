@@ -5,13 +5,14 @@ import java.util.List;
 import application.controller.tabs.StationEditorCtrl;
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
+import application.view.resources.AlertManager;
 
 /**
  * Interface containing all the logic for the Station Editor tab.
  * @author Marcin Pabich
  *
  */
-public interface StationEditor {
+public interface StationEditor extends AlertManager {
 
     
     //Controller
@@ -77,6 +78,16 @@ public interface StationEditor {
     void hideAddingPanel();
     
     /**
+     * Enable the selection of the area.
+     */
+    void enableSelectArea();
+    
+    /**
+     * Disable the selection of the area.
+     */
+    void disableSelectArea();
+    
+    /**
      * Change the text of the "change view" button.
      * @param s Text to view in the button
      */
@@ -99,6 +110,12 @@ public interface StationEditor {
      * @return TRUE if it's visible, FALSE otherwise
      */
     boolean isDetailsPanelVisible();
+    
+    /**
+     * Tell if the area selection panel is enabled.
+     * @return TRUE if it's enabled, FALSE otherwise
+     */
+    boolean isSelectAreaEnabled();
     
     
    

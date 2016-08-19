@@ -59,72 +59,45 @@ public class FuelsEditorImpl extends BorderPane implements FuelsEditor {
         }
               
     }
-    
-    
-    //EVENT HANDLERS      
-    @FXML
-    private void btnSelect_click(final MouseEvent e) {
-        this.controller.select();
-    }
-    
-    @FXML
-    private void btnAddFuel_click(final MouseEvent e) {
-        this.controller.addFuel();
-    }
-    
-    @FXML
-    private void btnChangeName_click(final MouseEvent e) {
-        this.controller.changeName();
-    }
-    
-    @FXML
-    private void btnChangePrice_click(final MouseEvent e) {
-        this.controller.changePrice();
-    }
-    
-    @FXML
-    private void btnChangeWPrice_click(final MouseEvent e) {
-        this.controller.changeWPrice();
-    }
-    
-    @FXML
-    private void btnChangeColor_click(final MouseEvent e) {
-        this.controller.changeColor();
-    }
 
+    
 
-
-    //CONTROLLER SETTER
+    //Controller setter
     @Override
     public void setController(final FuelsEditorCtrl ctrl) {
         this.controller = ctrl;
     }
     
     
-    //NEW FUEL PROPERTIES
-    @Override
-    public String getFuelName() {
-        return this.txfFuelName.getText();
-    }
-
-    @Override
-    public String getFuelPrice() {
-        return this.txfFuelPrice.getText();
-    }
-
-    @Override
-    public String getFuelWhoesalePrice() {
-        return this.txfFuelWPrice.getText();
-    }
-
-    @Override
-    public String getFuelColor() {
-        return this.txfFuelColor.getText();
-    }
-
-
     
-    //MODIFYING FUEL PROPERTIES
+    //Loading
+    @Override
+    public void loadFuels(final List<Fuel> fuels) {
+        this.cmbFuels.getItems().clear();       
+        fuels.forEach(f -> this.cmbFuels.getItems().add(f.getName()));      
+    }
+    
+    
+    
+    //Show/hide panel
+    @Override
+    public void showEditingPanel() {
+        this.vbxModifyingPanel.setVisible(true);
+    }
+
+    @Override
+    public void hideEditingPanel() {
+        this.vbxModifyingPanel.setVisible(false);
+    }
+
+    @Override
+    public boolean isEditingPanelVisible() {
+        return this.vbxModifyingPanel.isVisible();
+    }
+    
+    
+    
+    //Modifying
     @Override
     public String getSelectedFuel() {
         return this.cmbFuels.getValue();
@@ -177,36 +150,66 @@ public class FuelsEditorImpl extends BorderPane implements FuelsEditor {
     
     
     
-    //Show/hide panel
+    //Adding fuel
     @Override
-    public void showEditingPanel() {
-        this.vbxModifyingPanel.setVisible(true);
+    public String getFuelName() {
+        return this.txfFuelName.getText();
     }
 
-
     @Override
-    public void hideEditingPanel() {
-        this.vbxModifyingPanel.setVisible(false);
+    public String getFuelPrice() {
+        return this.txfFuelPrice.getText();
     }
 
-
     @Override
-    public boolean isEditingPanelVisible() {
-        return this.vbxModifyingPanel.isVisible();
-    }
-    
-    
-    //LOADING METHODS
-
-    @Override
-    public void loadFuels(final List<Fuel> fuels) {
-        this.cmbFuels.getItems().clear();       
-        fuels.forEach(f -> this.cmbFuels.getItems().add(f.getName()));      
+    public String getFuelWhoesalePrice() {
+        return this.txfFuelWPrice.getText();
     }
 
-
+    @Override
+    public String getFuelColor() {
+        return this.txfFuelColor.getText();
+    }
 
     
     
+    //Event handlers
+    
+    //Modifying
+    @FXML
+    private void btnSelect_click(final MouseEvent e) {
+        this.controller.select();
+    }
+    
+    @FXML
+    private void btnChangeName_click(final MouseEvent e) {
+        this.controller.changeName();
+    }
+    
+    @FXML
+    private void btnChangePrice_click(final MouseEvent e) {
+        this.controller.changePrice();
+    }
+    
+    @FXML
+    private void btnChangeWPrice_click(final MouseEvent e) {
+        this.controller.changeWPrice();
+    }
+    
+    @FXML
+    private void btnChangeColor_click(final MouseEvent e) {
+        this.controller.changeColor();
+    }
+    
+    @FXML
+    private void btnDelete_click(final MouseEvent e) {
+        //this.controller.deleteFuel();
+    }
+    
+    //Adding
+    @FXML
+    private void btnAddFuel_click(final MouseEvent e) {
+        this.controller.addFuel();
+    }
     
 }

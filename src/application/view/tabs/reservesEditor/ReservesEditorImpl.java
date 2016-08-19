@@ -235,7 +235,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     
     //Event handlers
     
-    //MODIFYING EVENT HANDLERS
+    //Modifying
     @FXML
     private void btnSelectEdit_click(final MouseEvent e) {
         this.controller.selectEdit();
@@ -265,8 +265,12 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
         this.controller.changeDurability();
     }
     
-
-    //REFILL EVENT HANDLERS
+    @FXML
+    private void btnDelete_click(final MouseEvent e) {
+        //this.controller.deleteFuel();
+    }
+     
+    //Refill
     @Override
     public String getRefillReserve() {
         return this.cmbReserveRefill.getValue();
@@ -281,9 +285,8 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     private void btnRefill_click(final MouseEvent e) {
         this.controller.refill();
     }
-    
-    
-    //REPAIR EVENT HANDLERS
+     
+    //Repair
     @Override
     public String getRepairReserve() {
         return this.cmbReserveRepair.getValue();
@@ -298,10 +301,8 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     private void btnRepair_click(final MouseEvent e) {
         this.controller.repair();
     }
-      
-    
-    
-    //ADDING EVENT HANDLERS
+        
+    //Adding
     @FXML
     private void btnAddReserve_click(final MouseEvent e) {
         this.controller.addReserve();

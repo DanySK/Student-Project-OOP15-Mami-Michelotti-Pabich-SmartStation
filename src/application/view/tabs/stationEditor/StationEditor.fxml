@@ -47,7 +47,7 @@
 					</padding>
 					
 					<!-- Selection of the area -->
-					<VBox spacing="$smallSpacing">
+					<VBox fx:id="vbxModifySelection" spacing="$smallSpacing">
 						<Label text="AREA SELECTION" id="titleLabel"></Label>
 						
 						<VBox spacing="$mediumSpacing" alignment="BASELINE_LEFT">
@@ -181,7 +181,7 @@
 				</VBox>		
 			</GridPane>
 			
-			<Button fx:id="btnChangeView" text="Switch to modify panel" alignment="BOTTOM_CENTER" maxWidth="$infinite" onMouseClicked="#btnSwtich_click"></Button>
+			<Button fx:id="btnChangeView" text="Switch to adding panel" alignment="BOTTOM_CENTER" maxWidth="$infinite" onMouseClicked="#btnSwtich_click"></Button>
 		</VBox>
 	</left>
 	
