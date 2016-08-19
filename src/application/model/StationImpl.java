@@ -11,7 +11,6 @@ import application.model.moneyManager.MoneyManagerImpl;
 import application.model.services.FuelManager;
 import application.model.services.FuelManagerImpl;
 
-
 public class StationImpl implements Station{	
     
     private final AreaManager areaManager;

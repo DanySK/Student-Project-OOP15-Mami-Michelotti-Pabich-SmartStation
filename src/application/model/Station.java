@@ -6,7 +6,6 @@ import application.model.buildables.reserve.ReserveManager;
 import application.model.moneyManager.MoneyManager;
 import application.model.services.FuelManager;
 
-
 public interface Station {	
       
     String getStationName();
