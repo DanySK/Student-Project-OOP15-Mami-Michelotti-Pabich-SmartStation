@@ -10,5 +10,5 @@ public interface MoneyManager {
     	
     int getActualBalance();
     	
-    void addMovement(final Movement movement);
+    void addMovement(final MovementType type , final int money, final String description);
 }

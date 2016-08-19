@@ -49,6 +49,11 @@ public abstract class BuildableImpl implements Buildable{
     }
     
     @Override
+    public void consume() {          
+        this.actualDurability--;            
+    }
+    
+    @Override
     public void repair(final int percentage) {		
     	this.actualDurability += percentage;		
     }

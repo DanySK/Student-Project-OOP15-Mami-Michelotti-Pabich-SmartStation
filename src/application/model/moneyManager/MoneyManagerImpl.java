@@ -3,6 +3,8 @@ package application.model.moneyManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.model.buildables.area.AreaImpl;
+
 public class MoneyManagerImpl implements MoneyManager{
 	
     private final List<Movement> movements;
@@ -31,7 +33,7 @@ public class MoneyManagerImpl implements MoneyManager{
     }
     
     @Override
-    public void addMovement(final Movement movement) {
-    	this.movements.add(movement);	
+    public void addMovement(final MovementType type , final int money, final String description) {
+    	this.movements.add(new MovementImpl(type , money, description));	
     }
 }

@@ -29,11 +29,11 @@ public class AreaImpl implements Area{
      * Constructor for the AreaImpl that builds avery area.
      * @param Coordinates of the area.
      */
-    public AreaImpl(final int x, final int y) {
+    public AreaImpl(final int x, final int y, final List<Pump> pumps) {
         this.vehicles = Optional.ofNullable(null);
-        this.pumps = new ArrayList<Pump>();
+        this.pumps = pumps;
         this.x = x;
-        this.y = y;
+        this.y = y;       
     }
 
     //PARAMETERS GETTERS
@@ -76,13 +76,14 @@ public class AreaImpl implements Area{
     }
 
     @Override
-    public void addAllPumps(final List<Pump> pumps) {
+    public void addPumps(final List<Pump> pumps) {
+        pumps.clear();
         this.pumps.addAll(pumps);   
     }
 
     @Override
     public void removePump(final Pump pump) {
-        this.pumps.remove(pump);    
+        this.pumps.remove(pump);
     }
     
     //VEHICLE CONTROLS

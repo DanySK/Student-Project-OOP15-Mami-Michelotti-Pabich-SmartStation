@@ -2,6 +2,8 @@ package application.model.buildables.area;
 
 import java.util.List;
 
+import application.model.buildables.pump.Pump;
+
 /**
  * Interface containing all the logic to build and modify an area inside the station.
  * @author Alessandro Mami
@@ -27,13 +29,7 @@ public interface AreaManager{
      * Adds an area to the station.
      * @param Object of area's type.
      */
-    void addArea(final Area area);
-    
-    /**
-     * Removes an area from the station.
-     * @param Object of area's type.
-     */
-    void removeArea(final Area area);
+    void addArea(int x, int y, List<Pump> pumps);
     
     /**
      * Removes an area from the station.

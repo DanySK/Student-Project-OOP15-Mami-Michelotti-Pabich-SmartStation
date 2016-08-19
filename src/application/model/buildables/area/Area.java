@@ -60,7 +60,7 @@ public interface Area{
      * Builds a list of pumps inside an area.
      * @param List of pumps objects.
      */
-    void addAllPumps(final List<Pump> pumps);
+    void addPumps(final List<Pump> pumps);
     
     /**
      * Removes a specific pump from the area.

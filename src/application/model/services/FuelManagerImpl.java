@@ -3,7 +3,9 @@ package application.model.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.model.buildables.pump.Pump;
 import application.model.buildables.reserve.Reserve;
+import javafx.scene.paint.Color;
 
 public class FuelManagerImpl implements FuelManager{
 	
@@ -29,13 +31,17 @@ public class FuelManagerImpl implements FuelManager{
     }
     
     @Override
-    public void addFuel(final Fuel name) {
-    	fuels.add(name);	
+    public void addFuel(final String name, final int price, final int wholeSalePrice, final Color color){
+    	this.fuels.add(new FuelImpl(name, price, wholeSalePrice, color));	
     }
     
     @Override
-    public void removeFuel(final Fuel name) {
-    	fuels.remove(name);	
+    public void removeFuel(final String name) {
+        for(Fuel f : this.fuels){
+            if(f.getName() == name){
+                fuels.remove(f);
+            }
+        }	
     }
     
     @Override

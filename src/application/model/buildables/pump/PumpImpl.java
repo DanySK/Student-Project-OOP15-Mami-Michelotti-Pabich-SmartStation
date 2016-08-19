@@ -4,7 +4,7 @@ import application.model.buildables.BuildableImpl;
 import application.model.services.Fuel;
 
 public class PumpImpl extends BuildableImpl implements Pump{
-	
+    
     private String name;
     private Fuel type;
     private int speed; 
@@ -13,7 +13,7 @@ public class PumpImpl extends BuildableImpl implements Pump{
 	super(maxDurability, actualDurability, cost, repairCost);
 	this.name = name;
         this.type = type;
-        this.speed = speed ;
+        this.speed = speed;
     }
 
     @Override

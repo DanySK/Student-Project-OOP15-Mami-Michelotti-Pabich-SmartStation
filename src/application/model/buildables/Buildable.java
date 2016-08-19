@@ -15,6 +15,8 @@ public interface Buildable {
     int getRepairCost();
 	
     void setRepairCost(final int repairCost);
-	
+    
+    void consume();
+    
     void repair(final int percentage);
 }

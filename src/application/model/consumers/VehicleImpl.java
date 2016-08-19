@@ -4,14 +4,14 @@ import application.model.services.Fuel;
 
 public class VehicleImpl implements Vehicle {
 	
-    private Fuel type;         
+    private Fuel type;
     private int request;
     private int received;
     
     public VehicleImpl(final Fuel type, final int request) {
         this.type = type;
         this.request = request;
-        this.received = 0;
+        this.received = 0;              
     }
 
     @Override
@@ -25,7 +25,7 @@ public class VehicleImpl implements Vehicle {
     }
     
     @Override
-    public int getRequest() { 
+    public int getRequest() {  
     	return this.request;
     }
     

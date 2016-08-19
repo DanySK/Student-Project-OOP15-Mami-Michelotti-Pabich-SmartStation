@@ -3,6 +3,9 @@ package application.model.buildables.area;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.model.buildables.pump.Pump;
+import application.model.services.FuelImpl;
+
 /**
  * Implements the AreaManager interface.
  * @author Alessandro Mami
@@ -39,16 +42,11 @@ public class AreaManagerImpl implements AreaManager {
     }
 	
     @Override
-    public void addArea(final Area area) {
-	this.areas.add(area);	
+    public void addArea(int x, int y, List<Pump> pumps) {
+        this.areas.add(new AreaImpl(x, y, pumps));	
     }
     
     //AREA REMOVERS
-    @Override
-    public void removeArea(final Area area) {
-	this.areas.remove(area);	
-    }
-
     @Override
     public void removeArea(final int x, final int y) {
 	for(Area a : this.areas){
