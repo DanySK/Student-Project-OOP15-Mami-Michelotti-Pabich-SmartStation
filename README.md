@@ -9,7 +9,7 @@ This is the project for "Programmazione ad Oggetti" course of "Università di Bo
 
 ### How do I get set up? ###
 
-Currently the setup of this project is not avaiable... We're still uploading new files and project files change every day.
+Just download the source and import the project into Eclipse. If you have Java 8 and libraries to support JavaFX it will works.
 
 ### Contribution ###
 
