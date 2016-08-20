@@ -28,6 +28,7 @@ public class AreaImpl implements Area{
     /**
      * Constructor for the AreaImpl that builds avery area.
      * @param Coordinates of the area.
+     * @param List of pumps of an area.
      */
     public AreaImpl(final int x, final int y, final List<Pump> pumps) {
         this.vehicles = Optional.ofNullable(null);
@@ -62,7 +63,7 @@ public class AreaImpl implements Area{
         return this.y;
     }
     
-    //PARAMETERS SETTERS
+    //PARAMETERS SETTER
     @Override
     public void setPosition(final int x, final int y) {
 	this.x = x;
@@ -86,7 +87,7 @@ public class AreaImpl implements Area{
         this.pumps.remove(pump);
     }
     
-    //VEHICLE CONTROLS
+    //VEHICLE CONTROL
     @Override
     public boolean isOccupied() {
 	return vehicles.isPresent();

@@ -9,12 +9,12 @@ import application.model.services.FuelImpl;
 /**
  * Implements the AreaManager interface.
  * @author Alessandro Mami
- * 
+ *
  */
 public class AreaManagerImpl implements AreaManager {
     
     /**
-     * List of pumps inside the station.
+     * List of areas inside the station.
      */
     private final List<Area> areas;
     
@@ -41,12 +41,12 @@ public class AreaManagerImpl implements AreaManager {
         return new ArrayList<>(this.areas);
     }
 	
+    //AREA ADDERS AND REMOVERS
     @Override
     public void addArea(int x, int y, List<Pump> pumps) {
         this.areas.add(new AreaImpl(x, y, pumps));	
     }
     
-    //AREA REMOVERS
     @Override
     public void removeArea(final int x, final int y) {
 	for(Area a : this.areas){

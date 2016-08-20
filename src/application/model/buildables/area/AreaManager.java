@@ -12,10 +12,10 @@ import application.model.buildables.pump.Pump;
 public interface AreaManager{
     
     /**
-     * Gets the area of a specific position.
+     * Gets the area of coordinates x and y.
      * @param Integer coordinate of position x.
      * @param Integer coordinate of position y.
-     * @return Area of coordinates x and y.
+     * @return Object of area's type.
      */
     Area getArea(final int x, final int y);
     
