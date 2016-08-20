@@ -130,6 +130,13 @@ public interface PumpsEditor extends AlertManager {
      */
     void setRepairValue(String value);
     
+    /**
+     * Set the text that shows the current and max values.
+     * @param actual Actual value
+     * @param max Max value
+     */
+    void setRepairQuantities(final String current, final String max);
+    
     
     
     //...for creating a new pump

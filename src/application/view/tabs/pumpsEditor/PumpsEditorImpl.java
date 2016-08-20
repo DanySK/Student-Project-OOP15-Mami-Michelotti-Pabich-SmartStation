@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -42,6 +43,10 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     
     @FXML
     private Button btnRepair;
+    
+    @FXML
+    private Label lblRepair;
+    
     
     
     //for adding
@@ -172,7 +177,11 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     public void setRepairValue(final String value) {
         this.btnRepair.setText("Repair (" + value + "%)");
     }
-
+    
+    @Override
+    public void setRepairQuantities(String current, String max) {
+        this.lblRepair.setText(current + "/" + max);
+    }
     
     
     //Adding

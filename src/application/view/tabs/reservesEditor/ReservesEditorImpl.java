@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -53,6 +54,10 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     //Modifying section
     @FXML
     private VBox vbxModifyingPanel;
+    
+    //Labels
+    @FXML
+    private Label lblRepair, lblRefill;
 	
     
     /**
@@ -285,6 +290,12 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     private void btnRefill_click(final MouseEvent e) {
         this.controller.refill();
     }
+    
+    @Override
+    public void setRefillQuantities(String current, String max) {
+        this.lblRefill.setText(current + "/" + max);
+    }
+
      
     //Repair
     @Override
@@ -300,6 +311,11 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     @FXML
     private void btnRepair_click(final MouseEvent e) {
         this.controller.repair();
+    }
+    
+    @Override
+    public void setRepairQuantities(String current, String max) {
+        this.lblRepair.setText(current + "/" + max);
     }
         
     //Adding

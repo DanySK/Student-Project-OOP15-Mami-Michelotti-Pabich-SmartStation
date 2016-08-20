@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
 
 
 <fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@ReservesEditorStyle.css">
@@ -111,8 +112,11 @@
 				</VBox>
 				
 				<!-- Refill quantity -->
-				<VBox fx:id="vbxRefill" spacing="$smallSpacing" alignment="TOP_CENTER">
-					<Label text="Refill quantity"></Label>			
+				<VBox fx:id="vbxRefill" spacing="$smallSpacing" alignment="TOP_CENTER">	
+					<HBox>				
+						<Label text="Refill "></Label>
+						<Label fx:id="lblRefill"></Label>		
+					</HBox>	
 					<TextField fx:id="txfRefill" maxWidth="$infinite"></TextField>				
 					<Button text="Refill" onMouseClicked="#btnRefill_click" maxWidth="$infinite"></Button>
 				</VBox>	
@@ -136,7 +140,10 @@
 				
 				<!-- Repair quantity -->
 				<VBox fx:id="vbxRepair" spacing="$smallSpacing" alignment="TOP_CENTER">
-					<Label text="Repair quantity"></Label>							
+					<HBox>
+						<Label text="Repair "></Label>
+						<Label fx:id="lblRepair"></Label>	
+					</HBox>						
 					<Slider fx:id="sldRepair" min="0" max="100" majorTickUnit="10" maxWidth="$infinite" showTickLabels="true" showTickMarks="true" valueChanging="true"></Slider>				
 					<Button fx:id="btnRepair" text="Repair" onMouseClicked="#btnRepair_click" maxWidth="$infinite"></Button>
 				</VBox>

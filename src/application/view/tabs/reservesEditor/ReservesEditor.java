@@ -138,6 +138,13 @@ public interface ReservesEditor extends AlertManager  {
      */
     String getRefill();
     
+    /**
+     * Set the text that shows the current and max values.
+     * @param actual Actual value
+     * @param max Max value
+     */
+    void setRefillQuantities(final String current, final String max);
+    
     
     
     //Repair methods
@@ -158,6 +165,13 @@ public interface ReservesEditor extends AlertManager  {
      * @param value String that represent the value of the slider.
      */
     void setRepairValue(String value);
+    
+    /**
+     * Set the text that shows the current and max values.
+     * @param actual Actual value
+     * @param max Max value
+     */
+    void setRepairQuantities(final String current, final String max);
     
     
     
