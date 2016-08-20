@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import java.util.List;
-
 import application.model.buildables.reserve.Reserve;
 import application.model.services.Fuel;
 import application.view.tabs.reservesEditor.ReservesEditor;

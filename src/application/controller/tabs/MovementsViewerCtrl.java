@@ -12,6 +12,25 @@ public interface MovementsViewerCtrl {
      * Set the view of the controller.
      * @param movementsViewer the view for the class
      */
-    void setView (final MovementsViewer movementsViewer);
+    void setView(final MovementsViewer movementsViewer);
     
+    /**
+     * Load the configuration of movements viewer tab.
+     */
+    void loadData();
+    
+    /**
+     * Load the current balance.
+     */
+    void loadBalance();
+    
+    /**
+     * Apply the filter selected.
+     */
+    void applyFilter();
+    
+    /**
+     * Adding a movement.
+     */
+    void addMovement();
 }

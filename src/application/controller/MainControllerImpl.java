@@ -144,7 +144,7 @@ public class MainControllerImpl implements MainController {
 	    
 	    //balance
 	    Element balance = doc.createElement("balance");
-	    balance.appendChild(doc.createTextNode("1000000000"));
+	    balance.appendChild(doc.createTextNode(String.valueOf(this.getModel().getMoneyManager().getActualBalance())));
 	    doc.appendChild(balance);
 	    
 	    //fuels elements
@@ -181,7 +181,7 @@ public class MainControllerImpl implements MainController {
 		reserves.appendChild(reserve);
 		
 		Element type = doc.createElement("type");
-		type.appendChild(doc.createTextNode(String.valueOf(r.getType())));//non sono sicuro
+		type.appendChild(doc.createTextNode(r.getType().getName()));
 		reserve.appendChild(type);
 		
 		Element capacity = doc.createElement("capacity");
@@ -206,7 +206,7 @@ public class MainControllerImpl implements MainController {
 		pump.appendChild(pName);
 		
 		Element pFuel = doc.createElement("fuel");
-		pFuel.appendChild(doc.createTextNode(String.valueOf(p.getType())));////////
+		pFuel.appendChild(doc.createTextNode(p.getType().getName()));
 		pump.appendChild(pFuel);
 		
 		Element speed = doc.createElement("speed");
@@ -214,7 +214,7 @@ public class MainControllerImpl implements MainController {
 		pump.appendChild(speed);
 		
 		Element durability = doc.createElement("durability");
-		durability.appendChild(doc.createTextNode(String.valueOf(p.getDurability())));
+		durability.appendChild(doc.createTextNode(String.valueOf(p.getMaxDurability())));
 		pump.appendChild(durability);
 		
 		Element pPrice = doc.createElement("price");
@@ -338,7 +338,7 @@ public class MainControllerImpl implements MainController {
 	        	maxpumps = false;
 	            }
 	            if(balance) {
-	        	//this.getModel().setBalance(Integer.parseInt(characters.getData()));
+	        	//this.getModel().getMoneyManager().setBalance(Integer.parseInt(characters.getData()));
 	        	System.out.println(characters.getData());
 	        	balance = false;
 	            }
@@ -599,7 +599,6 @@ public class MainControllerImpl implements MainController {
                 EndElement endElement = event.asEndElement();
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("area")) {
                     //this.getModel().getAreaManager().addArea(dXPos, dYPos, list);
-                    System.out.println("asfbofbsabfoabsof");
                 }
                 //load configuration
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("station")) {
@@ -617,6 +616,8 @@ public class MainControllerImpl implements MainController {
                     
                     this.pumpsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
                 	                          this.getModel().getPumpManager().getAllPumps());
+                    
+                    this.movementsViewerCtrl.loadData();
                 }
                 break;
             }

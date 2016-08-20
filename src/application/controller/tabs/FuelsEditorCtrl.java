@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import java.util.List;
-
 import application.model.services.Fuel;
 import application.view.tabs.fuelsEditor.FuelsEditor;
 
@@ -46,7 +45,7 @@ public interface FuelsEditorCtrl {
      * Change the color of fuel selected.
      */
     void changeColor();
-
+    
     /**
      * Add new fuel.
      */

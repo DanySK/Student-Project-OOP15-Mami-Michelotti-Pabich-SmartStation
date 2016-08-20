@@ -11,42 +11,47 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 
     private final MainController mainController;
     private StationEditor stationEditor;
+    private int x, y;
     
     public StationEditorCtrlImpl(MainController mainController) {
         this.mainController = mainController;
     }
-    
+
     @Override
     public void setView(StationEditor stationEditor) {
         this.stationEditor = stationEditor;
     }
-    
+
     @Override
     public void loadData(final int x, final int y, final List<Pump> pumps, final List<Area> areas) {
 	this.stationEditor.loadCoordinates(x, y);
 	this.stationEditor.loadPumps(pumps);
 	this.stationEditor.refreshGrid(areas);
     }
-    
+
     @Override
     public void selectionConfirm() {
-	final int x;
-	final int y;
-	if(this.stationEditor.getModifyX() != null && this.stationEditor.getModifyChangeY() != null) {
+	final boolean numX = this.isNumber(this.stationEditor.getModifyX());
+	final boolean numY = this.isNumber(this.stationEditor.getModifyY());
+	
+	if(numX && numY) {
 	    this.stationEditor.hideModifyErrorMessage();
-	    x = Integer.parseInt(this.stationEditor.getModifyX());
-	    y = Integer.parseInt(this.stationEditor.getModifyY());
+	    this.x = Integer.parseInt(this.stationEditor.getModifyX());
+	    this.y = Integer.parseInt(this.stationEditor.getModifyY());
+	    final boolean free = this.areaFree(this.x, this.y);
 	    
-	    if(this.mainController.getModel().getAreaManager().getArea(x, y) != null) {
+	    if(!free) {
 		this.stationEditor.hideModifyErrorMessage();
 		this.stationEditor.showModifyngPanel();
 		
 		final List<String> list = new ArrayList<>();
-		for(Pump p : this.mainController.getModel().getAreaManager().getArea(x, y).getAllPumps()) {
+		for(Pump p : this.mainController.getModel().getAreaManager().getArea(this.x, this.y).getAllPumps()) {
 		    list.add(p.getName());
 		}
-		this.stationEditor.setModifyXChange(String.valueOf(this.mainController.getModel().getAreaManager().getArea(x, y).getXPosition()));
-		this.stationEditor.setModifyYChange(String.valueOf(this.mainController.getModel().getAreaManager().getArea(x, y).getYPosition()));
+		this.stationEditor.setModifyXChange(String.valueOf(this.mainController.getModel()
+			                                  .getAreaManager().getArea(this.x, this.y).getXPosition()));
+		this.stationEditor.setModifyYChange(String.valueOf(this.mainController.getModel()
+			                                  .getAreaManager().getArea(this.x, this.y).getYPosition()));
 		this.stationEditor.setModifyPumps(list);
 	    } else {
 		this.stationEditor.showModifyErrorMessage("Area not found");
@@ -59,58 +64,70 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 
     @Override
     public void changePosition() {
-	final int tempx = Integer.parseInt(this.stationEditor.getModifyChangeX());
-	final int tempy = Integer.parseInt(this.stationEditor.getModifyChangeY());
+	final boolean numX = this.isNumber(this.stationEditor.getModifyChangeX());
+	final boolean numY = this.isNumber(this.stationEditor.getModifyChangeY());
 	
-	if(this.mainController.getModel().getAreaManager().getArea(Integer.parseInt(this.stationEditor.getModifyX()),
-			                                           Integer.parseInt(this.stationEditor.getModifyY())) == null) {
-	    this.stationEditor.hideModifyCoordsMessage();
-	    this.mainController.getModel().getAreaManager()
-	                                  .getArea(Integer.parseInt(this.stationEditor.getModifyX()),
-		                                   Integer.parseInt(this.stationEditor.getModifyY()))
-	                                  .setPosition(tempx, tempy);
-	    //refresh areas
-	    this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
-	} else {
-	    this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
+	if(numX && numY) {
+	    final int tempX = Integer.parseInt(this.stationEditor.getModifyChangeX());
+	    final int tempY = Integer.parseInt(this.stationEditor.getModifyChangeY());
+	    final boolean free = this.areaFree(tempX, tempY);
+	    
+	    if(free) {
+		this.stationEditor.hideModifyCoordsMessage();
+		this.mainController.getModel().getAreaManager().getArea(this.x, this.y).setPosition(tempX, tempY);
+		this.x = tempX;
+		this.y = tempY;
+		
+		//refresh areas
+		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+	    } else {
+		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
+	    }
 	}
     }
 
     @Override
     public void confirmPumps() {
-	 /*this.mainController.getModel().getAreaManager().getArea(Integer.parseInt(this.stationEditor.getModifyX()),
-                                                                 Integer.parseInt(this.stationEditor.getModifyY()))
-	                                                .getAllPumps(this.stationEditor.getModifyPumps());*/
+	final List<String> list = new ArrayList<>();
+	list.addAll(this.stationEditor.getModifyPumps());
+	
+	//this.mainController.getModel().getAreaManager().getArea(this.x, this.y).removePumps();
+	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+	    for(int i = 0; i < list.size(); i++) {
+		if(p.getName() == list.get(i)) {
+		    this.mainController.getModel().getAreaManager().getArea(this.x, this.y).addPump(p);
+		}
+	    }
+	}
     }
 
     @Override
     public void insertArea() {
-	final int x, y;
-	final List<String> list = new ArrayList<>();
-	boolean occupation = false;
-	x = Integer.parseInt(this.stationEditor.getXCoords());
-	y = Integer.parseInt(this.stationEditor.getYCoords());
-	list.addAll(this.stationEditor.getPumps());
+	final boolean numX = this.isNumber(this.stationEditor.getXCoords());
+	final boolean numY = this.isNumber(this.stationEditor.getYCoords());
 	
-	for(Area a : this.mainController.getModel().getAreaManager().getAllAreas()) {
-	    if(a.getXPosition() == x && a.getYPosition() == y) {
-		occupation = true;
-	    } else if(occupation) {
-		this.stationEditor.showAddErrorMessage("Area arleady occupied");
-		break;
+	if(numX && numY) {
+	    final int tempX = Integer.parseInt(this.stationEditor.getXCoords());
+	    final int tempY = Integer.parseInt(this.stationEditor.getYCoords());
+	    final boolean free = this.areaFree(tempX, tempY);
+	    
+	    if(free) {
+		final List<String> list = new ArrayList<>();
+		list.addAll(this.stationEditor.getPumps());
+		//this.mainController.getModel().getAreaManager().addArea(tempX, tempY, list);
+		
+		//refresh areas
+		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
 	    } else {
-		//this.mainController.getModel().getAreaManager().addArea(x, y, list);
-		break;
+		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
 	    }
 	}
-	//refresh areas
-	this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
     }
 
     @Override
     public void removeArea() {
-	this.mainController.getModel().getAreaManager().removeArea(Integer.parseInt(this.stationEditor.getModifyX()),
-		                                                   Integer.parseInt(this.stationEditor.getModifyY()));
+	this.mainController.getModel().getAreaManager().removeArea(this.x, this.y);
+	
 	//refresh areas
 	this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
     }
@@ -124,5 +141,25 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
             this.stationEditor.showAddingPanel();
             this.stationEditor.changeButtonText("Switch to modify panel");
         }
+    }
+
+    //search if area(x, y) is free
+    private boolean areaFree(int x, int y) {
+	for(Area a : this.mainController.getModel().getAreaManager().getAllAreas()) {
+	    if(a.getXPosition() == x && a.getYPosition() == y) {
+		return false;
+	    }
+	}
+	return true;
+    }
+
+    //control if numbers is right
+    private boolean isNumber(String str) {
+	try {
+	    Integer.parseInt(str);
+	    return true;
+	} catch (Exception e) {
+	    return false;
+	}
     }
 }

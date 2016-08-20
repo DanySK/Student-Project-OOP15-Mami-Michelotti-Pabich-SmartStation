@@ -69,7 +69,7 @@ public interface MainController {
     void setView(MainContent mainContent);
     
     /**
-     * Save dates in the file xml.
+     * Save dates in the file type xml.
      */
     void saveConfiguration();
     

@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import java.util.List;
-
 import application.controller.MainController;
 import application.model.buildables.area.Area;
 import application.view.tabs.overview.Overview;

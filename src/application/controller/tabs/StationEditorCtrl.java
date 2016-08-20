@@ -1,7 +1,6 @@
 package application.controller.tabs;
 
 import java.util.List;
-
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
 import application.view.tabs.stationEditor.StationEditor;
