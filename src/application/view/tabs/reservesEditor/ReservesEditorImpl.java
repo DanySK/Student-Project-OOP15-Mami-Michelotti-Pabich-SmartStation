@@ -191,10 +191,19 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     
     //Getters for refill
     @Override
+    public String getRefillReserve() {
+        return this.cmbReserveRefill.getValue();
+    }
+    
+    @Override
     public String getRefill() {
         return this.txfRefill.getText();
     }
     
+    @Override
+    public void setRefillQuantities(final String current, final String max) {
+        this.lblRefill.setText(current + "/" + max);
+    }
 
     
     //Getters/setters for repair
@@ -207,7 +216,12 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     public void setRepairValue(final String value) {
         this.btnRepair.setText("Repair (" + value.toString() + ")");
     }
-
+    
+    @Override
+    public void setRepairQuantities(final String current, final String max) {
+        this.lblRepair.setText(current + "/" + max);
+    }
+    
     
     
     //Adding methods
@@ -275,12 +289,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
         //this.controller.deleteFuel();
     }
      
-    //Refill
-    @Override
-    public String getRefillReserve() {
-        return this.cmbReserveRefill.getValue();
-    }
-    
+    //Refill  
     @FXML
     private void btnSelectRefill_click(final MouseEvent e) {
         this.controller.selectRefill();
@@ -290,12 +299,6 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     private void btnRefill_click(final MouseEvent e) {
         this.controller.refill();
     }
-    
-    @Override
-    public void setRefillQuantities(String current, String max) {
-        this.lblRefill.setText(current + "/" + max);
-    }
-
      
     //Repair
     @Override
@@ -311,12 +314,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     @FXML
     private void btnRepair_click(final MouseEvent e) {
         this.controller.repair();
-    }
-    
-    @Override
-    public void setRepairQuantities(String current, String max) {
-        this.lblRepair.setText(current + "/" + max);
-    }
+    }  
         
     //Adding
     @FXML

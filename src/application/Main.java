@@ -1,11 +1,15 @@
 package application;
 
+import java.io.File;
+
 import application.controller.MainController;
 import application.controller.MainControllerImpl;
 import application.model.Station;
 import application.model.StationImpl;
 import application.view.MainContentImpl;
 import javafx.application.Application;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import mnmlwindow.MinimalWindow;
 import mnmlwindow.MinimalWindowImpl;
@@ -33,12 +37,12 @@ public class Main extends Application {
         //Load the configuration file
         controller.loadConfiguration();
                     
-        //Creating the style for the custom window
+        //Creating the style for the custom winndow
         final MinimalWindow minimalWindow = new MinimalWindowImpl(primaryStage, 840, 700);
         minimalWindow.setContent(view);
         minimalWindow.setTitle("Smart Station");
-        minimalWindow.setFooter("JavaFX Project  |  Smart Station  |  M: Mami  |  V: Pabich  |  C: Michelotti");
-        //TODO minimalWindowControl.setIcon("<source>");
+        minimalWindow.setFooter("JavaFX Project  |  Smart Station  |  M: Mami  |  V: Pabich  |  C: Michelotti");     
+        minimalWindow.setLogo(new Image("/resources/pump.png"));
                     
         //Finally, show the entire window
         minimalWindow.showWindow();                     

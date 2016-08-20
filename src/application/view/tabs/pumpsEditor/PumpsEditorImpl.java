@@ -179,7 +179,7 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     }
     
     @Override
-    public void setRepairQuantities(String current, String max) {
+    public void setRepairQuantities(final String current, final String max) {
         this.lblRepair.setText(current + "/" + max);
     }
     

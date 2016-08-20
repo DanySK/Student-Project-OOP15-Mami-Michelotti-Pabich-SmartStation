@@ -2,6 +2,7 @@ package mnmlwindow;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -66,7 +67,7 @@ public class MinimalWindowImpl implements MinimalWindow {
     }
 
     @Override
-    public void setLogo(final ImageView logo) {
+    public void setLogo(final Image logo) {
         this.view.setWindowLogo(logo);    
     }
 

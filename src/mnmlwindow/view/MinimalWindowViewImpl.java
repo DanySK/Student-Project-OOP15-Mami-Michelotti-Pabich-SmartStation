@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -105,9 +106,10 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     //Getter and setter for the window logo
     @Override
-    public void setWindowLogo(final ImageView logo) { 
-        
+    public void setWindowLogo(final Image logo) { 
+        this.imgLogo.setImage(logo);
     }
+    
     @Override
     public ImageView getWindowLogo() { 
         return this.imgLogo;

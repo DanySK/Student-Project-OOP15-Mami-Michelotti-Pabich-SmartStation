@@ -140,7 +140,7 @@ public interface ReservesEditor extends AlertManager  {
     
     /**
      * Set the text that shows the current and max values.
-     * @param actual Actual value
+     * @param current Current value
      * @param max Max value
      */
     void setRefillQuantities(final String current, final String max);
@@ -168,7 +168,7 @@ public interface ReservesEditor extends AlertManager  {
     
     /**
      * Set the text that shows the current and max values.
-     * @param actual Actual value
+     * @param current Current value
      * @param max Max value
      */
     void setRepairQuantities(final String current, final String max);

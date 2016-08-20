@@ -2,6 +2,7 @@ package mnmlwindow.view;
 
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import mnmlwindow.controller.MinimalWindowC;
 
@@ -20,7 +21,7 @@ public interface MinimalWindowView {
      * Set the logo for the window.
      * @param logo Image that will be used as logo
      */
-    void setWindowLogo(ImageView logo);
+    void setWindowLogo(Image logo);
     
     /** 
      * Get the logo of the window.

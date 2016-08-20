@@ -19,6 +19,7 @@
     <Double fx:id="defaultMargin" fx:value="5" />
     <Double fx:id="titleHeight" fx:value="30"></Double>
     <Double fx:id="titleComponentSize" fx:value="20"></Double>
+    <Double fx:id="titleImageSize" fx:value="15"></Double>
     <Double fx:id="footerHeight" fx:value="20"></Double>
     <Double fx:id="resizeButtonSize" fx:value="10"></Double>
 </fx:define>
@@ -37,7 +38,7 @@
 						<Insets top="$defaultMargin" right="$defaultMargin" bottom="$defaultMargin" left="$defaultMargin"/>
 					</padding> 
 					
-					<ImageView fx:id="imgLogo" fitWidth="$titleComponentSize" fitHeight="$titleComponentSize"></ImageView> 
+					<ImageView fx:id="imgLogo" fitWidth="$titleImageSize" fitHeight="$titleImageSize"></ImageView> 
 					<Label fx:id="lblTitle" id="title" text="MinimalWindow"></Label>
 					<Region HBox.hgrow="ALWAYS" prefHeight="$titleHeight" prefWidth="200.0"></Region>
 					
