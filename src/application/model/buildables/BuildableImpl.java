@@ -1,12 +1,26 @@
 package application.model.buildables;
 
+/**
+ * Abstract class that defines the attributes of every buildable structure.
+ * Implements the Buildable interface.
+ * @author Alessandro Mami
+ * 
+ */
 public abstract class BuildableImpl implements Buildable{
-	
+    
+    /** 
+     * Buildable's attributes declaration 
+     */
     private int maxDurability;
     private int actualDurability;
     private int cost;
     private int repairCost;
-	
+    
+    /**
+     * Constructor for the BuildableImpl.
+     * @param Main attributes: type and capacity.
+     * @param Extended attributes from BuildableImpl.
+     */
     public BuildableImpl(final int maxDurability, final int actualDurability, final int cost, final int repairCost) {
     	this.maxDurability = maxDurability;
     	this.actualDurability = maxDurability;
@@ -14,6 +28,7 @@ public abstract class BuildableImpl implements Buildable{
     	this.repairCost = repairCost;
     }
     
+    //GETTERS AND SETTERS OF MAIN ATTRIBUTES
     @Override
     public int getCost() {
     	return this.cost;
@@ -48,6 +63,7 @@ public abstract class BuildableImpl implements Buildable{
     	this.repairCost = repairCost;	
     }
     
+    //REMOVERS AND ADDERS
     @Override
     public void consume() {          
         this.actualDurability--;            

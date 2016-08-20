@@ -4,6 +4,11 @@ import java.util.List;
 
 import application.model.services.Fuel;
 
+/**
+ * Interface containing all the logic to build and modify a pump inside the area.
+ * @author Alessandro Mami
+ * 
+ */
 public interface PumpManager {
     
     /**

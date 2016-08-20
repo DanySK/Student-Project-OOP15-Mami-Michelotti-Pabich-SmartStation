@@ -6,10 +6,13 @@ import application.model.services.Fuel;
 /**
  * Implements the Pump interface.
  * @author Alessandro Mami
+ * 
  */
 public class PumpImpl extends BuildableImpl implements Pump{
     
-    /** Area's attributes declaration */
+    /** 
+     * Pump's attributes declaration.
+     */
     private String name;
     private Fuel type;
     private int speed; 

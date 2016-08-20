@@ -20,7 +20,7 @@ public class PumpManagerImpl implements PumpManager {
     private final List<Pump> pumps;
     
     /**
-     * Constructor for the PumpManagerImpl that stores avery pump.
+     * Constructor for the PumpManagerImpl that stores every pump.
      */
     public PumpManagerImpl() {
         this.pumps = new ArrayList<Pump>();

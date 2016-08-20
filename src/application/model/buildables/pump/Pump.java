@@ -12,7 +12,7 @@ public interface Pump extends Buildable{
     
     /**
      * Gets the name of a pump.
-     * @return Sting of pump's name.
+     * @return String of pump's name.
      */
     String getName();
     

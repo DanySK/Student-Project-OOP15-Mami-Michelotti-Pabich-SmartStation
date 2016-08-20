@@ -19,7 +19,7 @@ public class AreaManagerImpl implements AreaManager {
     private final List<Area> areas;
     
     /**
-     * Constructor for the AreaManagerImpl that stores avery area.
+     * Constructor for the AreaManagerImpl that stores every area.
      */
     public AreaManagerImpl() {
 	this.areas = new ArrayList<Area>();

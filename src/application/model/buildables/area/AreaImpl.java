@@ -9,20 +9,15 @@ import application.model.consumers.Vehicle;
 /**
  * Implements the Area interface and contains the logic of every area.
  * @author Alessandro Mami
+ * 
  */
 public class AreaImpl implements Area{
     
-    /**
-     * Space for the vehicle inside the area.
+    /** 
+     * Area's attributes declaration. 
      */
     private final Optional<Vehicle> vehicles;
-    /**
-     * List of pumps inside the area.
-     */
     private final List<Pump> pumps;
-    /**
-     * Declaring coordinate types.
-     */
     private int x, y;
     
     /**
