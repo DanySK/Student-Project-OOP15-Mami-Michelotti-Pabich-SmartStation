@@ -3,6 +3,7 @@ package application.model.buildables.reserve;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.model.buildables.pump.PumpImpl;
 import application.model.services.Fuel;
 
 public class ReserveManagerImpl implements ReserveManager {
@@ -27,7 +28,12 @@ public class ReserveManagerImpl implements ReserveManager {
     public List<Reserve> getAllReserves() {
 	return new ArrayList<Reserve> (this.reserve);
     }
-
+    
+    @Override
+    public void addReserve(int maxDurability, int actualDurability, int cost, int repairCost, Fuel type, int capacity, int durability) {
+        reserve.add(new ReserveImpl(maxDurability, actualDurability, cost, repairCost, type, capacity, durability));        
+    }
+    
     @Override
     public void removeAllReserves() {
         this.reserve.clear();

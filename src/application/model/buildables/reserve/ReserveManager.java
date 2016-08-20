@@ -10,5 +10,7 @@ public interface ReserveManager{
 	
     List<Reserve> getAllReserves();
     
+    void addReserve(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final Fuel type, final int capacity, final int durability);
+    
     void removeAllReserves();
 }
