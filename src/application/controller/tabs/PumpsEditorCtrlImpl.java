@@ -30,15 +30,15 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 
     @Override
     public void selectEdit() {
-	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
-	    if(p.getName() == this.pumpsEditor.getModifySelectedPump()) {
-		this.pumpSelected = p;
-		this.pumpsEditor.setModifyFuelType(p.getName());
-		this.pumpsEditor.setModifySpeed(String.valueOf(p.getSpeed()));
-		this.pumpsEditor.setModifyDurability(String.valueOf(p.getDurability()));
-		this.pumpsEditor.setModifyPrice(String.valueOf(p.getCost()));
-		this.pumpsEditor.setModifyRepairCost(String.valueOf(p.getRepairCost()));
-	    }
+	if(this.pumpsEditor.getModifySelectedPump() != "") {
+	    this.pumpSelected = this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getModifySelectedPump());
+	    this.pumpsEditor.setModifyFuelType(this.pumpSelected.getName());
+	    this.pumpsEditor.setModifySpeed(String.valueOf(this.pumpSelected.getSpeed()));
+	    this.pumpsEditor.setModifyDurability(String.valueOf(this.pumpSelected.getDurability()));
+	    this.pumpsEditor.setModifyPrice(String.valueOf(this.pumpSelected.getCost()));
+	    this.pumpsEditor.setModifyRepairCost(String.valueOf(this.pumpSelected.getRepairCost()));
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Select the pump");
 	}
     }
 
@@ -49,6 +49,8 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName())
 	                                                   .setName(this.pumpsEditor.getModifyFuelType());
 	    this.pumpSelected.setName(this.pumpsEditor.getModifyFuelType());
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	}
     }
 
@@ -58,6 +60,8 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName())
 	                                                   .setSpeed(Integer.parseInt(this.pumpsEditor.getModifySpeed()));
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -67,6 +71,8 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName())
 	                                                   .setMaxDurability(Integer.parseInt(this.pumpsEditor.getModifyDurability()));
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -76,6 +82,8 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName())
 	                                                   .setCost(Integer.parseInt(this.pumpsEditor.getModifyPrice()));
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -83,17 +91,21 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     public void changeRepairCost() {
 	final boolean isNum = this.isNumber(this.pumpsEditor.getModifyRepairCost());
 	if(isNum) {
-	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName()).setRepairCost(Integer.parseInt(this.pumpsEditor.getModifyRepairCost()));
+	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName())
+	                                                   .setRepairCost(Integer.parseInt(this.pumpsEditor.getModifyRepairCost()));
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
     @Override
     public void selectRepair() {
-	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
-	    if(p.getName() == this.pumpsEditor.getRepairSelectedPump()) {
-		this.pumpRepair = p;
-		this.pumpsEditor.setRepairQuantities(String.valueOf(p.getDurability()), String.valueOf(p.getMaxDurability()));
-	    }
+	if(this.pumpsEditor.getRepairSelectedPump() != "") {
+	    this.pumpRepair = this.mainController.getModel().getPumpManager().getPumpByName(this.pumpsEditor.getRepairSelectedPump());
+	    this.pumpsEditor.setRepairQuantities(String.valueOf(this.pumpRepair.getDurability()),
+		                                 String.valueOf(this.pumpRepair.getMaxDurability()));
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Select the pump");
 	}
     }
 
@@ -101,7 +113,7 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     public void repair() {
 	final int damage = this.pumpRepair.getMaxDurability() - this.pumpRepair.getDurability();
 	
-	if(damage == 0) {
+	if(damage != 0) {
 	    final int repair = (int)((damage * this.pumpsEditor.getRepairValue()) / 100);
 	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpRepair.getName()).repair(repair);
 	    
@@ -112,6 +124,8 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of repair", "Punp is ok");
 	}
     }
 
@@ -123,12 +137,7 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	final boolean price = this.isNumber(this.pumpsEditor.getPrice());
 	final boolean repCos = this.isNumber(this.pumpsEditor.getRepairCost());
 	if(isFre && speed && durab && price && repCos) {
-	    Fuel fuel = null;
-	    for(Fuel f : this.mainController.getModel().getFuelManager().getAllFuels()) {
-        	if(f.getName() == this.pumpsEditor.getFuelType()) {
-        	    fuel = f;
-        	}
-            }
+	    final Fuel fuel = this.mainController.getModel().getFuelManager().getFuel(this.pumpsEditor.getFuelType());
 	    this.mainController.getModel().getPumpManager().addPump(Integer.parseInt(this.pumpsEditor.getDurability()),
 		                                                    Integer.parseInt(this.pumpsEditor.getDurability()),
 		                                                    Integer.parseInt(this.pumpsEditor.getPrice()),
@@ -145,12 +154,26 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	} else if(!isFre) {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
+	} else if(!speed) {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!durab) {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!price) {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!repCos) {
+	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
     @Override
     public void deletePump() {
-	this.mainController.getModel().getPumpManager().removePump(this.pumpSelected);
+	if(this.pumpsEditor.getModifySelectedPump() != "") {
+	    this.mainController.getModel().getPumpManager().removePump(this.pumpSelected);
+	} else {
+	    this.pumpsEditor.showInformationAlert("Error", "error of delete", "Select the pump");
+	}
     }
 
     //control of name is already taken

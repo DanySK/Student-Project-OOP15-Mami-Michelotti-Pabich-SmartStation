@@ -52,6 +52,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	    this.reserve = this.mainController.getModel().getReserveManager()
 		                              .getReserve(this.mainController.getModel().getFuelManager()
 		                        	              .getFuel(this.reservesEditor.getModifyFuel()));
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	}
     }
 
@@ -61,6 +63,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getReserveManager().getReserve(this.reserve.getType())
 	                                  .setCapacity(Integer.parseInt(this.reservesEditor.getModifyCapacity()));
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -70,6 +74,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getReserveManager().getReserve(this.reserve.getType())
 	                                  .setRepairCost(Integer.parseInt(this.reservesEditor.getModifyRepairCost()));
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -79,6 +85,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getReserveManager().getReserve(this.reserve.getType())
 	                                  .setCost(Integer.parseInt(this.reservesEditor.getModifyPrice()));
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -88,6 +96,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getReserveManager().getReserve(this.reserve.getType())
 	                                  .setMaxDurability(Integer.parseInt(this.reservesEditor.getModifyDurability()));
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -114,6 +124,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -131,7 +143,7 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     public void repair() {
 	final int damage = this.reserveRepair.getMaxDurability() - this.reserveRepair.getDurability();
 	
-	if(damage == 0){
+	if(damage != 0){
 	    final int repair = (int)((damage * this.reservesEditor.getRepairValue()) / 100);
 	    this.mainController.getModel().getReserveManager().getReserve(this.reserveRepair.getType()).repair(repair);
 	    
@@ -142,6 +154,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of repair", "Reserve is ok");
 	}
     }
 
@@ -153,16 +167,12 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	final boolean isDur = this.isNumber(this.reservesEditor.getDurability());
 	final boolean isRCos = this.isNumber(this.reservesEditor.getRepairCost());
 	if(isFuel && isCap && isPri && isDur && isRCos) {
-	    Fuel fuel = null;
-	    for(Fuel f : this.mainController.getModel().getFuelManager().getAllFuels()) {
-		if(f.getName() == this.reservesEditor.getFuel()) {
-		    fuel = f;
-		}
-	    }
+	    final Fuel fuel = this.mainController.getModel().getFuelManager().getFuel(this.reservesEditor.getFuel());
 	    this.mainController.getModel().getReserveManager().addReserve(Integer.parseInt(this.reservesEditor.getDurability()),
 		                                                          Integer.parseInt(this.reservesEditor.getDurability()),
 		                                                          Integer.parseInt(this.reservesEditor.getPrice()),
 		                                                          Integer.parseInt(this.reservesEditor.getRepairCost()), fuel,
+		                                                          Integer.parseInt(this.reservesEditor.getCapacity()),
 		                                                          Integer.parseInt(this.reservesEditor.getCapacity()));
 	    
 	    this.reservesEditor.loadReserves(this.mainController.getModel().getReserveManager().getAllReserves());
@@ -175,12 +185,26 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	    
 	  //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	} else if(!isFuel) {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Name is already taken");
+	} else if(!isCap) {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!isPri) {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!isDur) {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!isRCos) {
+	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
     @Override
     public void deleteReserve() {
-	this.mainController.getModel().getReserveManager().removeReserve(this.reserve);
+	if(this.reservesEditor.getModifyReserve() != "") {
+	    this.mainController.getModel().getReserveManager().removeReserve(this.reserve);
+	} else {
+	    this.reservesEditor.showInformationAlert("Error", "error of delete", "Select the reserve");
+	}
     }
 
     //control of name is already taken

@@ -80,9 +80,12 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		
 		//refresh areas
 		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+		this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
 	    } else {
 		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
 	    }
+	} else {
+	    this.stationEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -124,18 +127,28 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		
 		//refresh areas
 		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+		this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
 	    } else {
 		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
 	    }
+	} else {
+	    this.stationEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
     @Override
     public void removeArea() {
-	this.mainController.getModel().getAreaManager().removeArea(this.x, this.y);
-	
-	//refresh areas
-	this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+	final boolean isX = this.isNumber(String.valueOf(this.x));
+	final boolean isY = this.isNumber(String.valueOf(this.y));
+	if(isX && isY) {
+	    this.mainController.getModel().getAreaManager().removeArea(this.x, this.y);
+	    
+	    //refresh areas
+	    this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+	    this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
+	} else {
+	    this.stationEditor.showInformationAlert("Error", "error of load", "Select area");
+	}
     }
 
     @Override

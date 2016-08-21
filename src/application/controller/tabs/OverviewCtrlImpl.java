@@ -23,8 +23,11 @@ public class OverviewCtrlImpl implements OverviewCtrl {
     @Override
     public void loadData(final List<Area> areas) {
 	this.overview.refreshGrid(areas);
+	
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    //this.overview.addReserveStatus(r.getType().getName(), r.getCost(), r.getCapacity());
+	    double progress = r.getRemaining() / r.getCapacity();
+	    this.overview.addReserveStatus(r.getType().getName(), String.valueOf(r.getCost()),
+		                           String.valueOf(r.getRemaining()), String.valueOf(r.getCapacity()), progress);
 	}
     }
 }

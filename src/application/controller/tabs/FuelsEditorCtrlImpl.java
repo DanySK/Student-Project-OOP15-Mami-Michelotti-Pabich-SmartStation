@@ -31,14 +31,14 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 
     @Override
     public void select() {
-	for(Fuel f : this.mainController.getModel().getFuelManager().getAllFuels()) {
-	    if(f.getName() == this.fuelsEditor.getSelectedFuel()) {
-		this.fuel = f;
-		this.fuelsEditor.setModifyName(f.getName());
-		this.fuelsEditor.setModifyPrice(String.valueOf(f.getPrice()));
-		this.fuelsEditor.setModifyWhoesalePrice(String.valueOf(f.getWholeSalePrice()));
-		this.fuelsEditor.setModifyColor(String.valueOf(f.getColor()));
-	    }
+	if(this.fuelsEditor.getSelectedFuel() != "") {
+	    this.fuel = this.mainController.getModel().getFuelManager().getFuel(this.fuelsEditor.getSelectedFuel());
+	    this.fuelsEditor.setModifyName(this.fuel.getName());
+	    this.fuelsEditor.setModifyPrice(String.valueOf(this.fuel.getPrice()));
+	    this.fuelsEditor.setModifyWhoesalePrice(String.valueOf(this.fuel.getWholeSalePrice()));
+	    this.fuelsEditor.setModifyColor(String.valueOf(this.fuel.getColor()));
+	} else {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Select the fuel");
 	}
     }
 
@@ -49,6 +49,8 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	    this.mainController.getModel().getFuelManager().getFuel(this.fuel.getName())
 	                                                    .setName(this.fuelsEditor.getModifyName());
 	    this.fuel.setName(this.fuelsEditor.getModifyName());
+	} else {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	}
     }
 
@@ -58,6 +60,8 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getFuelManager().getFuel(this.fuel.getName())
 	                                  .setPrice(Integer.parseInt(this.fuelsEditor.getModifyPrice()));
+	} else {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -67,6 +71,8 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	if(isNum) {
 	    this.mainController.getModel().getFuelManager().getFuel(this.fuel.getName())
 	                                  .setWholeSalePrice(Integer.parseInt(this.fuelsEditor.getModifyWhoesalePrice()));
+	} else {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
     }
 
@@ -76,6 +82,8 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	if(isColor) {
 	    this.mainController.getModel().getFuelManager().getFuel(this.fuel.getName())
 	                                  .setColor(Color.valueOf(this.fuelsEditor.getModifyColor()));
+	} else {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Insert a color");
 	}
     }
 
@@ -101,23 +109,35 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	} else if(!isFre) {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
+	} else if(!isPri) {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!isWPr) {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	} else if(!isCol) {
+	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Insert a color");
 	}
     }
 
     @Override
     public void deleteFuel() {
-	this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
-	
-	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    if(r.getType().getName() == this.fuel.getName()) {
-		this.mainController.getModel().getReserveManager().removeReserve(r);
-	    }
-	}
-	
-	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
-	    if(p.getName() == this.fuel.getName()) {
-		this.mainController.getModel().getPumpManager().removePump(p);
-	    }
+	if(this.fuelsEditor.getSelectedFuel() != "") {
+	   this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
+	   
+	   for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
+	       if(r.getType().getName() == this.fuel.getName()) {
+		   this.mainController.getModel().getReserveManager().removeReserve(r);
+	       }
+	   }
+	   
+	   for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+	       if(p.getName() == this.fuel.getName()) {
+		   this.mainController.getModel().getPumpManager().removePump(p);
+	       }
+	   }
+	} else {
+	    this.fuelsEditor.showInformationAlert("Error", "error of delete", "Select the fuel");
 	}
     }
 

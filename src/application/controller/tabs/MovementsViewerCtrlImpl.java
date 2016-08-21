@@ -60,17 +60,24 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
 	    for(Movement m : list) {
 		this.movementsViewer.addElementToList(m.toString());
 	    }
+	} else {
+	    this.movementsViewer.showInformationAlert("Error", "error of load", "Select the filter");
 	}
     }
 
     @Override
     public void addMovement() {
-	this.mainController.getModel().getMoneyManager()
-	                              .addMovement(MovementType.valueOf(this.movementsViewer.getDescription()),
-	                        	           Integer.parseInt(this.movementsViewer.getMoney()),
-	                        	           "Adding movimente");
+	if(this.movementsViewer.getDescription() != "" && this.movementsViewer.getMoney() != "") {
+	    this.mainController.getModel().getMoneyManager()
+	                                  .addMovement(MovementType.valueOf(this.movementsViewer.getDescription()),
+	                                	       Integer.parseInt(this.movementsViewer.getMoney()),
+	                                	       "Adding movimente");
+	    this.mainController.getModel().getMoneyManager().getActualBalance();
+	} else {
+	    this.movementsViewer.showInformationAlert("Error", "error of load", "Complete the moviment");
+	}
     }
-     
+
     private List<Movement> orderAcrescing() {
 	final List<Movement> max = new ArrayList<>();
 	max.addAll(this.mainController.getModel().getMoneyManager().getAllMovements());

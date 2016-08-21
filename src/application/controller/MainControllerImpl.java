@@ -30,8 +30,6 @@ import application.model.Station;
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
 import application.model.buildables.reserve.Reserve;
-import application.model.moneyManager.Movement;
-import application.model.moneyManager.MovementType;
 import application.model.services.Fuel;
 import application.view.MainContent;
 import javafx.scene.paint.Color;
@@ -352,8 +350,7 @@ public class MainControllerImpl implements MainController {
 	        	maxpumps = false;
 	            }
 	            if(balance) {
-	        	Movement movement = null;
-	        	this.getModel().getMoneyManager().setActualBalance(movement, Integer.parseInt(characters.getData()));
+	        	this.getModel().getMoneyManager().loadBalance(Integer.parseInt(characters.getData()));
 	        	balance = false;
 	            }
 	            break;
@@ -502,7 +499,7 @@ public class MainControllerImpl implements MainController {
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
 		if(endElement.getName().getLocalPart().equalsIgnoreCase("reserve")) {
-		    this.getModel().getReserveManager().addReserve(dMaxD, dDurab, dPrice, dRepair, dType, dCapacity/*, dRemaining*/);
+		    this.getModel().getReserveManager().addReserve(dMaxD, dDurab, dPrice, dRepair, dType, dCapacity, dRemaining);
 		}
 		break;
             }
