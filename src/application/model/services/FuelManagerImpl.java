@@ -28,12 +28,7 @@ public class FuelManagerImpl implements FuelManager {
     //FUEL GETTERS
     @Override
     public Fuel getFuel(final String fuel) {
-        for (Fuel f : this.fuels) {
-            if (f.getName().equals(fuel)) {
-                return f;
-            }
-        }
-        return null;
+        return this.searchFuel(fuel);
     }
     	
     @Override
@@ -49,15 +44,21 @@ public class FuelManagerImpl implements FuelManager {
     
     @Override
     public void removeFuel(final String name) {
-        for (Fuel f : this.fuels) {
-            if (f.getName() == name) {
-                fuels.remove(f);
-            }
-        }	
+        this.fuels.remove(this.searchFuel(name));
     }
     
     @Override
     public void removeFuels() {
     	fuels.clear();
+    }
+    
+    
+    private Fuel searchFuel(final String name) {
+        for (Fuel f : this.fuels) {
+            if (f.getName().equals(name)) {
+                return f;
+            }
+        }
+        return null;
     }
 }
