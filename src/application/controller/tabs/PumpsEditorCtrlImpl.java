@@ -123,11 +123,19 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	final boolean price = this.isNumber(this.pumpsEditor.getPrice());
 	final boolean repCos = this.isNumber(this.pumpsEditor.getRepairCost());
 	if(isFre && speed && durab && price && repCos) {
-	    /*this.mainController.getModel().getPumpManager().addPump(this.pumpsEditor.getFuelType(),
-	                                                            Integer.parseInt(this.pumpsEditor.getSpeed()),
-	                                                            Integer.parseInt(this.pumpsEditor.getDurability()),
-	                                                            Integer.parseInt(this.pumpsEditor.getPrice()),
-	                                                            Integer.parseInt(this.pumpsEditor.getRepairCost()));*/
+	    Fuel fuel = null;
+	    for(Fuel f : this.mainController.getModel().getFuelManager().getAllFuels()) {
+        	if(f.getName() == this.pumpsEditor.getFuelType()) {
+        	    fuel = f;
+        	}
+            }
+	    this.mainController.getModel().getPumpManager().addPump(Integer.parseInt(this.pumpsEditor.getDurability()),
+		                                                    Integer.parseInt(this.pumpsEditor.getDurability()),
+		                                                    Integer.parseInt(this.pumpsEditor.getPrice()),
+		                                                    Integer.parseInt(this.pumpsEditor.getRepairCost()),
+		                                                    this.pumpsEditor.getFuelType(), fuel,
+		                                                    Integer.parseInt(this.pumpsEditor.getSpeed()));
+	    
 	    this.pumpsEditor.loadPumps(this.mainController.getModel().getPumpManager().getAllPumps());
 	    
 	    //adding the movement
@@ -138,6 +146,11 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
 	}
+    }
+
+    @Override
+    public void deletePump() {
+	this.mainController.getModel().getPumpManager().removePump(this.pumpSelected);
     }
 
     //control of name is already taken

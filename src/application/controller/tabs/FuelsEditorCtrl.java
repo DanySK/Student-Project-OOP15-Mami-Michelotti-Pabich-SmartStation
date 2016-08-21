@@ -12,14 +12,15 @@ public interface FuelsEditorCtrl {
 
     /**
      * Set the view of the controller.
+     * @param fuelsEditor the view for the class
      */
-    void setView(final FuelsEditor fuelsEditor);
+    void setView(FuelsEditor fuelsEditor);
     
     /**
      * Load configuration for fuels editor tab.
      * @param fuels list of fuel
      */
-    void loadData(final List<Fuel> fuels);
+    void loadData(List<Fuel> fuels);
     
     /**
      * selection of the fuel and load the dates.
@@ -50,4 +51,9 @@ public interface FuelsEditorCtrl {
      * Add new fuel.
      */
     void addFuel();
+    
+    /**
+     * Delete the fuel selected and the reserve and all pump whit this fuel.
+     */
+    void deleteFuel();
 }

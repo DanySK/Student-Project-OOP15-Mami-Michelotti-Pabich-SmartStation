@@ -30,6 +30,8 @@ import application.model.Station;
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
 import application.model.buildables.reserve.Reserve;
+import application.model.moneyManager.Movement;
+import application.model.moneyManager.MovementType;
 import application.model.services.Fuel;
 import application.view.MainContent;
 import javafx.scene.paint.Color;
@@ -180,6 +182,22 @@ public class MainControllerImpl implements MainController {
 		Element reserve = doc.createElement("reserve");
 		reserves.appendChild(reserve);
 		
+		Element maxDur = doc.createElement("maxDurability");
+		maxDur.appendChild(doc.createTextNode(String.valueOf(r.getMaxDurability())));
+		reserve.appendChild(maxDur);
+		
+		Element dur = doc.createElement("durability");
+		dur.appendChild(doc.createTextNode(String.valueOf(r.getDurability())));
+		reserve.appendChild(dur);
+		
+		Element cost = doc.createElement("price");
+		cost.appendChild(doc.createTextNode(String.valueOf(r.getCost())));
+		reserve.appendChild(cost);
+		
+		Element repair = doc.createElement("repairCost");
+		repair.appendChild(doc.createTextNode(String.valueOf(r.getRepairCost())));
+		reserve.appendChild(repair);
+		
 		Element type = doc.createElement("type");
 		type.appendChild(doc.createTextNode(r.getType().getName()));
 		reserve.appendChild(type);
@@ -315,7 +333,6 @@ public class MainControllerImpl implements MainController {
 	            Characters characters = event.asCharacters();
 	            if(name) {
 	        	this.getModel().setStationName(characters.getData());
-	        	System.out.println(characters.getData());
 	        	name = false;
 	            }
 	            if(open) {
@@ -324,22 +341,19 @@ public class MainControllerImpl implements MainController {
 	        	} else {
 	        	    this.station.close();
 	        	}
-	        	System.out.println(characters.getData());
 	        	open = false;
 	            }
 	            if(maxareas) {
 	        	this.getModel().setMaxAreas(Integer.parseInt(characters.getData()));
-	        	System.out.println(characters.getData());
 	        	maxareas = false;
 	            }
 	            if(maxpumps) {
 	        	this.getModel().setMaxPumps(Integer.parseInt(characters.getData()));
-	        	System.out.println(characters.getData());
 	        	maxpumps = false;
 	            }
 	            if(balance) {
-	        	//this.getModel().getMoneyManager().setBalance(Integer.parseInt(characters.getData()));
-	        	System.out.println(characters.getData());
+	        	Movement movement = null;
+	        	this.getModel().getMoneyManager().setActualBalance(movement, Integer.parseInt(characters.getData()));
 	        	balance = false;
 	            }
 	            break;
@@ -361,9 +375,9 @@ public class MainControllerImpl implements MainController {
 	boolean price = false;
 	boolean wholesaleprice = false;
 	boolean color = false;
-	String dName;
-	int dPrice, dWPrice;
-	Color dColor;
+	String dName = "";
+	int dPrice = 0, dWPrice = 0;
+	Color dColor = null;
 	
 	while(eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
@@ -388,29 +402,25 @@ public class MainControllerImpl implements MainController {
 	        Characters characters = event.asCharacters();
 	        if(name) {
 	            dName = characters.getData();
-	            System.out.println(characters.getData());
 	            name = false;
 	        }
 	        if(price) {
 	            dPrice = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            price = false;
 	        }
 	        if(wholesaleprice) {
 	            dWPrice = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            wholesaleprice = false;
 	        }
 	        if(color) {
 	            dColor = Color.valueOf(characters.getData());
-		    System.out.println(characters.getData());
 	            color = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
 	        if(endElement.getName().getLocalPart().equalsIgnoreCase("fuel")) {
-	            //this.getModel().getFuelManager().addFuel(dName, dPrice, dWPrice, dColor);
+	            this.getModel().getFuelManager().addFuel(dName, dPrice, dWPrice, dColor);
 	        }
 	        break;
             }
@@ -418,11 +428,16 @@ public class MainControllerImpl implements MainController {
     }
     
     private void fileReserve(XMLEventReader eventReader) throws Exception {
+	boolean maxDurability = false;
+	boolean durability = false;
+	boolean price = false;
+	boolean repairCost = false;
 	boolean type = false;
 	boolean capacity = false;
 	boolean remaining = false;
-	String dType;
-	int dCapacity, dRemaining;
+	Fuel dType = null;
+	int dCapacity = 0, dRemaining = 0, dMaxD = 0;
+	int dDurab = 0, dPrice = 0, dRepair = 0;
 	
 	while(eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
@@ -431,7 +446,15 @@ public class MainControllerImpl implements MainController {
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
                 
-                if(sName.equalsIgnoreCase("type")) {
+                if(sName.equalsIgnoreCase("maxDurability")) {
+                    maxDurability = true;
+                } else if (sName.equalsIgnoreCase("durability")) {
+                    durability = true;
+                } else if (sName.equalsIgnoreCase("price")) {
+                    price = true;
+                } else if (sName.equalsIgnoreCase("repairCost")) {
+                    repairCost = true;
+                } else if (sName.equalsIgnoreCase("type")) {
                     type = true;
 		} else if (sName.equalsIgnoreCase("capacity")) {
 		    capacity = true;
@@ -443,26 +466,43 @@ public class MainControllerImpl implements MainController {
                 break;
 	        case XMLStreamConstants.CHARACTERS:
 	        Characters characters = event.asCharacters();
+	        if(maxDurability) {
+	            dMaxD = Integer.parseInt(characters.getData());
+	            maxDurability = false;
+	        }
+	        if(durability) {
+	            dDurab = Integer.parseInt(characters.getData());
+	            durability = false;
+	        }
+	        if(price) {
+	            dPrice = Integer.parseInt(characters.getData());
+	            price = false;
+	        }
+	        if(repairCost) {
+	            dRepair = Integer.parseInt(characters.getData());
+	            repairCost = false;
+	        }
 	        if(type) {
-	            dType = characters.getData();
-	            System.out.println(characters.getData());
+	            for(Fuel f : this.getModel().getFuelManager().getAllFuels()) {
+	        	if(f.getName() == characters.getData()) {
+	        	    dType = f;
+	        	}
+	            }
 	            type = false;
 	        }
 	        if(capacity) {
 	            dCapacity = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            capacity = false;
 	        }
 	        if(remaining) {
 	            dRemaining = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            remaining = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
 		if(endElement.getName().getLocalPart().equalsIgnoreCase("reserve")) {
-		    //this.getModel().getReserveManager().addReserve(dType, dCapacity, dRemaining);
+		    this.getModel().getReserveManager().addReserve(dMaxD, dDurab, dPrice, dRepair, dType, dCapacity/*, dRemaining*/);
 		}
 		break;
             }
@@ -477,9 +517,10 @@ public class MainControllerImpl implements MainController {
 	boolean price = false;
 	boolean repairCost = false;
 	boolean actualDurability = false;
-	String dName, dFuel;
-	int dSpeed, dDurability, dPrice;
-	int dRepairCost, dActualDurability;
+	String dName = "";
+	Fuel dFuel = null;
+	int dSpeed = 0, dDurability = 0, dPrice = 0;
+	int dRepairCost = 0, dActualDurability = 0;
 	
 	while(eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
@@ -510,44 +551,41 @@ public class MainControllerImpl implements MainController {
 	        Characters characters = event.asCharacters();
 	        if(name) {
 	            dName = characters.getData();
-	            System.out.println(characters.getData());
 	            name = false;
 	        }
 	        if(fuel) {
-	            dFuel = characters.getData();
-	            System.out.println(characters.getData());
+	            for(Fuel f : this.getModel().getFuelManager().getAllFuels()) {
+	        	if(f.getName() == characters.getData()) {
+	        	    dFuel = f;
+	        	}
+	            }
 	            fuel = false;
 	        }
 	        if(speed) {
 	            dSpeed = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            speed = false;
 	        }
 	        if(durability) {
 	            dDurability = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            durability = false;
 	        }
 	        if(price) {
 	            dPrice = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            price = false;
 	        }
 	        if(repairCost) {
 	            dRepairCost = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            repairCost = false;
 	        }
 	        if(actualDurability) {
 	            dActualDurability = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            actualDurability = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
 	        if(endElement.getName().getLocalPart().equalsIgnoreCase("pump")) {
-		    //this.getModel().getPumpManager().addPump(dName, dFuel, dSpeed, dDurability, dPrice, dRepairCost, dActualDurability);
+		    this.getModel().getPumpManager().addPump(dDurability, dActualDurability, dPrice, dRepairCost, dName, dFuel, dSpeed);
 		}
 		break;
 	    }
@@ -558,9 +596,9 @@ public class MainControllerImpl implements MainController {
 	boolean name = false;
 	boolean xPos = false;
 	boolean yPos = false;
-        int dXPos;
-        int dYPos;
-        final List<String> list = new ArrayList<>();
+        int dXPos = 0;
+        int dYPos = 0;
+        final List<Pump> list = new ArrayList<>();
         
 	while(eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
@@ -581,24 +619,25 @@ public class MainControllerImpl implements MainController {
 	        Characters characters = event.asCharacters();
 	        if(xPos) {
 	            dXPos = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            xPos = false;
 	        }
 	        if(yPos) {
 	            dYPos = Integer.parseInt(characters.getData());
-	            System.out.println(characters.getData());
 	            yPos = false;
 	        }
 	        if(name) {
-	            list.add(characters.getData());
-	            System.out.println(characters.getData());
+	            for(Pump p : this.getModel().getPumpManager().getAllPumps()) {
+	        	if(p.getName() == characters.getData()) {
+	        	    list.add(p);
+	        	}
+	            }
 	            name = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
                 EndElement endElement = event.asEndElement();
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("area")) {
-                    //this.getModel().getAreaManager().addArea(dXPos, dYPos, list);
+                    this.getModel().getAreaManager().addArea(dXPos, dYPos, list);
                 }
                 //load configuration
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("station")) {

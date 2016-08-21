@@ -38,12 +38,20 @@
 	
 	<reserves>
 		<reserve>
+			<maxDurability>1000</maxDurability>
+			<durability>900</durability>
+			<price>70</price>
+			<repairCost>50</repairCost>
 			<type>Benzina</type>
 			<capacity>100000</capacity>
 			<remaining>80000</remaining>
 		</reserve>
 		
 		<reserve>
+			<maxDurability>1000</maxDurability>
+			<durability>900</durability>
+			<price>70</price>
+			<repairCost>50</repairCost>
 			<type>Diesel</type>
 			<capacity>100000</capacity>
 			<remaining>80000</remaining>

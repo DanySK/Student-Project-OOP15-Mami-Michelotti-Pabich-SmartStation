@@ -112,9 +112,15 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	    final boolean free = this.areaFree(tempX, tempY);
 	    
 	    if(free) {
-		final List<String> list = new ArrayList<>();
-		list.addAll(this.stationEditor.getPumps());
-		//this.mainController.getModel().getAreaManager().addArea(tempX, tempY, list);
+		final List<Pump> list = new ArrayList<>();
+		for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+		    for(int i = 0; i < this.stationEditor.getPumps().size() -1; i++) {
+			if(p.getName() == this.stationEditor.getPumps().get(i)) {
+			    list.add(p);
+			}
+		    }
+	        }
+		this.mainController.getModel().getAreaManager().addArea(tempX, tempY, list);
 		
 		//refresh areas
 		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());

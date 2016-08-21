@@ -2,6 +2,8 @@ package application.controller.tabs;
 
 import java.util.List;
 import application.controller.MainController;
+import application.model.buildables.pump.Pump;
+import application.model.buildables.reserve.Reserve;
 import application.model.moneyManager.MovementType;
 import application.model.services.Fuel;
 import application.view.tabs.fuelsEditor.FuelsEditor;
@@ -85,10 +87,10 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	final boolean isCol = this.isColor(this.fuelsEditor.getFuelColor());
 	
 	if(isFre && isPri && isWPr && isCol) {
-	    /*this.mainController.getModel().getFuelManager().addFuel(this.fuelsEditor.getFuelName(),
+	    this.mainController.getModel().getFuelManager().addFuel(this.fuelsEditor.getFuelName(),
 		                                                    Integer.parseInt(this.fuelsEditor.getFuelPrice()),
 		                                                    Integer.parseInt(this.fuelsEditor.getFuelWhoesalePrice()),
-		                                                    Color.valueOf(this.fuelsEditor.getFuelColor()));*/
+		                                                    Color.valueOf(this.fuelsEditor.getFuelColor()));
 	    this.fuelsEditor.loadFuels(this.mainController.getModel().getFuelManager().getAllFuels());
 	    
 	    //adding the movement
@@ -99,6 +101,23 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	}
+    }
+
+    @Override
+    public void deleteFuel() {
+	this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
+	
+	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
+	    if(r.getType().getName() == this.fuel.getName()) {
+		this.mainController.getModel().getReserveManager().removeReserve(r);
+	    }
+	}
+	
+	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+	    if(p.getName() == this.fuel.getName()) {
+		this.mainController.getModel().getPumpManager().removePump(p);
+	    }
 	}
     }
 

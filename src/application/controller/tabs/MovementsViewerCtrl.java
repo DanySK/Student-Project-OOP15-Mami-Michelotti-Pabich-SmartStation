@@ -12,7 +12,7 @@ public interface MovementsViewerCtrl {
      * Set the view of the controller.
      * @param movementsViewer the view for the class
      */
-    void setView(final MovementsViewer movementsViewer);
+    void setView(MovementsViewer movementsViewer);
     
     /**
      * Load the configuration of movements viewer tab.

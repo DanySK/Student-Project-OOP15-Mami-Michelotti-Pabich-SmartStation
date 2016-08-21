@@ -13,15 +13,16 @@ public interface PumpsEditorCtrl {
 
     /**
      * Set the view of the controller.
+     * @param pumpsEditor the view for the class
      */
-    void setView(final PumpsEditor pumpsEditor);
+    void setView(PumpsEditor pumpsEditor);
     
     /**
      * Load configuration for pump editor tab.
      * @param fuels list of fuel
      * @param pumps list of pump
      */
-    void loadData(final List<Fuel> fuels, final List<Pump> pumps);
+    void loadData(List<Fuel> fuels, List<Pump> pumps);
     
     /**
      * Select the pump for modify character.
@@ -67,4 +68,9 @@ public interface PumpsEditorCtrl {
      * Create new pump.
      */
     void addPump();
+    
+    /**
+     * Delete the pump selected.
+     */
+    void deletePump();
 }

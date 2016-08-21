@@ -15,14 +15,14 @@ public interface ReservesEditorCtrl {
      * Set the view of the controller.
      * @param reservesEditor the view for the class
      */
-    void setView(final ReservesEditor reservesEditor);
+    void setView(ReservesEditor reservesEditor);
     
     /**
      * Load configuration for reserves editor tab.
      * @param fuels list of fuel
      * @param reserves list of reserve
      */
-    void loadData(final List<Fuel> fuels, final List<Reserve> reserves);
+    void loadData(List<Fuel> fuels, List<Reserve> reserves);
     
     /**
      * Selected the reserve for modify dates.
@@ -78,4 +78,9 @@ public interface ReservesEditorCtrl {
      * Add new reserve for the station.
      */
     void addReserve();
+    
+    /**
+     * Delete the reserve selected.
+     */
+    void deleteReserve();
 }

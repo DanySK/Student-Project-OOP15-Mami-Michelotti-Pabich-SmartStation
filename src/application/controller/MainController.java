@@ -59,6 +59,7 @@ public interface MainController {
     
     /**
      * Get the model of the controller.
+     * @return main model
      */
     Station getModel();
     

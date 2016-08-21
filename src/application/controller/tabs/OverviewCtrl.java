@@ -14,11 +14,11 @@ public interface OverviewCtrl {
      * Set the view of the controller.
      * @param overview the view for the class
      */
-    void setView(final Overview overview);
+    void setView(Overview overview);
     
     /**
      * Load configuration for overview tab.
      * @param areas list of area
      */
-    void loadData(final List<Area> areas);
+    void loadData(List<Area> areas);
 }

@@ -153,10 +153,18 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	final boolean isDur = this.isNumber(this.reservesEditor.getDurability());
 	final boolean isRCos = this.isNumber(this.reservesEditor.getRepairCost());
 	if(isFuel && isCap && isPri && isDur && isRCos) {
-	    /*this.mainController.getModel().getReserveManager()//manca aggiunta
-	      .addReserve(this.reservesEditor.getFuel(), Integer.parseInt(this.reservesEditor.getCapacity()),
-	      Integer.parseInt(this.reservesEditor.getPrice()), Integer.parseInt(this.reservesEditor.getDurability()),
-	      Integer.parseInt(this.reservesEditor.getRepairCost()));*/
+	    Fuel fuel = null;
+	    for(Fuel f : this.mainController.getModel().getFuelManager().getAllFuels()) {
+		if(f.getName() == this.reservesEditor.getFuel()) {
+		    fuel = f;
+		}
+	    }
+	    this.mainController.getModel().getReserveManager().addReserve(Integer.parseInt(this.reservesEditor.getDurability()),
+		                                                          Integer.parseInt(this.reservesEditor.getDurability()),
+		                                                          Integer.parseInt(this.reservesEditor.getPrice()),
+		                                                          Integer.parseInt(this.reservesEditor.getRepairCost()), fuel,
+		                                                          Integer.parseInt(this.reservesEditor.getCapacity()));
+	    
 	    this.reservesEditor.loadReserves(this.mainController.getModel().getReserveManager().getAllReserves());
 	    
 	    //Adding the movement
@@ -168,6 +176,11 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	  //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
 	}
+    }
+
+    @Override
+    public void deleteReserve() {
+	this.mainController.getModel().getReserveManager().removeReserve(this.reserve);
     }
 
     //control of name is already taken

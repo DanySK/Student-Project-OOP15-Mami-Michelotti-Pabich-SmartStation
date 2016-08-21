@@ -15,7 +15,7 @@ public interface StationEditorCtrl {
      * Set the view of the controller.
      * @param stationEditor the view for the class
      */
-    void setView(final StationEditor stationEditor);
+    void setView(StationEditor stationEditor);
     
     /**
      * Load configuration for station editor tab.
@@ -24,7 +24,7 @@ public interface StationEditorCtrl {
      * @param pumps list pump for combo box
      * @param areas list area for grid
      */
-    void loadData(final int x, final int y, final List<Pump> pumps, final List<Area> areas);
+    void loadData(int x, int y, List<Pump> pumps, List<Area> areas);
     
     /**
      * Select the area and load data.
