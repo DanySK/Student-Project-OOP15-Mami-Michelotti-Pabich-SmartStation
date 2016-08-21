@@ -20,7 +20,7 @@
 	
 	
 	<center>
-		<Rectangle fx:id="car" id="car" BorderPane.alignment="CENTER" fill="RED" width="$defaultCarSize" height="$defaultCarSize"></Rectangle>
+		<Rectangle fx:id="car" id="car" visible="false" BorderPane.alignment="CENTER" fill="RED" width="$defaultCarSize" height="$defaultCarSize"></Rectangle>
 	</center>
 	
 	<right>
@@ -28,10 +28,10 @@
 			<padding>
 				<Insets left="$defaultMargin" right="$defaultMargin"></Insets>
 			</padding>
-			<Rectangle BorderPane.alignment="CENTER" fill="RED" width="$defaultSize" height="$defaultSize"></Rectangle>
-			<Rectangle BorderPane.alignment="CENTER" fill="YELLOW" width="$defaultSize" height="$defaultSize"></Rectangle>
-			<Rectangle BorderPane.alignment="CENTER" fill="LIGHTBLUE" width="$defaultSize" height="$defaultSize"></Rectangle>
-			<Rectangle BorderPane.alignment="CENTER" fill="GREEN" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
 		</VBox>
 	</right>
 	

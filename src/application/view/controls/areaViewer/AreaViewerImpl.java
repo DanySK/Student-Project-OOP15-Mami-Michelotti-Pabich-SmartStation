@@ -60,7 +60,7 @@ public class AreaViewerImpl extends BorderPane implements AreaViewer {
      * @param color Fill of the rectangle
      * @return Colored, sized and alligned rectangle ready to use
      */
-    private Rectangle createRectangle(final Paint color) {
+    private Rectangle createRectangle(final Color color) {
         Rectangle rectangle = new Rectangle();
         
         rectangle.setFill(color);
@@ -78,8 +78,7 @@ public class AreaViewerImpl extends BorderPane implements AreaViewer {
      
         for (Pump pump : pumps) {
             pumpContainer.getChildren().add(createRectangle(pump.getType().getColor()));
-        }
-        
+        }     
     }
 
     @Override
