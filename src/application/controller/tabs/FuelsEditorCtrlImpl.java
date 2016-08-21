@@ -109,6 +109,11 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	    
+	    this.mainController.getPumpsEditorController().loadData(this.mainController.getModel().getFuelManager().getAllFuels(),
+		                                                    this.mainController.getModel().getPumpManager().getAllPumps());
+	    this.mainController.getReservesEditorController().loadData(this.mainController.getModel().getFuelManager().getAllFuels(),
+		                                                       this.mainController.getModel().getReserveManager().getAllReserves());
 	} else if(!isFre) {
 	    this.fuelsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	} else if(!isPri) {
