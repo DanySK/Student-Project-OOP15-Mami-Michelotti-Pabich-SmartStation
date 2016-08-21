@@ -4,7 +4,7 @@
 	<open>false</open>
 	<maxareas>10</maxareas>
 	<maxpumps>4</maxpumps>
-	<balance>852945625</balance>
+	<balance>10000</balance>
 	
 	<fuels>
 		<fuel>
@@ -18,15 +18,8 @@
 			<name>Diesel</name>
 			<price>123</price>
 			<wholesaleprice>100</wholesaleprice>
-			<color>#105689</color>
-		</fuel>
-		
-		<fuel>
-			<name>Elettricita</name>
-			<price>123</price>
-			<wholesaleprice>100</wholesaleprice>
-			<color>#00FF89</color>
-		</fuel>
+			<color>#10FF10</color>
+		</fuel>	
 		
 		<fuel>
 			<name>Metano</name>
@@ -44,7 +37,7 @@
 			<repairCost>50</repairCost>
 			<type>Benzina</type>
 			<capacity>100000</capacity>
-			<remaining>80000</remaining>
+			<remaining>56000</remaining>
 		</reserve>
 		
 		<reserve>
@@ -54,6 +47,16 @@
 			<repairCost>50</repairCost>
 			<type>Diesel</type>
 			<capacity>100000</capacity>
+			<remaining>80000</remaining>
+		</reserve>
+		
+		<reserve>
+			<maxDurability>1000</maxDurability>
+			<durability>900</durability>
+			<price>70</price>
+			<repairCost>50</repairCost>
+			<type>Metano</type>
+			<capacity>80000</capacity>
 			<remaining>80000</remaining>
 		</reserve>
 	</reserves>
@@ -78,6 +81,26 @@
 			<repairCost>10</repairCost>
 			<actualDurability>89</actualDurability>
 		</pump>
+		
+		<pump>
+			<name>Diesel100</name>
+			<fuel>Diesel</fuel>
+			<speed>100</speed>
+			<durability>100</durability>
+			<price>500</price>
+			<repairCost>10</repairCost>
+			<actualDurability>58</actualDurability>
+		</pump>
+		
+		<pump>
+			<name>Metano100</name>
+			<fuel>Metano</fuel>
+			<speed>100</speed>
+			<durability>200</durability>
+			<price>500</price>
+			<repairCost>10</repairCost>
+			<actualDurability>100</actualDurability>
+		</pump>
 	</pumps>
 	
 	<areas>
@@ -94,7 +117,7 @@
 				</pump>
 				
 				<pump>
-					<name>Benzina100</name>
+					<name>Metano100</name>
 				</pump>
 			</pumps>
 		</area>
@@ -104,15 +127,33 @@
 			<ypos>1</ypos>
 			<pumps>
 				<pump>
-					<name>Benzina100</name>
+					<name>Metano100</name>
 				</pump>
 				
 				<pump>
-					<name>Benzina200</name>
+					<name>Diesel100</name>
 				</pump>
 				
 				<pump>
-					<name>Benzina100</name>
+					<name>Metano100</name>
+				</pump>
+			</pumps>
+		</area>
+		
+		<area>
+			<xpos>2</xpos>
+			<ypos>2</ypos>
+			<pumps>
+				<pump>
+					<name>Metano100</name>
+				</pump>
+				
+				<pump>
+					<name>Diesel100</name>
+				</pump>
+				
+				<pump>
+					<name>Metano100</name>
 				</pump>
 			</pumps>
 		</area>
