@@ -481,9 +481,6 @@ public class MainControllerImpl implements MainController {
 	        }
 	        if(type) {
 	            dType = this.getModel().getFuelManager().getFuel(characters.getData());
-	            if(dType == null) {
-	        	System.out.println("aaaaaaaaaaaaaaaaaaaa");
-	            }
 	            type = false;
 	        }
 	        if(capacity) {
@@ -620,7 +617,7 @@ public class MainControllerImpl implements MainController {
 	        }
 	        if(name) {
 	            for(Pump p : this.getModel().getPumpManager().getAllPumps()) {
-	        	if(p.getName() == characters.getData()) {
+	        	if(p.getName().equals(characters.getData())) {
 	        	    list.add(p);
 	        	}
 	            }
