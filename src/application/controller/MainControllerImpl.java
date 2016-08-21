@@ -628,6 +628,7 @@ public class MainControllerImpl implements MainController {
                 EndElement endElement = event.asEndElement();
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("area")) {
                     this.getModel().getAreaManager().addArea(dXPos, dYPos, list);
+                    list.clear();
                 }
                 //load configuration
                 if(endElement.getName().getLocalPart().equalsIgnoreCase("station")) {

@@ -125,7 +125,7 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
 	} else {
-	    this.pumpsEditor.showInformationAlert("Error", "error of repair", "Punp is ok");
+	    this.pumpsEditor.showInformationAlert("Error", "error of repair", "Pump is ok");
 	}
     }
 
