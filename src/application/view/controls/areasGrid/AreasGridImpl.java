@@ -55,7 +55,7 @@ public class AreasGridImpl extends BorderPane implements AreasGrid {
         
         for (Area a : areas) {
             final AreaViewerImpl aViewer = new AreaViewerImpl(a.getAllPumps());
-            GridPane.setRowIndex(aViewer, a.getYPosition());
+            GridPane.setRowIndex(aViewer, a.getXPosition());
             GridPane.setColumnIndex(aViewer, a.getYPosition());
        
             grdAreas.getChildren().add(aViewer);
