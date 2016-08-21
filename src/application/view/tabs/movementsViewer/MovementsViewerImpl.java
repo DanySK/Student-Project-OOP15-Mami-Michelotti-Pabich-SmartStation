@@ -125,11 +125,11 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
     //Event handlers  
     @FXML
     private void btnApplyFilter_click(final MouseEvent e) {
-        //this.controller.applyFilter();
+        this.controller.applyFilter();
     }
     
     @FXML
     private void btnAddMovement_click(final MouseEvent e) {
-        //this.controller.addMovement();
+        this.controller.addMovement();
     }  
 }

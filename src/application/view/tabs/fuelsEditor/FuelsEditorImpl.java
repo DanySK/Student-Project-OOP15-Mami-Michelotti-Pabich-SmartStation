@@ -203,7 +203,7 @@ public class FuelsEditorImpl extends BorderPane implements FuelsEditor {
     
     @FXML
     private void btnDelete_click(final MouseEvent e) {
-        //this.controller.deleteFuel();
+        this.controller.deleteFuel();
     }
     
     //Adding

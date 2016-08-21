@@ -87,7 +87,8 @@ public interface MinimalWindowView {
     
     
     /** 
-     * Get the actualX position of the window.
+     * Get the actualX position of the window. This value is the updated value of the
+     * X position of the window, when it's clicked, dragged and changing size.
      * @return actualX position of the window
      */
     double getWindowActualX();
@@ -113,7 +114,8 @@ public interface MinimalWindowView {
     
     
     /** 
-     * Get the actualY position of the window.
+     * Get the actualY position of the window. This value is the updated value of the
+     * Y position of the window, when it's clicked, dragged and changing size.
      * @return actualY position of the window
      */
     double getWindowActualY();

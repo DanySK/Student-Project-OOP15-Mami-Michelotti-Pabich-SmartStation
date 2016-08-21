@@ -255,7 +255,7 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
     
     @FXML
     private void btnDelete_click(final MouseEvent e) {
-        //this.controller.deleteFuel();
+        this.controller.deletePump();
     } 
     
     //Repair

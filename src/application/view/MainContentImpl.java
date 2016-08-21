@@ -99,6 +99,7 @@ public class MainContentImpl extends TabPane implements MainContent {
     }
 
     
+    
     //Getters for the tabs
     @Override
     public Overview getOverviewTab() {

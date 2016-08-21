@@ -286,7 +286,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     
     @FXML
     private void btnDelete_click(final MouseEvent e) {
-        //this.controller.deleteFuel();
+        this.controller.deleteReserve();
     }
      
     //Refill  

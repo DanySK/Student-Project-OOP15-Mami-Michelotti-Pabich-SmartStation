@@ -43,15 +43,18 @@ public class MinimalWindowViewImpl extends BorderPane implements MinimalWindowVi
     
     //References to min/max width/height and the shadow effect
     private final int minWidth, minHeight;
-    
-    //Things for the resizing/moving window
+      
+    //Thi two values will be the updated X and Y coordinates of the
+    //window when it will be change size and position.
     private double actualX, actualY;
+    
+    //Things for moving window
     private boolean isMovable = true;
     
     //Saving of screen bounds
     private BoundingBox savedBounds;
     
-    //Status of the window, because of "bugged" isMaximized of stage
+    //Status of the window, because of "bugged" isMaximized of the Stage class
     private boolean isMaximized;
     
     //The controller
