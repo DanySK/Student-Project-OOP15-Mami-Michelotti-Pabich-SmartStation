@@ -20,7 +20,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
 
-    //private MovementsViewerCtrl controller;
+    private MovementsViewerCtrl controller;
     
     @FXML
     private ComboBox<String> cmbFilters;
@@ -57,7 +57,7 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
     //Controller setter
     @Override
     public void setController(final MovementsViewerCtrl ctrl) {
-       //this.controller = ctrl;
+       this.controller = ctrl;
     }
     
       
