@@ -30,7 +30,8 @@ public class AreaImpl implements Area {
      */
     public AreaImpl(final int x, final int y, final List<Pump> pumps) {
         this.vehicle = Optional.empty();
-        this.pumps = pumps;
+        this.pumps = new ArrayList<>();
+        this.pumps.addAll(pumps);
         this.x = x;
         this.y = y;
     }
