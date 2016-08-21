@@ -48,19 +48,19 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
 
     @Override
     public void applyFilter() {
-	if (this.movementsViewer.getFilter() == "defoult") {
+	if (this.movementsViewer.getFilter() == "default") {
+	    this.movementsViewer.clearList();
 	    for (Movement m : this.mainController.getModel().getMoneyManager().getAllMovements()) {
-		this.movementsViewer.clearList();
 		this.movementsViewer.addElementToList(m.getType().toString());
 		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
 		this.movementsViewer.addElementToList(m.getDescription().toString());
 	    }
 	} else if (this.movementsViewer.getFilter() == "higher") {
+	    this.movementsViewer.clearList();
 	    List<Movement> list = new ArrayList<>();
 	    list = this.orderAcrescing();
 	    
 	    for (Movement m : list) {
-		this.movementsViewer.clearList();
 		this.movementsViewer.addElementToList(m.getType().toString());
 		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
 		this.movementsViewer.addElementToList(m.getDescription().toString());
@@ -69,9 +69,9 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
 	    List<Movement> list = new ArrayList<>();
 	    list = this.orderAcrescing();
 	    Collections.reverse(list);
+	    this.movementsViewer.clearList();
 	    
 	    for (Movement m : list) {
-		this.movementsViewer.clearList();
 		this.movementsViewer.addElementToList(m.getType().toString());
 		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
 		this.movementsViewer.addElementToList(m.getDescription().toString());
@@ -85,9 +85,9 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
     public void addMovement() {
 	if (this.movementsViewer.getDescription() != "" && this.movementsViewer.getMoney() != "") {
 	    this.mainController.getModel().getMoneyManager()
-	                                  .addMovement(MovementType.valueOf(this.movementsViewer.getDescription()),
+	                                  .addMovement(MovementType.LOAD,
 	                                	       Integer.parseInt(this.movementsViewer.getMoney()),
-	                                	       "Adding movimente");
+	                                	       this.movementsViewer.getDescription());
 	    this.mainController.getModel().getMoneyManager().getActualBalance();
 	} else {
 	    this.movementsViewer.showInformationAlert("Error", "error of load", "Complete the moviment");

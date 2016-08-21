@@ -132,26 +132,27 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 
     @Override
     public void deleteFuel() {
-	
-	if (this.fuelsEditor.getSelectedFuel() != "") {
-	   this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
-	   
-	   for (Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	       if (r.getType().getName().equals(this.fuel.getName())) {
-		   this.mainController.getModel().getReserveManager().removeReserve(r);
-	       }
-	   }
-	   
-	   for (Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
-	       if (p.getType().getName().equals(this.fuel.getName())) {
-		   this.mainController.getModel().getPumpManager().removePump(p);
-	       }
-	   }
-	   this.fuelsEditor.setModifyName("");
-	   this.fuelsEditor.setModifyPrice("");
-	   this.fuelsEditor.setModifyWhoesalePrice("");
-	   this.fuelsEditor.setModifyColor("");
-	   //reconfiguration of tabs
+	if (this.fuel != null) {
+	    for (Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
+	        if (r.getType().getName().equals(this.fuel.getName())) {
+		    this.mainController.getModel().getReserveManager().removeReserve(r);
+	        }
+	    }
+	    
+	    for (Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
+	        if (p.getType().getName().equals(this.fuel.getName())) {
+		    this.mainController.getModel().getPumpManager().removePump(p);
+	        }
+	    }
+	    
+	    this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
+	    
+	    this.fuel = null;
+	    this.fuelsEditor.setModifyName("");
+	    this.fuelsEditor.setModifyPrice("");
+	    this.fuelsEditor.setModifyWhoesalePrice("");
+	    this.fuelsEditor.setModifyColor("");
+	    //reconfiguration of tabs
 	    this.mainController.reconfiguration();
 	} else {
 	    this.fuelsEditor.showInformationAlert("Error", "error of delete", "Select the fuel");
