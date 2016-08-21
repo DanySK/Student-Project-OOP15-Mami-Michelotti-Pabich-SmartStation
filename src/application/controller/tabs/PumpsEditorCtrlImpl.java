@@ -49,6 +49,9 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    this.mainController.getModel().getPumpManager().getPumpByName(this.pumpSelected.getName())
 	                                                   .setName(this.pumpsEditor.getModifyFuelType());
 	    this.pumpSelected.setName(this.pumpsEditor.getModifyFuelType());
+	    
+	    //reconfiguration of tabs
+	    this.mainController.reconfiguration();
 	} else {
 	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	}
@@ -154,6 +157,9 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	    
 	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	    
+	    //reconfiguration of tabs
+	    this.mainController.reconfiguration();
 	} else if(!isFre) {
 	    this.pumpsEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	} else if(!speed) {
@@ -171,6 +177,9 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     public void deletePump() {
 	if(this.pumpsEditor.getModifySelectedPump() != "") {
 	    this.mainController.getModel().getPumpManager().removePump(this.pumpSelected);
+	    
+	    //reconfiguration of tabs
+	    this.mainController.reconfiguration();
 	} else {
 	    this.pumpsEditor.showInformationAlert("Error", "error of delete", "Select the pump");
 	}

@@ -70,6 +70,11 @@ public interface MainController {
     void setView(MainContent mainContent);
     
     /**
+     * Reconfiguration of all tabs.
+     */
+    void reconfiguration();
+    
+    /**
      * Save dates in the file type xml.
      */
     void saveConfiguration();

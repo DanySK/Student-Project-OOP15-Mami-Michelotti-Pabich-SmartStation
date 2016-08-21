@@ -50,6 +50,9 @@ public class MainControllerImpl implements MainController {
     private final ReservesEditorCtrl reservesEditorCtrl;
     private final StationEditorCtrl stationEditorCtrl;
     
+    /**
+     * Initialize the reference of controllers.
+     */
     public MainControllerImpl() {
 	this.fuelsEditorCtrl = new FuelsEditorCtrlImpl(this);
 	this.movementsViewerCtrl = new MovementsViewerCtrlImpl(this);
@@ -90,7 +93,7 @@ public class MainControllerImpl implements MainController {
     }
 
     @Override
-    public void setModel(Station station) {
+    public void setModel(final Station station) {
 	this.station = station;
     }
 
@@ -100,7 +103,7 @@ public class MainControllerImpl implements MainController {
     }
 
     @Override
-    public void setView(MainContent mainContent) {
+    public void setView(final MainContent mainContent) {
 	this.view = mainContent;
 	
 	this.fuelsEditorCtrl.setView(this.view.getFuelsEditorTab());
@@ -151,7 +154,7 @@ public class MainControllerImpl implements MainController {
 	    Element fuels = doc.createElement("fuels");
 	    rootElement.appendChild(fuels);
 	    
-	    for(Fuel f : this.getModel().getFuelManager().getAllFuels()) {
+	    for (Fuel f : this.getModel().getFuelManager().getAllFuels()) {
 		Element fuel = doc.createElement("fuel");
 		fuels.appendChild(fuel);
 		
@@ -176,7 +179,7 @@ public class MainControllerImpl implements MainController {
 	    Element reserves = doc.createElement("reserves");
 	    rootElement.appendChild(reserves);
 	    
-	    for(Reserve r : this.getModel().getReserveManager().getAllReserves()) {
+	    for (Reserve r : this.getModel().getReserveManager().getAllReserves()) {
 		Element reserve = doc.createElement("reserve");
 		reserves.appendChild(reserve);
 		
@@ -213,7 +216,7 @@ public class MainControllerImpl implements MainController {
 	    Element pumps = doc.createElement("pumps");
 	    rootElement.appendChild(pumps);
 	    
-	    for(Pump p : this.getModel().getPumpManager().getAllPumps()) {
+	    for (Pump p : this.getModel().getPumpManager().getAllPumps()) {
 		Element pump = doc.createElement("pump");
 		pumps.appendChild(pump);
 		
@@ -250,7 +253,7 @@ public class MainControllerImpl implements MainController {
 	    Element areas = doc.createElement("areas");
 	    rootElement.appendChild(areas);
 	    
-	    for(Area a : this.getModel().getAreaManager().getAllAreas()) {
+	    for (Area a : this.getModel().getAreaManager().getAllAreas()) {
 		Element area = doc.createElement("area");
 		areas.appendChild(area);
 		
@@ -266,7 +269,7 @@ public class MainControllerImpl implements MainController {
 		Element aPumps = doc.createElement("pumps");
 		area.appendChild(aPumps);
 		
-		for(Pump ap : a.getAllPumps()) {
+		for (Pump ap : a.getAllPumps()) {
 		    Element aPump = doc.createElement("pump");
 		    aPumps.appendChild(aPump);
 		    
@@ -291,6 +294,26 @@ public class MainControllerImpl implements MainController {
 	    e.printStackTrace();
 	}
     }
+    
+    @Override
+    public void reconfiguration() {
+	this.overviewCtrl.loadData(this.getModel().getAreaManager().getAllAreas());
+        
+        this.stationEditorCtrl.loadData(this.getModel().getMaxAreas(), 
+                                        this.getModel().getMaxAreas(),
+                                        this.getModel().getPumpManager().getAllPumps(),
+                                        this.getModel().getAreaManager().getAllAreas());
+        
+        this.fuelsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels());
+        
+        this.reservesEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
+                                         this.getModel().getReserveManager().getAllReserves());
+        
+        this.pumpsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
+    	                          this.getModel().getPumpManager().getAllPumps());
+        
+        this.movementsViewerCtrl.loadData();
+    }
 
     @Override
     public void loadConfiguration() {
@@ -306,14 +329,14 @@ public class MainControllerImpl implements MainController {
 	    factory.createXMLEventReader(new FileReader(new File(getClass()
 		    .getResource("/resources/configuration.xml").toURI())));
 	    
-	    while(eventReader.hasNext()) {
+	    while (eventReader.hasNext()) {
 		XMLEvent event = eventReader.nextEvent();
 		switch(event.getEventType()) {
 		    case XMLStreamConstants.START_ELEMENT:
 		    StartElement startElement = event.asStartElement();
                     String sName = startElement.getName().getLocalPart();
                     
-		    if(sName.equalsIgnoreCase("name")) {
+		    if (sName.equalsIgnoreCase("name")) {
 			name = true;
 		    } else if (sName.equalsIgnoreCase("open")) {
 			open = true;
@@ -329,11 +352,11 @@ public class MainControllerImpl implements MainController {
 		    break;
 		    case XMLStreamConstants.CHARACTERS:
 	            Characters characters = event.asCharacters();
-	            if(name) {
+	            if (name) {
 	        	this.getModel().setStationName(characters.getData());
 	        	name = false;
 	            }
-	            if(open) {
+	            if (open) {
 	        	if(Boolean.parseBoolean(characters.getData())) {
 	        	    this.station.open();
 	        	} else {
@@ -341,15 +364,15 @@ public class MainControllerImpl implements MainController {
 	        	}
 	        	open = false;
 	            }
-	            if(maxareas) {
+	            if (maxareas) {
 	        	this.getModel().setMaxAreas(Integer.parseInt(characters.getData()));
 	        	maxareas = false;
 	            }
-	            if(maxpumps) {
+	            if (maxpumps) {
 	        	this.getModel().setMaxPumps(Integer.parseInt(characters.getData()));
 	        	maxpumps = false;
 	            }
-	            if(balance) {
+	            if (balance) {
 	        	this.getModel().getMoneyManager().loadBalance(Integer.parseInt(characters.getData()));
 	        	balance = false;
 	            }
@@ -367,7 +390,7 @@ public class MainControllerImpl implements MainController {
         }
     }
     
-    private void fileFuel(XMLEventReader eventReader) throws Exception {
+    private void fileFuel(final XMLEventReader eventReader) throws Exception {
 	boolean name = false;
 	boolean price = false;
 	boolean wholesaleprice = false;
@@ -376,14 +399,14 @@ public class MainControllerImpl implements MainController {
 	int dPrice = 0, dWPrice = 0;
 	Color dColor = null;
 	
-	while(eventReader.hasNext()) {
+	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
 	    switch(event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
                 
-                if(sName.equalsIgnoreCase("name")) {
+                if (sName.equalsIgnoreCase("name")) {
                     name = true;
 		} else if (sName.equalsIgnoreCase("price")) {
 		    price = true;
@@ -397,26 +420,26 @@ public class MainControllerImpl implements MainController {
                 break;
 	        case XMLStreamConstants.CHARACTERS:
 	        Characters characters = event.asCharacters();
-	        if(name) {
+	        if (name) {
 	            dName = characters.getData();
 	            name = false;
 	        }
-	        if(price) {
+	        if (price) {
 	            dPrice = Integer.parseInt(characters.getData());
 	            price = false;
 	        }
-	        if(wholesaleprice) {
+	        if (wholesaleprice) {
 	            dWPrice = Integer.parseInt(characters.getData());
 	            wholesaleprice = false;
 	        }
-	        if(color) {
+	        if (color) {
 	            dColor = Color.valueOf(characters.getData());
 	            color = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
-	        if(endElement.getName().getLocalPart().equalsIgnoreCase("fuel")) {
+	        if (endElement.getName().getLocalPart().equalsIgnoreCase("fuel")) {
 	            this.getModel().getFuelManager().addFuel(dName, dPrice, dWPrice, dColor);
 	        }
 	        break;
@@ -424,7 +447,7 @@ public class MainControllerImpl implements MainController {
 	}
     }
     
-    private void fileReserve(XMLEventReader eventReader) throws Exception {
+    private void fileReserve(final XMLEventReader eventReader) throws Exception {
 	boolean maxDurability = false;
 	boolean durability = false;
 	boolean price = false;
@@ -436,14 +459,14 @@ public class MainControllerImpl implements MainController {
 	int dCapacity = 0, dRemaining = 0, dMaxD = 0;
 	int dDurab = 0, dPrice = 0, dRepair = 0;
 	
-	while(eventReader.hasNext()) {
+	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
 	    switch(event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
                 
-                if(sName.equalsIgnoreCase("maxDurability")) {
+                if (sName.equalsIgnoreCase("maxDurability")) {
                     maxDurability = true;
                 } else if (sName.equalsIgnoreCase("durability")) {
                     durability = true;
@@ -463,38 +486,38 @@ public class MainControllerImpl implements MainController {
                 break;
 	        case XMLStreamConstants.CHARACTERS:
 	        Characters characters = event.asCharacters();
-	        if(maxDurability) {
+	        if (maxDurability) {
 	            dMaxD = Integer.parseInt(characters.getData());
 	            maxDurability = false;
 	        }
-	        if(durability) {
+	        if (durability) {
 	            dDurab = Integer.parseInt(characters.getData());
 	            durability = false;
 	        }
-	        if(price) {
+	        if (price) {
 	            dPrice = Integer.parseInt(characters.getData());
 	            price = false;
 	        }
-	        if(repairCost) {
+	        if (repairCost) {
 	            dRepair = Integer.parseInt(characters.getData());
 	            repairCost = false;
 	        }
-	        if(type) {
+	        if (type) {
 	            dType = this.getModel().getFuelManager().getFuel(characters.getData());
 	            type = false;
 	        }
-	        if(capacity) {
+	        if (capacity) {
 	            dCapacity = Integer.parseInt(characters.getData());
 	            capacity = false;
 	        }
-	        if(remaining) {
+	        if (remaining) {
 	            dRemaining = Integer.parseInt(characters.getData());
 	            remaining = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
-		if(endElement.getName().getLocalPart().equalsIgnoreCase("reserve")) {
+		if (endElement.getName().getLocalPart().equalsIgnoreCase("reserve")) {
 		    this.getModel().getReserveManager().addReserve(dMaxD, dDurab, dPrice, dRepair,
 			                                           dType, dCapacity, dRemaining);
 		}
@@ -503,7 +526,7 @@ public class MainControllerImpl implements MainController {
 	}
     }
 
-    private void filePump(XMLEventReader eventReader) throws Exception {
+    private void filePump(final XMLEventReader eventReader) throws Exception {
 	boolean name = false;
 	boolean fuel = false;
 	boolean speed = false;
@@ -516,14 +539,14 @@ public class MainControllerImpl implements MainController {
 	int dSpeed = 0, dDurability = 0, dPrice = 0;
 	int dRepairCost = 0, dActualDurability = 0;
 	
-	while(eventReader.hasNext()) {
+	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
 	    switch(event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
                 
-                if(sName.equalsIgnoreCase("name")) {
+                if (sName.equalsIgnoreCase("name")) {
                     name = true;
 		} else if (sName.equalsIgnoreCase("fuel")) {
 		    fuel = true;
@@ -543,38 +566,38 @@ public class MainControllerImpl implements MainController {
                 break;
 	        case XMLStreamConstants.CHARACTERS:
 	        Characters characters = event.asCharacters();
-	        if(name) {
+	        if (name) {
 	            dName = characters.getData();
 	            name = false;
 	        }
-	        if(fuel) {
+	        if (fuel) {
 	            dFuel = this.getModel().getFuelManager().getFuel(characters.getData());
 	            fuel = false;
 	        }
-	        if(speed) {
+	        if (speed) {
 	            dSpeed = Integer.parseInt(characters.getData());
 	            speed = false;
 	        }
-	        if(durability) {
+	        if (durability) {
 	            dDurability = Integer.parseInt(characters.getData());
 	            durability = false;
 	        }
-	        if(price) {
+	        if (price) {
 	            dPrice = Integer.parseInt(characters.getData());
 	            price = false;
 	        }
-	        if(repairCost) {
+	        if (repairCost) {
 	            dRepairCost = Integer.parseInt(characters.getData());
 	            repairCost = false;
 	        }
-	        if(actualDurability) {
+	        if (actualDurability) {
 	            dActualDurability = Integer.parseInt(characters.getData());
 	            actualDurability = false;
 	        }
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
-	        if(endElement.getName().getLocalPart().equalsIgnoreCase("pump")) {
+	        if (endElement.getName().getLocalPart().equalsIgnoreCase("pump")) {
 		    this.getModel().getPumpManager().addPump(dDurability, dActualDurability, dPrice, dRepairCost, dName, dFuel, dSpeed);
 		}
 		break;
@@ -582,7 +605,7 @@ public class MainControllerImpl implements MainController {
 	}
     }
 
-    private void fileArea(XMLEventReader eventReader) throws Exception {
+    private void fileArea(final XMLEventReader eventReader) throws Exception {
 	boolean name = false;
 	boolean xPos = false;
 	boolean yPos = false;
@@ -590,34 +613,34 @@ public class MainControllerImpl implements MainController {
         int dYPos = 0;
         final List<Pump> list = new ArrayList<>();
         
-	while(eventReader.hasNext()) {
+	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
 	    switch(event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
                 
-                if(sName.equalsIgnoreCase("xpos")) {
+                if (sName.equalsIgnoreCase("xpos")) {
                     xPos = true;
 		} else if (sName.equalsIgnoreCase("ypos")) {
 		    yPos = true;
-		} else if(sName.equalsIgnoreCase("name")) {
+		} else if (sName.equalsIgnoreCase("name")) {
 		    name = true;
 		}
                 break;
 	        case XMLStreamConstants.CHARACTERS:
 	        Characters characters = event.asCharacters();
-	        if(xPos) {
+	        if (xPos) {
 	            dXPos = Integer.parseInt(characters.getData());
 	            xPos = false;
 	        }
-	        if(yPos) {
+	        if (yPos) {
 	            dYPos = Integer.parseInt(characters.getData());
 	            yPos = false;
 	        }
-	        if(name) {
-	            for(Pump p : this.getModel().getPumpManager().getAllPumps()) {
-	        	if(p.getName().equals(characters.getData())) {
+	        if (name) {
+	            for (Pump p : this.getModel().getPumpManager().getAllPumps()) {
+	        	if (p.getName().equals(characters.getData())) {
 	        	    list.add(p);
 	        	}
 	            }
@@ -626,12 +649,12 @@ public class MainControllerImpl implements MainController {
 	        break;
 	        case  XMLStreamConstants.END_ELEMENT:
                 EndElement endElement = event.asEndElement();
-                if(endElement.getName().getLocalPart().equalsIgnoreCase("area")) {
+                if (endElement.getName().getLocalPart().equalsIgnoreCase("area")) {
                     this.getModel().getAreaManager().addArea(dXPos, dYPos, list);
                     list.clear();
                 }
                 //load configuration
-                if(endElement.getName().getLocalPart().equalsIgnoreCase("station")) {
+                if (endElement.getName().getLocalPart().equalsIgnoreCase("station")) {
                     this.overviewCtrl.loadData(this.getModel().getAreaManager().getAllAreas());
                     
                     this.stationEditorCtrl.loadData(this.getModel().getMaxAreas(), 

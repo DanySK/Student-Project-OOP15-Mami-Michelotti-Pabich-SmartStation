@@ -52,6 +52,9 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	    this.reserve = this.mainController.getModel().getReserveManager()
 		                              .getReserve(this.mainController.getModel().getFuelManager()
 		                        	              .getFuel(this.reservesEditor.getModifyFuel()));
+	    
+	    //reconfiguration of tabs
+	    this.mainController.reconfiguration();
 	} else {
 	    this.reservesEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	}
@@ -116,16 +119,20 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     public void refill() {
 	final boolean isNum = this.isNumber(this.reservesEditor.getRefill());
 	if(isNum) {
-	    this.mainController.getModel().getReserveManager().getReserve(this.reserveRefill.getType())
-	                                                      .refill(Integer.parseInt(this.reservesEditor.getRefill()));
-	    //Adding the movement
-	    this.mainController.getModel().getMoneyManager()
-                                          .addMovement(MovementType.REFILL,
-                                        	       this.reserveRefill.getCost()*Integer.parseInt(this.reservesEditor.getRefill()),
-                                        	       "Refilling the riserve " + this.reserveRefill.getType().getName());
-	    
-	    //load the balance for movements tab
-	    this.mainController.getMovementsViewerController().loadBalance();
+	    if(this.reserveRefill.getRemaining() < this.reserveRefill.getCapacity()) {
+		this.mainController.getModel().getReserveManager().getReserve(this.reserveRefill.getType())
+	                                                      	  .refill(Integer.parseInt(this.reservesEditor.getRefill()));
+		//Adding the movement
+		this.mainController.getModel().getMoneyManager()
+                                              .addMovement(MovementType.REFILL,
+                                        	           this.reserveRefill.getCost()*Integer.parseInt(this.reservesEditor.getRefill()),
+                                        	           "Refilling the riserve " + this.reserveRefill.getType().getName());
+		
+		//load the balance for movements tab
+		this.mainController.getMovementsViewerController().loadBalance();
+	    } else {
+		this.reservesEditor.showInformationAlert("Error", "error of load", "Capacity is full");
+	    }
 	} else {
 	    this.reservesEditor.showInformationAlert("Error", "error of load", "Insert a number");
 	}
@@ -144,21 +151,25 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 
     @Override
     public void repair() {
-	final int damage = this.reserveRepair.getMaxDurability() - this.reserveRepair.getDurability();
-	
-	if(damage != 0){
-	    final int repair = (int)((damage * this.reservesEditor.getRepairValue()) / 100);
-	    this.mainController.getModel().getReserveManager().getReserve(this.reserveRepair.getType()).repair(repair);
+	if (this.reserveRepair != null) {
+	    final int damage = this.reserveRepair.getMaxDurability() - this.reserveRepair.getDurability();
 	    
-	    //Adding the movement
-	    this.mainController.getModel().getMoneyManager()
-	                              	  .addMovement(MovementType.REPAIR, this.reserveRepair.getCost()*repair,
-	                        	               "Repaying reserve " + this.reserveRepair.getType().getName());
-	    
-	    //load the balance for movements tab
-	    this.mainController.getMovementsViewerController().loadBalance();
+	    if(damage != 0){
+		final int repair = (int)((damage * this.reservesEditor.getRepairValue()) / 100);
+		this.mainController.getModel().getReserveManager().getReserve(this.reserveRepair.getType()).repair(repair);
+		
+		//Adding the movement
+		this.mainController.getModel().getMoneyManager()
+	                              	      .addMovement(MovementType.REPAIR, this.reserveRepair.getCost()*repair,
+	                        	                   "Repaying reserve " + this.reserveRepair.getType().getName());
+		
+		//load the balance for movements tab
+		this.mainController.getMovementsViewerController().loadBalance();
+	    } else {
+		this.reservesEditor.showInformationAlert("Error", "error of repair", "Reserve is ok");
+	    }
 	} else {
-	    this.reservesEditor.showInformationAlert("Error", "error of repair", "Reserve is ok");
+	    this.reservesEditor.showInformationAlert("Error", "error of repair", "Select the reserve for repair");
 	}
     }
 
@@ -186,8 +197,11 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 		                                       Integer.parseInt(this.reservesEditor.getPrice()),
 		                                       "Adding reserve " + this.reservesEditor.getFuel());
 	    
-	  //load the balance for movements tab
+	    //load the balance for movements tab
 	    this.mainController.getMovementsViewerController().loadBalance();
+	    
+	    //reconfiguration of tabs
+	    this.mainController.reconfiguration();
 	} else if(!isFuel) {
 	    this.reservesEditor.showInformationAlert("Error", "error of load", "Name is already taken");
 	} else if(!isCap) {
@@ -205,6 +219,9 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     public void deleteReserve() {
 	if(this.reservesEditor.getModifyReserve() != "") {
 	    this.mainController.getModel().getReserveManager().removeReserve(this.reserve);
+	    
+	    //reconfiguration of tabs
+	    this.mainController.reconfiguration();
 	} else {
 	    this.reservesEditor.showInformationAlert("Error", "error of delete", "Select the reserve");
 	}
