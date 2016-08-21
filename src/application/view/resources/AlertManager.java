@@ -16,7 +16,7 @@ public interface AlertManager {
      * @param message Content of the alert
      * @return An alert ready to use
      */
-    default Alert setupAlert(final AlertType type, final String title, final String header, final String message) {
+    default Alert setupAlert(AlertType type, String title, String header, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(header);
@@ -30,7 +30,7 @@ public interface AlertManager {
      * @param header Header of the alert
      * @param message Content of the alert
      */
-    default void showErrorAlert(final String title, final String header, final String message) {
+    default void showErrorAlert(String title, String header, String message) {
         setupAlert(AlertType.ERROR, title, header, message).showAndWait();
     }
     
@@ -40,7 +40,7 @@ public interface AlertManager {
      * @param header Header of the alert
      * @param message Content of the alert
      */
-    default void showInformationAlert(final String title, final String header, final String message) {
+    default void showInformationAlert(String title, String header, String message) {
         setupAlert(AlertType.INFORMATION, title, header, message).showAndWait();
     }
 }

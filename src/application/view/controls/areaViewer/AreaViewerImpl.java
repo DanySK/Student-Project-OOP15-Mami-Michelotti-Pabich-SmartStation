@@ -97,8 +97,5 @@ public class AreaViewerImpl extends BorderPane implements AreaViewer {
     public void setFree() {
 	this.car.setVisible(false);
     }
-
-
-
 	
 }

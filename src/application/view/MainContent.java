@@ -19,7 +19,7 @@ public interface MainContent extends AlertManager {
      * Set the controller of the MainContent and of the all sub-views.
      * @param ctrl the controller for the classes
      */
-    void setController(final MainController ctrl);
+    void setController(MainController ctrl);
     
     /**
      * Get the controller of the MainContent.

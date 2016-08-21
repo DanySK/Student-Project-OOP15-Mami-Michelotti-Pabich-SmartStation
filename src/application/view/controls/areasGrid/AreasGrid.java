@@ -16,13 +16,13 @@ public interface AreasGrid {
      * Draw all areas given in the list.
      * @param areas List of the areas
      */
-    void drawArea(final List<Area> areas);
+    void drawArea(List<Area> areas);
     
     /**
      * Delete an area on a specific position.
      * @param areaViewer Element that will be deleted
      */
-    void deleteArea(final AreaViewer areaViewer);
+    void deleteArea(AreaViewer areaViewer);
     
     /**
      * Delete every area present int the grid.

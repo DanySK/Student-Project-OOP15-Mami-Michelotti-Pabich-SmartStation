@@ -10,13 +10,38 @@ public interface ReserveStatus {
      * Get the remaining reserve quantity.
      * @return reserve quantity
      */
-    Double getReserve();
+    String getRemain();
 
     /**
      * Set the remaining reserve quantity.
      * @param value the quantity to set
      */
-    void setReserve(Double value);
+    void setRemain(String value);
+    
+    /**
+     * Get the remaining reserve quantity.
+     * @return reserve quantity
+     */
+    String getMaxReserve();
+
+    /**
+     * Set the remaining reserve quantity.
+     * @param value the quantity to set
+     */
+    void setMaxReserve(String value);
+    
+    /**
+     * Get the progress of reserve.
+     * @return double that represent the value
+     */
+    Double getProgress();
+    
+    /**
+     * Set the progress of reserve.
+     * @param value from 0.0 (empty) to 1.0 (full)
+     */
+    void setProgress(Double value);
+    
     
     /**
      * Get the fuel name.
@@ -34,12 +59,12 @@ public interface ReserveStatus {
      * Set the price of fuel.
      * @param value price of fule
      */
-    void setPrice(Double value);
+    void setPrice(String value);
     
     /**
      * Get the price of fuel.
      * @return the price of fuel
      */
-    Double getPrice();
+    String getPrice();
     
 }

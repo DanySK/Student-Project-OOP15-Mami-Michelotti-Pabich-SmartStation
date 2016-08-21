@@ -1,7 +1,5 @@
 package application;
 
-import java.io.File;
-
 import application.controller.MainController;
 import application.controller.MainControllerImpl;
 import application.model.Station;
@@ -9,7 +7,6 @@ import application.model.StationImpl;
 import application.view.MainContentImpl;
 import javafx.application.Application;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import mnmlwindow.MinimalWindow;
 import mnmlwindow.MinimalWindowImpl;

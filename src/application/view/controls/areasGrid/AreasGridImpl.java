@@ -5,6 +5,7 @@ import java.util.List;
 
 import application.model.buildables.area.Area;
 import application.view.controls.areaViewer.AreaViewer;
+import application.view.controls.areaViewer.AreaViewerImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
@@ -52,9 +53,15 @@ public class AreasGridImpl extends BorderPane implements AreasGrid {
     public void drawArea(final List<Area> areas) {
         this.clearAllAreas();
         
-        //for (Area a : areas) {
-            //grdAreas.add(new AreaViewerImpl(a.getAllPumps()), a.getYPosition(), a.getXPosition());
-        //}
+        for (Area a : areas) {
+            final AreaViewerImpl aViewer = new AreaViewerImpl(a.getAllPumps());
+            GridPane.setRowIndex(aViewer, a.getYPosition());
+            GridPane.setColumnIndex(aViewer, a.getYPosition());
+            
+            grdAreas.getChildren().add(aViewer);
+            
+            System.out.println(a.getXPosition() + " " + a.getYPosition() + " added");
+        }
     }
     
 

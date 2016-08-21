@@ -91,7 +91,7 @@ public interface StationEditor extends AlertManager {
      * Change the text of the "change view" button.
      * @param s Text to view in the button
      */
-    void changeButtonText(final String s);
+    void changeButtonText(String s);
         
     /**
      * Tell if the adding panel is visible.

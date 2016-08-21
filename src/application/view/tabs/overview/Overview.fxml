@@ -37,16 +37,12 @@
 	
 	<!-- Bottom part of the window -->
 	<bottom>
-		<HBox>
+		<HBox minHeight="80">
 			<padding>
 				<Insets top="$defaultMargin"></Insets>
 			</padding>
 			<VBox fx:id="vbxReserves" id="vbxReserves" alignment="TOP_LEFT" spacing="2" maxWidth="800" minWidth="400" HBox.hgrow="ALWAYS">
-   				<ReserveStatusImpl fx:id="reserve1" reserve="1" fuelName="Benzina" ></ReserveStatusImpl>
-				<ReserveStatusImpl fx:id="reserve2" reserve="0.7" fuelName="Diesel"></ReserveStatusImpl>
-				<ReserveStatusImpl fx:id="reserve3" reserve="0.3" fuelName="Idrogeno"></ReserveStatusImpl>
-				<ReserveStatusImpl fx:id="reserve4" reserve="0.5" fuelName="Gasolio"></ReserveStatusImpl>
-				<ReserveStatusImpl fx:id="reserve5" reserve="0.9" fuelName="Elettricità"></ReserveStatusImpl>
+
 			</VBox>
 				
 			<ListView fx:id="lsvLog" BorderPane.alignment="TOP_CENTER" prefHeight="${vbxReserves.getHeight}" HBox.hgrow="ALWAYS"></ListView>

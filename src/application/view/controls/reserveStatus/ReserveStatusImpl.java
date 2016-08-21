@@ -18,7 +18,7 @@ public class ReserveStatusImpl extends HBox implements ReserveStatus {
     private ProgressBar pgbReserve;
 	
     @FXML
-    private Label lblName, lblPrice;
+    private Label lblName, lblPrice, lblReserveRemain, lblReserveMax;
 
     /**
      * Main constructor for the ReserveStatus.
@@ -38,45 +38,69 @@ public class ReserveStatusImpl extends HBox implements ReserveStatus {
     /**
      * Secondary constructor for Reserve status that permit to set a name and reserve quantity.
      * @param name name of the fuel
-     * @param reserve reserve quantity
-     * @param price price of the fuel
+     * @param price price of that fuel
+     * @param remain remaining of that fuel in reserve
+     * @param max max of that fuel in reserve
+     * @param progress 0.0 means empty, 1.0 means full
      */
-    public ReserveStatusImpl(final String name, final Double price, final Double reserve) {
+    public ReserveStatusImpl(final String name, final String price, final String remain, final String max, final Double progress) {
     	this();
  
         //Set controls values
         this.setFuelName(name);
-        this.setReserve(reserve);
         this.setPrice(price);
+        this.setRemain(remain);
+        this.setProgress(progress);
     }
 
     @Override
-    public Double getReserve() {
-        return pgbReserve.getProgress();
+    public String getRemain() {
+        return this.lblReserveRemain.getText();
     }
 
     @Override
-    public void setReserve(final Double value) {
-        pgbReserve.setProgress(value);
+    public void setRemain(final String value) {
+        this.lblReserveRemain.setText(value.toString());
+    } 
+    
+    @Override
+    public String getMaxReserve() {
+        return this.lblReserveMax.getText();
+    }
+
+    @Override
+    public void setMaxReserve(final String value) {
+        this.lblReserveMax.setText(value);
     }
     
     @Override
+    public Double getProgress() {
+        return this.pgbReserve.getProgress();
+    }
+
+    @Override
+    public void setProgress(final Double value) {
+        this.pgbReserve.setProgress(value);
+    }
+    
+    
+    @Override
     public String getFuelName() {
-    	return lblName.getText();
+    	return this.lblName.getText();
     }
     
     @Override
     public void setFuelName(final String name) {
-    	lblName.setText(name);
+        this.lblName.setText(name);
     }
 
     @Override
-    public void setPrice(final Double value) {
-        lblPrice.setText(value.toString());
+    public void setPrice(final String value) {
+        this.lblPrice.setText(value);
     }
 
     @Override
-    public Double getPrice() {
-        return Double.parseDouble(lblPrice.getText());
+    public String getPrice() {
+        return this.lblPrice.getText();
     }
 }

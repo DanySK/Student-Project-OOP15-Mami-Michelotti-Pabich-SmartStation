@@ -20,7 +20,7 @@ public interface PumpsEditor extends AlertManager {
      * Set the controller for the view.
      * @param ctrl the controller
      */
-    void setController(final PumpsEditorCtrl ctrl);
+    void setController(PumpsEditorCtrl ctrl);
     
     
     
@@ -30,13 +30,13 @@ public interface PumpsEditor extends AlertManager {
      * Load names of pumps into the comboboxes.
      * @param pumps List of the pumps
      */
-    void loadPumps(final List<Pump> pumps);
+    void loadPumps(List<Pump> pumps);
     
     /**
      * Load names of fuels into the comboboxes.
      * @param fuels List of the fuels
      */
-    void loadFuels(final List<Fuel> fuels);
+    void loadFuels(List<Fuel> fuels);
     
     
     
@@ -58,7 +58,7 @@ public interface PumpsEditor extends AlertManager {
      * Set the value of modified fuel combobox.
      * @param fuelType String representing the value
      */
-    void setModifyFuelType(final String fuelType);
+    void setModifyFuelType(String fuelType);
     
     
     /**
@@ -71,7 +71,7 @@ public interface PumpsEditor extends AlertManager {
      * Set the value of modified speed textfield.
      * @param speed String representing the value
      */
-    void setModifySpeed(final String speed);
+    void setModifySpeed(String speed);
     
     /**
      * Get the modified durability of the pump.
@@ -83,7 +83,7 @@ public interface PumpsEditor extends AlertManager {
      * Set the value of modified durability textfield.
      * @param durability String representing the value
      */
-    void setModifyDurability(final String durability);
+    void setModifyDurability(String durability);
     
     /**
      * Get the modified price of the pump.
@@ -95,7 +95,7 @@ public interface PumpsEditor extends AlertManager {
      * Set the value of modified price textfield.
      * @param price String representing the value
      */
-    void setModifyPrice(final String price);
+    void setModifyPrice(String price);
     
     /**
      * Get the modified repair cost.
@@ -107,7 +107,7 @@ public interface PumpsEditor extends AlertManager {
      * Set the value of modified repair price textfield.
      * @param repairPrice String representing the value
      */
-    void setModifyRepairCost(final String repairPrice);
+    void setModifyRepairCost(String repairPrice);
     
     
     
@@ -132,10 +132,10 @@ public interface PumpsEditor extends AlertManager {
     
     /**
      * Set the text that shows the current and max values.
-     * @param actual Actual value
+     * @param current current value
      * @param max Max value
      */
-    void setRepairQuantities(final String current, final String max);
+    void setRepairQuantities(String current, String max);
     
     
     

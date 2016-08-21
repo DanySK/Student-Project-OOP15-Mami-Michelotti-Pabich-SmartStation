@@ -18,13 +18,35 @@ public interface Overview extends AlertManager {
      */
     void setController(OverviewCtrl controller);
 	
-    /** 
-     * Add a fuel to the overview.
-     * @param name - the name of the fuel
-     * @param price - price at one unity
-     * @param reserve - remaining fuel on reserve
+    
+       
+    /**
+     * Add the reserve on overview.
+     * @param name name of the fuel
+     * @param price price of that fuel
+     * @param remain remaining value of the reserve
+     * @param max max value of the reserve
+     * @param progress value of progress, 0.0 is empty, 1.0 is full
      */
-    void addReserveStatus(String name, Double price, Double reserve);
+    void addReserveStatus(String name, String price, String remain, String max, Double progress);
+    
+    /**
+     * Update the reserve status with values.
+     * @param name name of the fuel
+     * @param price price of that fuel
+     * @param remain remaining value of the reserve
+     * @param max max value of the reserve
+     * @param progress value of progress, 0.0 is empty, 1.0 is full
+     */
+    void refreshReserveStatus(String name, String price, String remain, String max, Double progress);
+    
+    /**
+     * Update the reserve status with values.
+     * @param name name of the fuel
+     * @param remain remaining value of the reserve
+     * @param progress value of progress, 0.0 is empty, 1.0 is full
+     */
+    void refreshReserveStatus(String name, String remain, Double progress);
     
     /**
      * Remove all the reserves from the bar.
@@ -32,6 +54,21 @@ public interface Overview extends AlertManager {
     void removeReserves();
     
     
+    
+    /**
+     * Add element to log list.
+     * @param element String element to add
+     */
+    void addElementToList(String element);
+    
+    
+    /**
+     * Clear the list from the elements.
+     */
+    void clearList();
+    
+    
+      
     /**
      * Redraw the grid with areas.
      * @param areas List of updated areas
