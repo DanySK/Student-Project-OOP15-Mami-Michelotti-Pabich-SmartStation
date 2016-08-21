@@ -119,13 +119,28 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     }
       
     @Override
-    public void loadPumps(final List<Pump> pumps) {     
+    public void loadPumps(final List<Pump> pumps) {  
+        this.cmbPump1.getItems().clear(); 
+        this.cmbPump2.getItems().clear(); 
+        this.cmbPump3.getItems().clear(); 
+        this.cmbPump4.getItems().clear(); 
+        
+        this.cmbModifyPump1.getItems().clear();
+        this.cmbModifyPump2.getItems().clear();
+        this.cmbModifyPump3.getItems().clear();
+        this.cmbModifyPump4.getItems().clear();
+        
+        this.cmbModifyPump1.getItems().add("-");
+        this.cmbModifyPump2.getItems().add("-");
+        this.cmbModifyPump3.getItems().add("-");
+        this.cmbModifyPump4.getItems().add("-");
+        
         //For each pump found add it to every combobox
         pumps.stream().forEach(p -> {
             this.cmbPump1.getItems().add(p.getName());
             this.cmbPump2.getItems().add(p.getName());
             this.cmbPump3.getItems().add(p.getName());
-            this.cmbPump4.getItems().add(p.getName());
+            this.cmbPump4.getItems().add(p.getName());        
             
             this.cmbModifyPump1.getItems().add(p.getName());
             this.cmbModifyPump2.getItems().add(p.getName());
