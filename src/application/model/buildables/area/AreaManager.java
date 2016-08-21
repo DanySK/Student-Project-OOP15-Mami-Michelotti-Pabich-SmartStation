@@ -9,12 +9,12 @@ import application.model.buildables.pump.Pump;
  * @author Alessandro Mami
  * 
  */
-public interface AreaManager{
+public interface AreaManager {
     
     /**
      * Gets the area of coordinates x and y.
-     * @param Coordinate x integer.
-     * @param Coordinate y integer.
+     * @param x x coordinate of the area
+     * @param y coordinate of the area
      * @return Area's type object.
      */
     Area getArea(int x, int y);

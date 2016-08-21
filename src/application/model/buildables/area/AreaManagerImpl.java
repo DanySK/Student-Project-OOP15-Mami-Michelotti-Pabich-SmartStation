@@ -5,7 +5,6 @@ import java.util.List;
 
 import application.model.Station;
 import application.model.buildables.pump.Pump;
-import application.model.services.FuelImpl;
 
 /**
  * Implements the AreaManager interface.
@@ -26,9 +25,9 @@ public class AreaManagerImpl implements AreaManager {
     
     /**
      * Constructor for the AreaManagerImpl that stores every area.
-     * @param Station's type object.
+     * @param s station
      */
-    public AreaManagerImpl(Station s) {
+    public AreaManagerImpl(final Station s) {
 	this.areas = new ArrayList<Area>();
 	this.station = s;
     }
@@ -36,8 +35,8 @@ public class AreaManagerImpl implements AreaManager {
     //AREA GETTERS
     @Override
     public Area getArea(final int x, final int y) {
-        for(Area a : this.areas){
-            if(a.getXPosition() == x && a.getYPosition() == y){
+        for (Area a : this.areas) {
+            if (a.getXPosition() == x && a.getYPosition() == y) {
 		return a;
             }
         }
@@ -51,9 +50,9 @@ public class AreaManagerImpl implements AreaManager {
 	
     //AREA ADDERS AND REMOVERS
     @Override
-    public boolean addArea(int x, int y, List<Pump> pumps) {
-        if(areas.size() < station.getMaxAreas()){
-            this.areas.add(new AreaImpl(x, y, pumps, station));
+    public boolean addArea(final int x, final int y, final List<Pump> pumps) {
+        if (areas.size() < station.getMaxAreas()) {
+            this.areas.add(new AreaImpl(x, y, pumps));
             return true;
         }
         return false;
@@ -61,8 +60,8 @@ public class AreaManagerImpl implements AreaManager {
     
     @Override
     public boolean removeArea(final int x, final int y) {
-        for(Area a : this.areas){
-	    if(a.getXPosition() == x && a.getYPosition() == y){
+        for (Area a : this.areas) {
+	    if (a.getXPosition() == x && a.getYPosition() == y) {
 		areas.remove(a);
 		return true;
 	    }	    

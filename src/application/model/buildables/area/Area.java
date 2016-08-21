@@ -11,7 +11,7 @@ import application.model.consumers.Vehicle;
  * @author Alessandro Mami
  *
  */
-public interface Area{	
+public interface Area {	
     
     /**
      * Gets the vehicle inside the area if there is one.
@@ -21,8 +21,8 @@ public interface Area{
     
     /**
      * Vehicle remains at the pump if the space is available.
-     * @param Vehicle's type object.
-     * @return True if the area is available. or else false.
+     * @param vehicle vehicle to put inside area
+     * @return True if the area is available. or else false
      */
     boolean setVehicle(Vehicle vehicle);
     

@@ -74,7 +74,7 @@ public class AreaViewerImpl extends BorderPane implements AreaViewer {
     @Override
     public void addPumps(final List<Pump> pumps) {
         this.removePumps();
-     
+
         for (Pump pump : pumps) {
             pumpContainer.getChildren().add(createRectangle(pump.getType().getColor()));
         }     

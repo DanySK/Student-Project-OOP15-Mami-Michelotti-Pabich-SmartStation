@@ -51,13 +51,13 @@ public class AreasGridImpl extends BorderPane implements AreasGrid {
 
     @Override
     public void drawArea(final List<Area> areas) {
-        this.clearAllAreas();
+        this.clearAllAreas();     
         
         for (Area a : areas) {
             final AreaViewerImpl aViewer = new AreaViewerImpl(a.getAllPumps());
             GridPane.setRowIndex(aViewer, a.getYPosition());
             GridPane.setColumnIndex(aViewer, a.getYPosition());
-            
+       
             grdAreas.getChildren().add(aViewer);
         }
     }
