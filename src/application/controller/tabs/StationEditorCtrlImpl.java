@@ -97,7 +97,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	//this.mainController.getModel().getAreaManager().getArea(this.x, this.y).removePumps();
 	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
 	    for(int i = 0; i < list.size(); i++) {
-		if(p.getName() == list.get(i)) {
+		if(p.getName().equals(list.get(i))) {
 		    this.mainController.getModel().getAreaManager().getArea(this.x, this.y).addPump(p);
 		}
 	    }
@@ -118,7 +118,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		final List<Pump> list = new ArrayList<>();
 		for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
 		    for(int i = 0; i < this.stationEditor.getPumps().size() -1; i++) {
-			if(p.getName() == this.stationEditor.getPumps().get(i)) {
+			if(p.getName().equals(this.stationEditor.getPumps().get(i))) {
 			    list.add(p);
 			}
 		    }

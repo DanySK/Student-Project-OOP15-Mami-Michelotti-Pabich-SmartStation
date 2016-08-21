@@ -26,6 +26,7 @@ public class OverviewCtrlImpl implements OverviewCtrl {
 	
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
 	    double progress = r.getRemaining() / r.getCapacity();
+	    
 	    this.overview.addReserveStatus(r.getType().getName(), String.valueOf(r.getCost()),
 		                           String.valueOf(r.getRemaining()), String.valueOf(r.getCapacity()), progress);
 	}

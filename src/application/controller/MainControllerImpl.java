@@ -480,10 +480,9 @@ public class MainControllerImpl implements MainController {
 	            repairCost = false;
 	        }
 	        if(type) {
-	            for(Fuel f : this.getModel().getFuelManager().getAllFuels()) {
-	        	if(f.getName() == characters.getData()) {
-	        	    dType = f;
-	        	}
+	            dType = this.getModel().getFuelManager().getFuel(characters.getData());
+	            if(dType == null) {
+	        	System.out.println("aaaaaaaaaaaaaaaaaaaa");
 	            }
 	            type = false;
 	        }
@@ -499,7 +498,8 @@ public class MainControllerImpl implements MainController {
 	        case  XMLStreamConstants.END_ELEMENT:
 	        EndElement endElement = event.asEndElement();
 		if(endElement.getName().getLocalPart().equalsIgnoreCase("reserve")) {
-		    this.getModel().getReserveManager().addReserve(dMaxD, dDurab, dPrice, dRepair, dType, dCapacity, dRemaining);
+		    this.getModel().getReserveManager().addReserve(dMaxD, dDurab, dPrice, dRepair,
+			                                           dType, dCapacity, dRemaining);
 		}
 		break;
             }
@@ -551,11 +551,7 @@ public class MainControllerImpl implements MainController {
 	            name = false;
 	        }
 	        if(fuel) {
-	            for(Fuel f : this.getModel().getFuelManager().getAllFuels()) {
-	        	if(f.getName() == characters.getData()) {
-	        	    dFuel = f;
-	        	}
-	            }
+	            dFuel = this.getModel().getFuelManager().getFuel(characters.getData());
 	            fuel = false;
 	        }
 	        if(speed) {

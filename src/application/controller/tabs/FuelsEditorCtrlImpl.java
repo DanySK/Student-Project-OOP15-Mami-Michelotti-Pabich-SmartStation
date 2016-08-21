@@ -126,13 +126,13 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 	   this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
 	   
 	   for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	       if(r.getType().getName() == this.fuel.getName()) {
+	       if(r.getType().getName().equals(this.fuel.getName())) {
 		   this.mainController.getModel().getReserveManager().removeReserve(r);
 	       }
 	   }
 	   
 	   for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
-	       if(p.getName() == this.fuel.getName()) {
+	       if(p.getName().equals(this.fuel.getName())) {
 		   this.mainController.getModel().getPumpManager().removePump(p);
 	       }
 	   }
@@ -144,7 +144,7 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
     //control of name is already taken
     private boolean isFree(String name) {
 	for(Fuel f : this.mainController.getModel().getFuelManager().getAllFuels()) {
-	    if(f.getName() == name) {
+	    if(f.getName().equals(name)) {
 		return false;
 	    }
 	}

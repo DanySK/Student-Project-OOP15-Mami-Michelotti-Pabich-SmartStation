@@ -31,7 +31,7 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     @Override
     public void selectEdit() {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    if(r.getType().getName() == this.reservesEditor.getModifyReserve()) {
+	    if(r.getType().getName().equals(this.reservesEditor.getModifyReserve())) {
 		this.reserve = r;
 		this.reservesEditor.setModifyFuel(r.getType().getName());
 		this.reservesEditor.setModifyCapacity(String.valueOf(r.getCapacity()));
@@ -104,7 +104,7 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     @Override
     public void selectRefill() {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    if(r.getType().getName() == this.reservesEditor.getRefillReserve()) {
+	    if(r.getType().getName().equals(this.reservesEditor.getRefillReserve())) {
 		this.reserveRefill = r;
 	    }
 	}
@@ -132,7 +132,7 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     @Override
     public void selectRepair() {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    if(r.getType().getName() == this.reservesEditor.getRepairReserve()) {
+	    if(r.getType().getName().equals(this.reservesEditor.getRepairReserve())) {
 		this.reserveRepair = r;
 		this.reservesEditor.setRepairQuantities(String.valueOf(r.getDurability()), String.valueOf(r.getMaxDurability()));
 	    }
@@ -210,7 +210,7 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     //control of name is already taken
     private boolean isFree(String name) {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    if(r.getType().getName() == name) {
+	    if(r.getType().getName().equals(name)) {
 		return false;
 	    }
 	}

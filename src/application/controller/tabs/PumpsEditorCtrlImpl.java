@@ -179,7 +179,7 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
     //control of name is already taken
     private boolean isFree(String name) {
 	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
-	    if(p.getName() == name) {
+	    if(p.getName().equals(name)) {
 		return false;
 	    }
 	}
