@@ -282,10 +282,21 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
   
     @Override
     public void setModifyPumps(final List<String> pumps) {
-        this.cmbModifyPump1.setValue(pumps.get(0));
-        this.cmbModifyPump2.setValue(pumps.get(1));
-        this.cmbModifyPump3.setValue(pumps.get(2));
-        this.cmbModifyPump4.setValue(pumps.get(3));
+        if (pumps.size() >= 1) {
+            this.cmbModifyPump1.setValue(pumps.get(0));
+        }
+        
+        if (pumps.size() >= 2) {
+            this.cmbModifyPump2.setValue(pumps.get(1));
+        }
+        
+        if (pumps.size() >= 3) {
+            this.cmbModifyPump3.setValue(pumps.get(2));
+        }
+        
+        if (pumps.size() == 4) {
+            this.cmbModifyPump4.setValue(pumps.get(3));
+        }
     }
     
     

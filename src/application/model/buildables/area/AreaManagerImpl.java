@@ -51,13 +51,8 @@ public class AreaManagerImpl implements AreaManager {
     //AREA ADDERS AND REMOVERS
     @Override
     public boolean addArea(final int x, final int y, final List<Pump> pumps) {
-        System.out.println("SONO NEL MODEL");
-        System.out.println("POMPE:");
-        pumps.forEach(p -> System.out.println(p.getName()));
-        
         if (areas.size() < station.getMaxAreas()) {
             this.areas.add(new AreaImpl(x, y, pumps));
-            System.out.println("Aggiunte");
             return true;
         }
         return false;

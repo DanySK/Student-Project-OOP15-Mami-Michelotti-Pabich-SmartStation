@@ -80,6 +80,12 @@ public interface Area {
     boolean removePump(Pump pump);
     
     /**
+     * Removes all the pumps from the area
+     * @return TRUE if operation is ok
+     */
+    boolean removeAllPumps();
+    
+    /**
      * Removes the vehicle from the area.
      * @param Vehicle's type object.
      */

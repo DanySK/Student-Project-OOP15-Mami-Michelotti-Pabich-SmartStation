@@ -88,7 +88,7 @@ public class AreaImpl implements Area {
 
     @Override
     public boolean addPumps(final List<Pump> pumps) {
-        pumps.clear();
+        this.pumps.clear();
         this.pumps.addAll(pumps);
         return true;
     }
@@ -96,6 +96,12 @@ public class AreaImpl implements Area {
     @Override
     public boolean removePump(final Pump pump) {
         this.pumps.remove(pump);
+        return true;
+    }
+    
+    @Override
+    public boolean removeAllPumps() {
+        this.pumps.clear();
         return true;
     }
     
