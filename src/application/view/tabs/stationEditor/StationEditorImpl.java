@@ -145,8 +145,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     @Override
     public void showModifyngPanel() {
         this.vbxModifyArea.setVisible(true);
-        this.hideDetailsPanel();
-        this.hideAddingPanel();
+        this.vbxAddArea.setVisible(false);
     }
     
     @Override
@@ -157,8 +156,6 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     @Override
     public void showDetailsPanel() {
         this.vbxAreaDetails.setVisible(true);
-        this.hideModifyingPanel();
-        this.hideAddingPanel();
     }
 
     @Override
@@ -169,8 +166,7 @@ public class StationEditorImpl extends BorderPane implements StationEditor {
     @Override
     public void showAddingPanel() {
         this.vbxAddArea.setVisible(true);
-        this.hideModifyingPanel();
-        this.hideDetailsPanel();
+        this.vbxModifyArea.setVisible(false);
     }
     
     @Override
