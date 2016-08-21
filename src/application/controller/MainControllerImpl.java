@@ -1,8 +1,11 @@
 package application.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -334,10 +337,12 @@ public class MainControllerImpl implements MainController {
 	boolean balance = false;
 	
 	try {	    
+	    InputStream in = getClass().getResourceAsStream("/resources/configuration.xml"); 
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+	    
 	    XMLInputFactory factory = XMLInputFactory.newInstance();
 	    XMLEventReader eventReader =
-	    factory.createXMLEventReader(new FileReader(new File(getClass()
-		    .getResource("/resources/configuration.xml").toURI())));
+	    factory.createXMLEventReader(reader);
 	    
 	    while (eventReader.hasNext()) {
 		XMLEvent event = eventReader.nextEvent();
@@ -397,6 +402,7 @@ public class MainControllerImpl implements MainController {
 
 	} catch (Exception e) {
 	    e.printStackTrace();
+	    this.view.showErrorAlert("", "", e.getMessage());
         }
     }
     
