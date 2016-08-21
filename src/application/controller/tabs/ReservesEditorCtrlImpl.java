@@ -220,6 +220,12 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	if(this.reservesEditor.getModifyReserve() != "") {
 	    this.mainController.getModel().getReserveManager().removeReserve(this.reserve);
 	    
+	    this.reservesEditor.setModifyFuel("");
+	    this.reservesEditor.setModifyCapacity("");
+	    this.reservesEditor.setModifyPrice("");
+	    this.reservesEditor.setModifyDurability("");
+	    this.reservesEditor.setModifyRepairCost("");
+	    
 	    //reconfiguration of tabs
 	    this.mainController.reconfiguration();
 	} else {

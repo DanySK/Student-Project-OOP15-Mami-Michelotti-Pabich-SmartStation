@@ -132,6 +132,7 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 
     @Override
     public void deleteFuel() {
+	
 	if (this.fuelsEditor.getSelectedFuel() != "") {
 	   this.mainController.getModel().getFuelManager().removeFuel(this.fuel.getName());
 	   
@@ -146,7 +147,10 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 		   this.mainController.getModel().getPumpManager().removePump(p);
 	       }
 	   }
-	   
+	   this.fuelsEditor.setModifyName("");
+	   this.fuelsEditor.setModifyPrice("");
+	   this.fuelsEditor.setModifyWhoesalePrice("");
+	   this.fuelsEditor.setModifyColor("");
 	   //reconfiguration of tabs
 	    this.mainController.reconfiguration();
 	} else {

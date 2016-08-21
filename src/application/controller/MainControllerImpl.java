@@ -25,7 +25,18 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import javax.xml.transform.TransformerException;
 
-import application.controller.tabs.*;
+import application.controller.tabs.FuelsEditorCtrl;
+import application.controller.tabs.FuelsEditorCtrlImpl;
+import application.controller.tabs.MovementsViewerCtrl;
+import application.controller.tabs.MovementsViewerCtrlImpl;
+import application.controller.tabs.OverviewCtrl;
+import application.controller.tabs.OverviewCtrlImpl;
+import application.controller.tabs.PumpsEditorCtrl;
+import application.controller.tabs.PumpsEditorCtrlImpl;
+import application.controller.tabs.ReservesEditorCtrl;
+import application.controller.tabs.ReservesEditorCtrlImpl;
+import application.controller.tabs.StationEditorCtrl;
+import application.controller.tabs.StationEditorCtrlImpl;
 import application.model.Station;
 import application.model.buildables.area.Area;
 import application.model.buildables.pump.Pump;
@@ -36,7 +47,6 @@ import javafx.scene.paint.Color;
 
 /**
  * Class that implements the logic of the main controller.
- * @author Matteo Michelotti
  */
 public class MainControllerImpl implements MainController {
 
@@ -93,8 +103,8 @@ public class MainControllerImpl implements MainController {
     }
 
     @Override
-    public void setModel(final Station station) {
-	this.station = station;
+    public void setModel(final Station stn) {
+	this.station = stn;
     }
 
     @Override
@@ -331,7 +341,7 @@ public class MainControllerImpl implements MainController {
 	    
 	    while (eventReader.hasNext()) {
 		XMLEvent event = eventReader.nextEvent();
-		switch(event.getEventType()) {
+		switch (event.getEventType()) {
 		    case XMLStreamConstants.START_ELEMENT:
 		    StartElement startElement = event.asStartElement();
                     String sName = startElement.getName().getLocalPart();
@@ -357,7 +367,7 @@ public class MainControllerImpl implements MainController {
 	        	name = false;
 	            }
 	            if (open) {
-	        	if(Boolean.parseBoolean(characters.getData())) {
+	        	if (Boolean.parseBoolean(characters.getData())) {
 	        	    this.station.open();
 	        	} else {
 	        	    this.station.close();
@@ -401,7 +411,7 @@ public class MainControllerImpl implements MainController {
 	
 	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
-	    switch(event.getEventType()) {
+	    switch (event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
@@ -461,7 +471,7 @@ public class MainControllerImpl implements MainController {
 	
 	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
-	    switch(event.getEventType()) {
+	    switch (event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
@@ -541,7 +551,7 @@ public class MainControllerImpl implements MainController {
 	
 	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
-	    switch(event.getEventType()) {
+	    switch (event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();
@@ -615,7 +625,7 @@ public class MainControllerImpl implements MainController {
         
 	while (eventReader.hasNext()) {
 	    XMLEvent event = eventReader.nextEvent();
-	    switch(event.getEventType()) {
+	    switch (event.getEventType()) {
 	        case XMLStreamConstants.START_ELEMENT:
 		StartElement startElement = event.asStartElement();
                 String sName = startElement.getName().getLocalPart();

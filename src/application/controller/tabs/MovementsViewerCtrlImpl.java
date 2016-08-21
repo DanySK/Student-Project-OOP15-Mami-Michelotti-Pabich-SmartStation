@@ -8,6 +8,9 @@ import application.model.moneyManager.Movement;
 import application.model.moneyManager.MovementType;
 import application.view.tabs.movementsViewer.MovementsViewer;
 
+/**
+ * Class that implements the logic of the MovementsViewerController.
+ */
 public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
 
     private final MainController mainController;
@@ -15,15 +18,15 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
     
     /**
      * Initialize the reference of controller.
-     * @param mainController reference of the main controller
+     * @param mainCtrl reference of the main controller
      */
-    public MovementsViewerCtrlImpl(final MainController mainController) {
-	this.mainController = mainController;
+    public MovementsViewerCtrlImpl(final MainController mainCtrl) {
+	this.mainController = mainCtrl;
     }
 
     @Override
-    public void setView(final MovementsViewer movementsViewer) {
-	this.movementsViewer = movementsViewer;
+    public void setView(final MovementsViewer mvmVr) {
+	this.movementsViewer = mvmVr;
     }
 
     @Override
@@ -94,8 +97,8 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
     private List<Movement> orderAcrescing() {
 	final List<Movement> max = new ArrayList<>();
 	max.addAll(this.mainController.getModel().getMoneyManager().getAllMovements());
-	for (int i = 0; i < max.size() -1; i++) {
-	    for (int j = 0; j < max.size() -1; j++) {
+	for (int i = 0; i < max.size() - 1; i++) {
+	    for (int j = 0; j < max.size() - 1; j++) {
 		if (max.get(i).getMoney() < max.get(j).getMoney()) {
 		    Movement m = max.get(i);
 		    max.add(i, max.get(j));

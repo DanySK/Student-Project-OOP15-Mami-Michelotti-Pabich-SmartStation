@@ -178,6 +178,12 @@ public class PumpsEditorCtrlImpl implements PumpsEditorCtrl {
 	if(this.pumpsEditor.getModifySelectedPump() != "") {
 	    this.mainController.getModel().getPumpManager().removePump(this.pumpSelected);
 	    
+	    this.pumpsEditor.setModifyFuelType("");
+	    this.pumpsEditor.setModifySpeed("");
+	    this.pumpsEditor.setModifyDurability("");
+	    this.pumpsEditor.setModifyPrice("");
+	    this.pumpsEditor.setModifyRepairCost("");
+	    
 	    //reconfiguration of tabs
 	    this.mainController.reconfiguration();
 	} else {
