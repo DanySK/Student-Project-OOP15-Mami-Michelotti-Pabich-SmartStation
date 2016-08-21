@@ -14,7 +14,7 @@ public interface MoneyManager {
      * @param Intger of movement's index.
      * @return Object of movement's type.
      */
-    Movement getMovement(final int i);
+    Movement getMovement(int i);
     
     /**
      * Gets every money movement.
@@ -41,5 +41,5 @@ public interface MoneyManager {
      * @param Integer of spent money.
      * @param String of movement description.
      */
-    void addMovement(final MovementType type , final int money, final String description);
+    void addMovement(MovementType type , int money, String description);
 }

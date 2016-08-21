@@ -13,30 +13,31 @@ public interface AreaManager{
     
     /**
      * Gets the area of coordinates x and y.
-     * @param Integer coordinate of position x.
-     * @param Integer coordinate of position y.
-     * @return Object of area's type.
+     * @param Coordinate x integer.
+     * @param Coordinate y integer.
+     * @return Area's type object.
      */
-    Area getArea(final int x, final int y);
+    Area getArea(int x, int y);
     
     /**
      * Gets every area of the station.
-     * @return List of area's type.
+     * @return Area's type list.
      */
     List<Area> getAllAreas();
     
     /**
      * Adds an area to the station.
-     * @param Object of area's type.
+     * @param Area's type object.
      */
-    void addArea(int x, int y, List<Pump> pumps);
+    boolean addArea(int x, int y, List<Pump> pumps);
     
     /**
      * Removes an area from the station.
-     * @param Integer coordinate of position x.
-     * @param Integer coordinate of position y.
+     * @param Coordinate x integer.
+     * @param Coordinate y integer.
+     * @return True if coordinates are correct or else false.
      */
-    void removeArea(final int x, final int y);
+    boolean removeArea(int x, int y);
     
     /**
      * Removes every area from the station.

@@ -21,7 +21,7 @@ public enum MovementType {
     * Constructor for the MovementType that creates every money movement.
     * @param String of actual name.
     */
-    private MovementType (final String actualName){
+    private MovementType (String actualName){
 	this.actualName = actualName ;
     }
     

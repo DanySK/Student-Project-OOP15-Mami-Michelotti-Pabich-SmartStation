@@ -36,7 +36,7 @@ public class StationImpl implements Station{
      * @param New implementation of the managers.
      */
     public StationImpl() {      
-        this.areaManager = new AreaManagerImpl();
+        this.areaManager = new AreaManagerImpl(this);
         this.pumpManager = new PumpManagerImpl();
         this.reserveManager = new ReserveManagerImpl();
         this.moneyManager = new MoneyManagerImpl();

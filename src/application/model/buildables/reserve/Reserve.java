@@ -20,7 +20,7 @@ public interface Reserve extends Buildable{
      * Sets the fuel type.
      * @param Object of fuel's type.
      */
-    void setType(final Fuel type);
+    void setType(Fuel type);
     
     /**
      * Gets the capacity of a pump.
@@ -32,7 +32,7 @@ public interface Reserve extends Buildable{
      * Sets the fuel capacity.
      * @param Integer of reserve's capacity.
      */
-    void setCapacity(final int capacity);
+    void setCapacity(int capacity);
     
     /**
      * Gets the remainings of a pump.
@@ -44,11 +44,11 @@ public interface Reserve extends Buildable{
      * Sets the remainings of a pump.
      * @param Integer of reserve's remianing.
      */
-    void setRemaining(final int remaining);
+    void setRemaining(int remaining);
     
     /**
      * Refill the reserve.
      * @param Integer of reserve's refill.
      */
-    void refill(final int refill);
+    void refill(int refill);
 }

@@ -19,7 +19,7 @@ public interface Vehicle {
      * Sets the fuel of a vehicle.
      * @param Object type Fuel.
      */
-    void setFuel(final Fuel fuel);
+    void setFuel(Fuel fuel);
     
     /**
      * Gets the request of a vehicle.
@@ -31,7 +31,7 @@ public interface Vehicle {
      * Sets the request of a vehicle.
      * @param Integer of vehicle's request.
      */
-    void setRequest(final int request);
+    void setRequest(int request);
     
     /**
      * Serves the vehicle's request.

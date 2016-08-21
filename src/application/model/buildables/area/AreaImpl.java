@@ -3,6 +3,8 @@ package application.model.buildables.area;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import application.model.Station;
 import application.model.buildables.pump.Pump;
 import application.model.consumers.Vehicle;
 
@@ -19,17 +21,21 @@ public class AreaImpl implements Area{
     private Optional<Vehicle> vehicle;
     private final List<Pump> pumps;
     private int x, y;
+    private final Station station;
     
     /**
      * Constructor for the AreaImpl that builds avery area.
-     * @param Coordinates of the area.
-     * @param List of pumps of an area.
+     * @param Coordinate x integer.
+     * @param Coordinate y integer.
+     * @param Pump's type list.
+     * @param Station's type object.
      */
-    public AreaImpl(final int x, final int y, final List<Pump> pumps) {
+    public AreaImpl(final int x, final int y, final List<Pump> pumps, Station s) {
         this.vehicle = Optional.empty();
         this.pumps = pumps;
         this.x = x;
-        this.y = y;       
+        this.y = y;
+        this.station = s;
     }
 
     //GETTERS AND SETTERS
@@ -39,12 +45,16 @@ public class AreaImpl implements Area{
     }
     
     @Override
-    public void setVehicle(Vehicle v) {
-        this.vehicle = Optional.of(v);;    
+    public boolean setVehicle(Vehicle v) {
+        if(!this.vehicle.isPresent()) {
+            this.vehicle = Optional.of(v);
+            return true;
+        }
+        return false;       
     }
 	
     @Override
-    public List<Pump> getAllPumps() {
+    public List<Pump> getAllPumps() {        
 	return new ArrayList<Pump> (this.pumps);	
     }
     
@@ -55,7 +65,7 @@ public class AreaImpl implements Area{
 	
     @Override
     public int getXPosition() {
-        return this.x;      
+        return this.x;    
     }
 
     @Override
@@ -64,31 +74,51 @@ public class AreaImpl implements Area{
     }
       
     @Override
-    public void setPosition(final int x, final int y) {
-	this.x = x;
-	this.y = y;
+    public boolean setPosition(final int x, final int y) {
+        if(x <= station.getMaxAreas() && y <= station.getMaxAreas()) {
+            this.x = x;
+    	    this.y = y;
+    	    return true;
+        }
+        return false;
     }
     
     //AREA ADDERS AND REMOVERS
     @Override
-    public void addPump(final Pump pump) {
-        this.pumps.add(pump);       
+    public boolean addPump(final Pump pump) {
+        if(pumps.size() <= station.getMaxPumps()) {
+            this.pumps.add(pump);
+            return true;
+        } 
+        return false;          
     }
 
     @Override
-    public void addPumps(final List<Pump> pumps) {
-        pumps.clear();
-        this.pumps.addAll(pumps);   
+    public boolean addPumps(final List<Pump> pumps) {
+        if(pumps.size() <= station.getMaxPumps()) {
+            pumps.clear();
+            this.pumps.addAll(pumps);
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void removePump(final Pump pump) {
-        this.pumps.remove(pump);
+    public boolean removePump(final Pump pump) {
+        if(pumps.size() > 0) {
+            this.pumps.remove(pump);
+            return true;
+        }
+        return false;
     }
     
     @Override
-    public void removeVehicle(final Vehicle vehicle) {
-        this.vehicle = null;
+    public boolean removeVehicle(final Vehicle vehicle) {
+        if(this.vehicle.isPresent()) {
+            this.vehicle = null;
+            return true;
+        }
+        return false;
     }
     
     //VEHICLE CONTROL

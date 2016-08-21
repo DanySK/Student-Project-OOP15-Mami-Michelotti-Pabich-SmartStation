@@ -16,7 +16,7 @@ public interface ReserveManager{
      * @param Object of fuel's type.
      * @return Object of reserve's type.
      */
-    Reserve getReserve(final Fuel type);
+    Reserve getReserve(Fuel type);
     
     /**
      * Gets every reserve in the list.
@@ -29,7 +29,7 @@ public interface ReserveManager{
      * @param Main attributes: type and capacity.
      * @param Extended attributes from BuildableImpl.
      */
-    void addReserve(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final Fuel type, final int capacity, final int actualCapacity);
+    void addReserve(int maxDurability, int actualDurability, int cost, int repairCost, Fuel type, int capacity, int actualCapacity);
     
     /**
      * Removes a reserve of fuel.

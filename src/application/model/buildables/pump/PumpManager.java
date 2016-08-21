@@ -16,14 +16,14 @@ public interface PumpManager {
      * @param Integer index of the pump.
      * @return Object of pump's type.
      */
-    Pump getPump(final int i);
+    Pump getPump(int i);
     
     /**
      * Gets the pump with a specific name.
      * @param String name of the pump.
      * @return Object of pump's type.
      */
-    Pump getPumpByName(final String name);
+    Pump getPumpByName(String name);
     
     /**
      * Gets every pump in the list.
@@ -36,13 +36,13 @@ public interface PumpManager {
      * @param Main attributes: name, type and speed.
      * @param Extended attributes from BuildableImpl.
      */
-    void addPump(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final String name, final Fuel type, final int speed);
+    void addPump(int maxDurability, int actualDurability, int cost, int repairCost, String name, Fuel type, int speed);
     
     /**
      * Removes a pump from the area.
      * @param Object of pump's type.
      */
-    void removePump(final Pump pump);
+    void removePump(Pump pump);
     
     /**
      * Removes every pump from the area.

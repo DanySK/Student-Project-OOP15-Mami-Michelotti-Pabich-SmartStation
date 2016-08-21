@@ -17,7 +17,7 @@ public interface Buildable {
      * Sets the cost of a structure.
      * @param Integer of cost.
      */
-    void setCost(final int cost);
+    void setCost(int cost);
     
     /**
      * Gets the durability of a structure.
@@ -35,7 +35,7 @@ public interface Buildable {
      * Sets the maximum durability of a structure.
      * @param Integer of maxDurability.
      */
-    void setMaxDurability(final int durability);
+    void setMaxDurability(int durability);
     
     /**
      * Gets the repair cost of a structure.
@@ -47,7 +47,7 @@ public interface Buildable {
      * Sets the repair cost of a structure.
      * @param Integer of repairCost.
      */
-    void setRepairCost(final int repairCost);
+    void setRepairCost(int repairCost);
     
     /**
      * Consumes the actual durability of a structure.
@@ -58,5 +58,5 @@ public interface Buildable {
      * Repair the actual durability of a structure by a certain percentage.
      * @param Integer of percentage.
      */
-    void repair(final int percentage);
+    void repair(int percentage);
 }

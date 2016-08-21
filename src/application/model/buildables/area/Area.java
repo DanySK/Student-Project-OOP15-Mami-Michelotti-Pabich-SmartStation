@@ -15,74 +15,79 @@ public interface Area{
     
     /**
      * Gets the vehicle inside the area if there is one.
-     * @return Object of vehicle's type or else null.
+     * @return Vehicle's type object, or else null.
      */
     Vehicle getVehicle();
     
     /**
-     * Vehicle stops to the pump.
-     * @param Object of vehicle's type.
+     * Vehicle remains at the pump if the space is available.
+     * @param Vehicle's type object.
+     * @return True if the area is available or else false.
      */
-    void setVehicle(Vehicle vehicle);
+    boolean setVehicle(Vehicle vehicle);
     
     /**
      * Returns a list of every pump of an area.
-     * @return List of pump's type.
+     * @return Pumps list.
      */
     List<Pump> getAllPumps();
     
     /**
      * Returns the number of pumps of an area.
-     * @return Integer of pump's number.
+     * @return Count of pumps.
      */
     int getPumpsCount();
 	
     /**
      * Returns the coordinate x of an Area.
-     * @return Integer of position x.
+     * @return Coordinate x integer.
      */
     int getXPosition();
     
     /**
      * Returns the coordinate y of an Area.
-     * @return Integer of position y.
+     * @return Coordinate y integer.
      */
     int getYPosition();
     
     /**
      * Builds the area in a certain position.
-     * @param Integer coordinate of position x.
-     * @param Integer coordinate of position y.
+     * @param Coordinate x integer.
+     * @param Coordinate y integer.
+     * @return True if coordinates are acceptable or else false.
      */
-    void setPosition(int x, int y);
+    boolean setPosition(int x, int y);
     
     /**
      * Builds a pump inside an area.
-     * @param Object of pump's type.
+     * @param Pump's type object.
+     * @return True if there is space in the station or else false.
      */
-    void addPump(final Pump pump);
+    boolean addPump(Pump pump);
     
     /**
      * Builds a list of pumps inside an area.
-     * @param List of pump objects.
+     * @param Pump's type list of objects.
+     * @return True if there is space in the area or else false.
      */
-    void addPumps(final List<Pump> pumps);
+    boolean addPumps(List<Pump> pumps);
     
     /**
      * Removes a specific pump from the area.
-     * @param Object of pump's type.
+     * @param Pump's type object.
+     * @return True if there is at least a pump or else false.
      */
-    void removePump(final Pump pump);
+    boolean removePump(Pump pump);
     
     /**
      * Removes the vehicle from the area.
-     * @param Object of vehicle's type.
+     * @param Vehicle's type object.
      */
-    void removeVehicle(final Vehicle vehicle);
+    boolean removeVehicle(Vehicle vehicle);
     
     /**
      * Checks if the pump is occupied by a vehicle.
-     * @return Boolean of true if occupied or else false.
+     * @return True if the space is occupied or else false.
      */
     boolean isOccupied();
 }

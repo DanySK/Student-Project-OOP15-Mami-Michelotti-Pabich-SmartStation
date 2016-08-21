@@ -20,7 +20,7 @@ public interface Pump extends Buildable{
      * Gives the name to a pump.
      * @param String of pump's name.
      */
-    void setName(final String name);
+    void setName(String name);
 
     /**
      * Gets the fuel type of a pump.
@@ -32,7 +32,7 @@ public interface Pump extends Buildable{
      * Sets the fuel's type of a pump.
      * @param Object of fuel's type.
      */
-    void setType(final Fuel type);
+    void setType(Fuel type);
     
     /**
      * Gets the speed a pump.
@@ -44,5 +44,5 @@ public interface Pump extends Buildable{
      * Sets the speed a pump.
      * @param Integer of pumps's speed.
      */
-    void setSpeed(final int speed);
+    void setSpeed(int speed);
 }

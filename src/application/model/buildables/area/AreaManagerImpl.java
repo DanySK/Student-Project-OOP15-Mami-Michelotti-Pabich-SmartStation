@@ -3,6 +3,7 @@ package application.model.buildables.area;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.model.Station;
 import application.model.buildables.pump.Pump;
 import application.model.services.FuelImpl;
 
@@ -19,10 +20,17 @@ public class AreaManagerImpl implements AreaManager {
     private final List<Area> areas;
     
     /**
-     * Constructor for the AreaManagerImpl that stores every area.
+     * Station's declaration.
      */
-    public AreaManagerImpl() {
+    private final Station station;
+    
+    /**
+     * Constructor for the AreaManagerImpl that stores every area.
+     * @param Station's type object.
+     */
+    public AreaManagerImpl(Station s) {
 	this.areas = new ArrayList<Area>();
+	this.station = s;
     }
     
     //AREA GETTERS
@@ -43,17 +51,23 @@ public class AreaManagerImpl implements AreaManager {
 	
     //AREA ADDERS AND REMOVERS
     @Override
-    public void addArea(int x, int y, List<Pump> pumps) {
-        this.areas.add(new AreaImpl(x, y, pumps));	
+    public boolean addArea(int x, int y, List<Pump> pumps) {
+        if(areas.size() < station.getMaxAreas()){
+            this.areas.add(new AreaImpl(x, y, pumps, station));
+            return true;
+        }
+        return false;
     }
     
     @Override
-    public void removeArea(final int x, final int y) {
-	for(Area a : this.areas){
+    public boolean removeArea(final int x, final int y) {
+        for(Area a : this.areas){
 	    if(a.getXPosition() == x && a.getYPosition() == y){
 		areas.remove(a);
-	    }
-	}	
+		return true;
+	    }	    
+	}
+	return false;
     }
 
     @Override

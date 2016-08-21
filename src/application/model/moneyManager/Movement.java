@@ -18,7 +18,7 @@ public interface Movement {
      * Sets the the type of a movement.
      * @param Object of the enum MovementType.
      */
-    void setType(final MovementType type);
+    void setType(MovementType type);
     
     /**
      * Gets the price of a movement.
@@ -30,7 +30,7 @@ public interface Movement {
      * Sets the price of a movement.
      * @param Integer of movement's price.
      */
-    void setMoney(final int money);
+    void setMoney(int money);
     
     /**
      * Gets the description of a movement.
@@ -42,5 +42,5 @@ public interface Movement {
      * Sets the description of a movement.
      * @param String of movement's description.
      */
-    void setDescription(final String description);	
+    void setDescription(String description);	
 }

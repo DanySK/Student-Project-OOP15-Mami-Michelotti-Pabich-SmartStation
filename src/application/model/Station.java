@@ -47,7 +47,7 @@ public interface Station {
      * Sets the maximum number of areas in the station.
      * @param Integer of area's number.
      */
-    void setMaxAreas(final int maxAreas);
+    void setMaxAreas(int maxAreas);
     
     /**
      * Gets the maximum number of pumps in to an area.
@@ -59,7 +59,7 @@ public interface Station {
      * Sets the maximum number of pumps in the area.
      * @param Integer of pump's number.
      */
-    void setMaxPumps(final int maxPumps);
+    void setMaxPumps(int maxPumps);
     
     /**
      * Opens the area, sets isOpen to true.
