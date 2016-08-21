@@ -63,7 +63,7 @@ public abstract class BuildableImpl implements Buildable{
     	this.repairCost = repairCost;	
     }
     
-    //REMOVERS AND ADDERS
+    //BUILDABLE ADDERS AND REMOVERS
     @Override
     public void consume() {          
         this.actualDurability--;            

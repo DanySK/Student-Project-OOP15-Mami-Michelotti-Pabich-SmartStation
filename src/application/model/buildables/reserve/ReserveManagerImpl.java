@@ -43,8 +43,8 @@ public class ReserveManagerImpl implements ReserveManager {
     
     //RESERVE ADDERS AND REMOVERS
     @Override
-    public void addReserve(int maxDurability, int actualDurability, int cost, int repairCost, Fuel type, int capacity, int durability) {
-        reserves.add(new ReserveImpl(maxDurability, actualDurability, cost, repairCost, type, capacity, durability));        
+    public void addReserve(int maxDurability, int actualDurability, int cost, int repairCost, Fuel type, int capacity) {
+        reserves.add(new ReserveImpl(maxDurability, actualDurability, cost, repairCost, type, capacity));        
     }
     
     @Override

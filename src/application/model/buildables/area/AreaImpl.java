@@ -16,7 +16,7 @@ public class AreaImpl implements Area{
     /** 
      * Area's attributes declaration. 
      */
-    private final Optional<Vehicle> vehicles;
+    private Optional<Vehicle> vehicle;
     private final List<Pump> pumps;
     private int x, y;
     
@@ -26,16 +26,21 @@ public class AreaImpl implements Area{
      * @param List of pumps of an area.
      */
     public AreaImpl(final int x, final int y, final List<Pump> pumps) {
-        this.vehicles = Optional.ofNullable(null);
+        this.vehicle = Optional.empty();
         this.pumps = pumps;
         this.x = x;
         this.y = y;       
     }
 
-    //PARAMETERS GETTERS
+    //GETTERS AND SETTERS
     @Override
     public Vehicle getVehicle() {
-        return this.vehicles.orElse(null);   	
+        return this.vehicle.orElse(null);   	
+    }
+    
+    @Override
+    public void setVehicle(Vehicle v) {
+        this.vehicle = Optional.of(v);;    
     }
 	
     @Override
@@ -57,15 +62,14 @@ public class AreaImpl implements Area{
     public int getYPosition() {
         return this.y;
     }
-    
-    //PARAMETERS SETTER
+      
     @Override
     public void setPosition(final int x, final int y) {
 	this.x = x;
 	this.y = y;
     }
     
-    //PUMP BUILDERS
+    //AREA ADDERS AND REMOVERS
     @Override
     public void addPump(final Pump pump) {
         this.pumps.add(pump);       
@@ -82,9 +86,14 @@ public class AreaImpl implements Area{
         this.pumps.remove(pump);
     }
     
+    @Override
+    public void removeVehicle(final Vehicle vehicle) {
+        this.vehicle = null;
+    }
+    
     //VEHICLE CONTROL
     @Override
     public boolean isOccupied() {
-	return vehicles.isPresent();
+	return vehicle.isPresent();
     }
 }

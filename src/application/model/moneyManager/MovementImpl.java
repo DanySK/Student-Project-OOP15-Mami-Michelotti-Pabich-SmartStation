@@ -1,17 +1,30 @@
 package application.model.moneyManager;
 
+/**
+ * Implements the Movement interface.
+ * @author Alessandro Mami
+ * 
+ */
 public class MovementImpl implements Movement {
-	
+    
+    /** 
+     * Movement's attributes declaration.
+     */
     private MovementType type;
     private int money;
     private String description;
     
+    /**
+     * Constructor for the PumpImpl that creates aevery movement.
+     * @param Main attributes: type, money and description.
+     */
     public MovementImpl(final MovementType type , final int money, final String description) {
         this.type = type;
         this.money = money;
         this.description = description;
     }
-
+    
+    //GETTERS AND SETTERS OF MAIN ATTRIBUTES
     @Override
     public MovementType getType() {
     	return this.type;

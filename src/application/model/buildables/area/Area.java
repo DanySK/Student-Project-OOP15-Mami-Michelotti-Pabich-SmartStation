@@ -20,6 +20,12 @@ public interface Area{
     Vehicle getVehicle();
     
     /**
+     * Vehicle stops to the pump.
+     * @param Object of vehicle's type.
+     */
+    void setVehicle(Vehicle vehicle);
+    
+    /**
      * Returns a list of every pump of an area.
      * @return List of pump's type.
      */
@@ -67,6 +73,12 @@ public interface Area{
      * @param Object of pump's type.
      */
     void removePump(final Pump pump);
+    
+    /**
+     * Removes the vehicle from the area.
+     * @param Object of vehicle's type.
+     */
+    void removeVehicle(final Vehicle vehicle);
     
     /**
      * Checks if the pump is occupied by a vehicle.

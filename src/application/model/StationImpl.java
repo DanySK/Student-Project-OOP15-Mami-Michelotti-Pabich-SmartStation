@@ -13,18 +13,28 @@ import application.model.services.FuelManagerImpl;
 
 public class StationImpl implements Station{	
     
+    /**
+     * Declartion of the managers.
+     */
     private final AreaManager areaManager;
     private final PumpManager pumpManager;
     private final ReserveManager reserveManager;
     private final MoneyManager moneyManager;
     private final FuelManager fuelManager;
     
+    /** 
+     * Area's attributes declaration.
+     */
     private boolean isOpen;
     private String name;
     private String address;
     private int maxAreas;
     private int maxPumps;
-	
+    
+    /**
+     * Constructor for the AreaImpl that builds the area.
+     * @param New implementation of the managers.
+     */
     public StationImpl() {      
         this.areaManager = new AreaManagerImpl();
         this.pumpManager = new PumpManagerImpl();
@@ -33,6 +43,7 @@ public class StationImpl implements Station{
         this.fuelManager = new FuelManagerImpl();
     }
     
+    //GETTERS AND SETTERS
     @Override
     public String getStationName() {
         return this.name;
@@ -41,6 +52,17 @@ public class StationImpl implements Station{
     @Override
     public void setStationName(final String name) {
         this.name = name;      
+    }
+    
+    @Override
+    public String getAddress() {
+        return this.address; 
+    }
+
+    @Override
+    public void setAddress(String address) {
+        this.address = address;
+        
     }
     
     @Override
@@ -63,6 +85,7 @@ public class StationImpl implements Station{
         this.maxPumps = maxPumps;       
     }
     
+    //OPENERS AND CLOSERS
     @Override
     public void open() {
     	this.isOpen = true;		
@@ -72,7 +95,8 @@ public class StationImpl implements Station{
     public void close() {
     	this.isOpen = false;		
     }
-    	
+    
+    //GETTERS OF THE MANAGERS
     @Override
     public AreaManager getAreaManager() {
     	return this.areaManager;

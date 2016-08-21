@@ -5,14 +5,26 @@ import java.util.List;
 
 import application.model.buildables.area.AreaImpl;
 
+/**
+ * Implements the MoneyManager interface.
+ * @author Alessandro Mami
+ *
+ */
 public class MoneyManagerImpl implements MoneyManager{
-	
+    
+    /**
+     * List of money movements.
+     */
     private final List<Movement> movements;
-    	
+    
+    /**
+     * Constructor for the MoneyManagerImpl that stores every money movement.
+     */
     public MoneyManagerImpl() {
         this.movements = new ArrayList<Movement>();
     }
     
+    //MOVEMENT GETTERS AND SETTERS
     @Override
     public Movement getMovement(final int i) {
     	return this.movements.get(i);
@@ -26,14 +38,24 @@ public class MoneyManagerImpl implements MoneyManager{
     @Override
     public int getActualBalance() {
     	int totBalance = 0;
-    	for(Movement m : this.movements){
-    		totBalance += m.getMoney();
+    	for(Movement m : this.movements) {
+    	    totBalance += m.getMoney();
     	}
     	return totBalance;
     }
     
     @Override
+    public void setActualBalance(Movement movement, int actualBalance) {
+        for(Movement m : this.movements) {
+            if(m == movement){
+                m.setMoney(actualBalance);
+            }               
+        }        
+    }
+    
+    //MOVEMENT ADDER
+    @Override
     public void addMovement(final MovementType type , final int money, final String description) {
-    	this.movements.add(new MovementImpl(type , money, description));	
+    	this.movements.add(new MovementImpl(type, money, description));	
     }
 }

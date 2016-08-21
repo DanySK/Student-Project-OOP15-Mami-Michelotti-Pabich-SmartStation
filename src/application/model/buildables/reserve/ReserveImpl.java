@@ -22,7 +22,7 @@ public class ReserveImpl extends BuildableImpl implements Reserve{
      * @param Main attributes: type and capacity.
      * @param Extended attributes from BuildableImpl.
      */
-    public ReserveImpl(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final Fuel type, final int capacity, final int durability) {
+    public ReserveImpl(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final Fuel type, final int capacity) {
     	super(maxDurability, actualDurability, cost, repairCost);
     	this.type = type;
         this.capacity = capacity;

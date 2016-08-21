@@ -29,7 +29,7 @@ public interface ReserveManager{
      * @param Main attributes: type and capacity.
      * @param Extended attributes from BuildableImpl.
      */
-    void addReserve(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final Fuel type, final int capacity, final int durability);
+    void addReserve(final int maxDurability, final int actualDurability, final int cost, final int repairCost, final Fuel type, final int capacity);
     
     /**
      * Removes a reserve of fuel.
