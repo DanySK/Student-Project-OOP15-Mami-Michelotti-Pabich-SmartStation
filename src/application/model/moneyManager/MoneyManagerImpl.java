@@ -45,12 +45,9 @@ public class MoneyManagerImpl implements MoneyManager{
     }
     
     @Override
-    public void setActualBalance(Movement movement, int actualBalance) {
-        for(Movement m : this.movements) {
-            if(m == movement){
-                m.setMoney(actualBalance);
-            }               
-        }        
+    public void loadBalance(int money) {
+        Movement m = new MovementImpl(MovementType.LOAD, money, "Loading balance from file");
+        this.movements.add(m);        
     }
     
     //MOVEMENT ADDER

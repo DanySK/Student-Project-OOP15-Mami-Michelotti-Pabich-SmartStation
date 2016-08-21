@@ -10,7 +10,7 @@ public enum MovementType {
     /** 
      * Assigning enum values for every movement type.
      */
-    BUILD("Build"), REPAIR("Repair"), REFILL("Refill"), SELL("Sell"), SERVICE("Service");
+    BUILD("Build"), LOAD("Load"), REPAIR("Repair"), REFILL("Refill"), SELL("Sell"), SERVICE("Service");
     
     /** 
      * Declaration of attribute actualName.

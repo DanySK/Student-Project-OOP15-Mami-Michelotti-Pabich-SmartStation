@@ -64,7 +64,7 @@ public interface Area{
     
     /**
      * Builds a list of pumps inside an area.
-     * @param List of pumps objects.
+     * @param List of pump objects.
      */
     void addPumps(final List<Pump> pumps);
     

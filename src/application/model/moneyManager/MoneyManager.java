@@ -33,7 +33,7 @@ public interface MoneyManager {
      * @param Object of movement type.
      * @param List of movement type.
      */
-    void setActualBalance(Movement movement, int actualBalance);
+    void loadBalance(int money);
     
     /**
      * Creates a money movement with his description and type.
