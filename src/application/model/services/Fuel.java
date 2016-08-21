@@ -17,7 +17,7 @@ public interface Fuel {
     
     /**
      * Gives the name to a fuel.
-     * @param String of fuel's name.
+     * @param name fuel's name.
      */
     void setName(String name);
     
@@ -29,7 +29,7 @@ public interface Fuel {
     
     /**
      * Sets the fuel's price of a pump.
-     * @param Integer of fuel's price.
+     * @param price fuel's price.
      */
     void setPrice(int price);
     
@@ -41,9 +41,9 @@ public interface Fuel {
     
     /**
      * Sets the whole sale price of a fuel.
-     * @param Integer of fuel's wholeSalePrice.
+     * @param wholesalePrice of fuel's wholesalePrice.
      */
-    void setWholeSalePrice(int wholeSalePrice);
+    void setWholeSalePrice(int wholesalePrice);
     
     /**
      * Gets the color of a fuel.
@@ -53,7 +53,7 @@ public interface Fuel {
     
     /**
      * Sets the color of a fuel.
-     * @param Object of color's type.
+     * @param color color's type.
      */
     void setColor(Color color);
 }

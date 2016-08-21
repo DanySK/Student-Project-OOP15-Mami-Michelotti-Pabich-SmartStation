@@ -36,7 +36,7 @@
 	<HBox spacing="1" alignment="CENTER_LEFT" HBox.hgrow="NEVER" prefWidth="$defaultWidth">
 		<Label fx:id="lblReserveRemain" text="5000"></Label>
 		<Label text="/"></Label>
-		<Label fx:id="lblReserveMax"text="5000"></Label>
+		<Label fx:id="lblReserveMax" text="5000"></Label>
 		<Label fx:id="lblMeasurementReserve" text="L"></Label>
 	</HBox>	
 </fx:root>

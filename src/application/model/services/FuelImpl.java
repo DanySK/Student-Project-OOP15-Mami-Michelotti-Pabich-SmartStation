@@ -1,34 +1,34 @@
 package application.model.services;
 
-import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
 
 /**
  * Implements the Fuel interface.
  * @author Alessandro Mami
  * 
  */
-public class FuelImpl implements Fuel{
+public class FuelImpl implements Fuel {
     
     /** 
      * Pump's attributes declaration.
      */
     private String name;
     private int price;
-    private int wholeSalePrice;
+    private int wholesalePrice;
     private Color color;
     
     /**
      * Constructor for the FuelImpl that creates every fuel.
-     * @param String of fuel's name.
-     * @param Integer of fuel's price.
-     * @param Integer of fuel's whole sale price.
-     * @param Object of color's type.
+     * @param nm fuel's name.
+     * @param prc fuel's price.
+     * @param wPrice fuel's wholesale price.
+     * @param clr color of the fuel.
      */
-    public FuelImpl(final String name, final int price, final int wholeSalePrice, final Color color) {
-        this.name = name;
-        this.price = price;
-        this.wholeSalePrice = wholeSalePrice;
-        this.color = color;
+    public FuelImpl(final String nm, final int prc, final int wPrice, final Color clr) {
+        this.name = nm;
+        this.price = prc;
+        this.wholesalePrice = wPrice;
+        this.color = clr;
     }
     
     //GETTERS AND SETTERS OF MAIN ATTRIBUTES
@@ -38,8 +38,8 @@ public class FuelImpl implements Fuel{
     }
     
     @Override
-    public void setName(String name) {
-    	this.name = name;	
+    public void setName(final String nm) {
+    	this.name = nm;	
     }
     
     @Override
@@ -48,18 +48,18 @@ public class FuelImpl implements Fuel{
     }
     
     @Override
-    public void setPrice(int price) {
-    	this.price = price;
+    public void setPrice(final int prc) {
+    	this.price = prc;
     }
     
     @Override
     public int getWholeSalePrice() {
-    	return this.wholeSalePrice;
+    	return this.wholesalePrice;
     }
     
     @Override
-    public void setWholeSalePrice(int wholeSalePrice) {
-    	this.wholeSalePrice = wholeSalePrice;	
+    public void setWholeSalePrice(final int wholeSalePrice) {
+    	this.wholesalePrice = wholeSalePrice;	
     }
     
     @Override
@@ -68,7 +68,7 @@ public class FuelImpl implements Fuel{
     }
     
     @Override
-    public void setColor(Color color) {
-    	this.color = color;		
+    public void setColor(final Color clr) {
+    	this.color = clr;		
     }
 }
