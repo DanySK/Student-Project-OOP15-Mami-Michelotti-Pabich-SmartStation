@@ -31,7 +31,9 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     @Override
     public void selectEdit() {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
+	    System.out.println("cerco");
 	    if(r.getType().getName().equals(this.reservesEditor.getModifyReserve())) {
+		System.out.println("trovo");
 		this.reserve = r;
 		this.reservesEditor.setModifyFuel(r.getType().getName());
 		this.reservesEditor.setModifyCapacity(String.valueOf(r.getCapacity()));

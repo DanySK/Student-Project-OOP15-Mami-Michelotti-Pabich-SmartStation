@@ -43,6 +43,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	    if(!free) {
 		this.stationEditor.hideModifyErrorMessage();
 		this.stationEditor.showModifyngPanel();
+		this.stationEditor.showDetailsPanel();
 		
 		final List<String> list = new ArrayList<>();
 		for(Pump p : this.mainController.getModel().getAreaManager().getArea(this.x, this.y).getAllPumps()) {
@@ -94,7 +95,7 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	final List<String> list = new ArrayList<>();
 	list.addAll(this.stationEditor.getModifyPumps());
 	
-	//this.mainController.getModel().getAreaManager().getArea(this.x, this.y).removePumps();
+	this.mainController.getModel().getAreaManager().getArea(this.x, this.y).removeAllPumps();
 	for(Pump p : this.mainController.getModel().getPumpManager().getAllPumps()) {
 	    for(int i = 0; i < list.size(); i++) {
 		if(p.getName().equals(list.get(i))) {
@@ -102,6 +103,10 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 		}
 	    }
 	}
+	
+	//refresh areas
+	this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+	this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
     }
 
     @Override

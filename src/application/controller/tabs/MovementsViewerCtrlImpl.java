@@ -43,14 +43,18 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
     public void applyFilter() {
 	if(this.movementsViewer.getFilter() == "defoult") {
 	    for(Movement m : this.mainController.getModel().getMoneyManager().getAllMovements()) {
-		this.movementsViewer.addElementToList(m.toString());
+		this.movementsViewer.addElementToList(m.getType().toString());
+		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
+		this.movementsViewer.addElementToList(m.getDescription().toString());
 	    }
 	} else if(this.movementsViewer.getFilter() == "higher") {
 	    List<Movement> list = new ArrayList<>();
 	    list = this.orderAcrescing();
 	    
 	    for(Movement m : list) {
-		this.movementsViewer.addElementToList(m.toString());
+		this.movementsViewer.addElementToList(m.getType().toString());
+		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
+		this.movementsViewer.addElementToList(m.getDescription().toString());
 	    }
 	} else if(this.movementsViewer.getFilter() == "lower") {
 	    List<Movement> list = new ArrayList<>();
@@ -58,7 +62,9 @@ public class MovementsViewerCtrlImpl implements MovementsViewerCtrl {
 	    Collections.reverse(list);
 	    
 	    for(Movement m : list) {
-		this.movementsViewer.addElementToList(m.toString());
+		this.movementsViewer.addElementToList(m.getType().toString());
+		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
+		this.movementsViewer.addElementToList(m.getDescription().toString());
 	    }
 	} else {
 	    this.movementsViewer.showInformationAlert("Error", "error of load", "Select the filter");
