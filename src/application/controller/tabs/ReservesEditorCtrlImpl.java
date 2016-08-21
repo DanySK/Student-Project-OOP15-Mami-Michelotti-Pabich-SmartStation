@@ -31,9 +31,7 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
     @Override
     public void selectEdit() {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
-	    System.out.println("cerco");
 	    if(r.getType().getName().equals(this.reservesEditor.getModifyReserve())) {
-		System.out.println("trovo");
 		this.reserve = r;
 		this.reservesEditor.setModifyFuel(r.getType().getName());
 		this.reservesEditor.setModifyCapacity(String.valueOf(r.getCapacity()));
@@ -108,6 +106,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
 	    if(r.getType().getName().equals(this.reservesEditor.getRefillReserve())) {
 		this.reserveRefill = r;
+		this.reservesEditor.setRefillQuantities(String.valueOf(this.reserveRefill.getRemaining()),
+			                                String.valueOf(this.reserveRefill.getCapacity()));
 	    }
 	}
     }
@@ -136,7 +136,8 @@ public class ReservesEditorCtrlImpl implements ReservesEditorCtrl {
 	for(Reserve r : this.mainController.getModel().getReserveManager().getAllReserves()) {
 	    if(r.getType().getName().equals(this.reservesEditor.getRepairReserve())) {
 		this.reserveRepair = r;
-		this.reservesEditor.setRepairQuantities(String.valueOf(r.getDurability()), String.valueOf(r.getMaxDurability()));
+		this.reservesEditor.setRepairQuantities(String.valueOf(r.getDurability()),
+			                                String.valueOf(r.getMaxDurability()));
 	    }
 	}
     }
