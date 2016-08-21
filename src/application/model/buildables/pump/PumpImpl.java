@@ -47,6 +47,7 @@ public class PumpImpl extends BuildableImpl implements Pump{
 
     @Override
     public void setType(final Fuel type) {
+        
 	this.type = type; 
     }
 

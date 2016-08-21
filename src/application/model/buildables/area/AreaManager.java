@@ -42,5 +42,5 @@ public interface AreaManager{
     /**
      * Removes every area from the station.
      */
-    void removeAllAreas();	
+    void removeAllAreas();
 }

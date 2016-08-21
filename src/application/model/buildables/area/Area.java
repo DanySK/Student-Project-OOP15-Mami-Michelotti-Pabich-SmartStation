@@ -22,7 +22,7 @@ public interface Area{
     /**
      * Vehicle remains at the pump if the space is available.
      * @param Vehicle's type object.
-     * @return True if the area is available or else false.
+     * @return True if the area is available. or else false.
      */
     boolean setVehicle(Vehicle vehicle);
     
