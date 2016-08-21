@@ -9,6 +9,9 @@ import application.model.services.Fuel;
 import application.view.tabs.fuelsEditor.FuelsEditor;
 import javafx.scene.paint.Color;
 
+/**
+ * Class that implements the logic of FuelsEditorController.
+ */
 public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
 
     private final MainController mainController;
@@ -17,15 +20,15 @@ public class FuelsEditorCtrlImpl implements FuelsEditorCtrl {
     
     /**
      * Initialize the reference of controller.
-     * @param mainController reference of the main controller
+     * @param mainCtrl reference of the main controller
      */
-    public FuelsEditorCtrlImpl(final MainController mainController) {
-	this.mainController = mainController;
+    public FuelsEditorCtrlImpl(final MainController mainCtrl) {
+	this.mainController = mainCtrl;
     }
 
     @Override
-    public void setView(final FuelsEditor fuelsEditor) {
-	this.fuelsEditor = fuelsEditor;
+    public void setView(final FuelsEditor flsEd) {
+	this.fuelsEditor = flsEd;
     }
 
     @Override
