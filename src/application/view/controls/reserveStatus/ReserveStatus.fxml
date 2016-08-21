@@ -7,20 +7,16 @@
 <?import java.lang.Double?>
 <?import javafx.geometry.Insets?>
 
-<fx:root type="javafx.scene.layout.HBox" xmlns:fx="http://javafx.com/fxml/1" spacing="25" stylesheets="@ReserveStatusStyle.css">
+<fx:root type="javafx.scene.layout.HBox" xmlns:fx="http://javafx.com/fxml/1" spacing="15" stylesheets="@ReserveStatusStyle.css">
 	<!-- Some default values -->
 	<fx:define>
 		<Double fx:id="defaultMargin" fx:value="20" />
 		<Double fx:id="defaultWidth" fx:value="60" />
+		<Double fx:id="defaultBigWidth" fx:value="120" />
 		<Double fx:id="defaultMaxWidth" fx:value="70"></Double>
-	</fx:define>
+	</fx:define>	
 	
-	<!-- 
-	<padding>
-		<Insets right="$defaultMargin"></Insets>
-	</padding> -->
-	
-	<HBox spacing="1" alignment="CENTER_LEFT" prefWidth="$defaultWidth"  HBox.hgrow="NEVER">
+	<HBox alignment="CENTER_LEFT" prefWidth="$defaultWidth"  HBox.hgrow="NEVER">
 		<Label fx:id="lblName" text="Benzina"></Label>
 	</HBox>
 	
@@ -29,14 +25,14 @@
 		<Label fx:id="lblMeasurementPrice" text="€/L"></Label>
 	</HBox>
 	
-	<HBox spacing="1" alignment="CENTER" HBox.hgrow="ALWAYS" maxWidth="9999">
+	<HBox alignment="CENTER" HBox.hgrow="ALWAYS">
 		<ProgressBar fx:id="pgbReserve" HBox.hgrow="ALWAYS" id="pgbReserve" progress="1" maxWidth="9999"></ProgressBar>
 	</HBox>
 		
-	<HBox spacing="1" alignment="CENTER_LEFT" HBox.hgrow="NEVER" prefWidth="$defaultWidth">
-		<Label fx:id="lblReserveRemain" text="5000"></Label>
+	<HBox spacing="1" alignment="CENTER_LEFT" HBox.hgrow="NEVER" minWidth="$defaultBigWidth" maxWidth="$defaultBigWidth">
+		<Label fx:id="lblReserveRemain"></Label>
 		<Label text="/"></Label>
-		<Label fx:id="lblReserveMax" text="5000"></Label>
+		<Label fx:id="lblReserveMax"></Label>
 		<Label fx:id="lblMeasurementReserve" text="L"></Label>
 	</HBox>	
 </fx:root>

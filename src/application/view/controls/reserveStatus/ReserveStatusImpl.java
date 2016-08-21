@@ -50,6 +50,7 @@ public class ReserveStatusImpl extends HBox implements ReserveStatus {
         this.setFuelName(name);
         this.setPrice(price);
         this.setRemain(remain);
+        this.setMaxReserve(max);
         this.setProgress(progress);
     }
 
