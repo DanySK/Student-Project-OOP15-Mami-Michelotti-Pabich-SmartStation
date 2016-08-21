@@ -71,6 +71,11 @@ public class PumpsEditorImpl extends BorderPane implements PumpsEditor {
             ExitStatus.showErrorDialog("FXML Loading Exception", "PumpsEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
             Main.close(ExitStatus.FXMLLoadingExcp);
         }
+        
+        this.cmbEditFuelType.setVisibleRowCount(4);
+        this.cmbFuelType.setVisibleRowCount(4);
+        this.cmbPumpRepair.setVisibleRowCount(4);
+        this.cmbPumpsEdit.setVisibleRowCount(4);
               
     }
     

@@ -50,6 +50,8 @@ public class MovementsViewerImpl extends BorderPane implements MovementsViewer {
             ExitStatus.showErrorDialog("FXML Loading Exception", "MovementsViewer.fxml could not be loaded", "Exception message: " + exception.getMessage());
             Main.close(ExitStatus.FXMLLoadingExcp);
         }
+        
+        this.cmbFilters.setVisibleRowCount(4);
               
     }
     

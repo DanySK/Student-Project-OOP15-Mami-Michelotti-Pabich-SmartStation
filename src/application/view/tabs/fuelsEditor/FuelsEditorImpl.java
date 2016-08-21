@@ -57,7 +57,8 @@ public class FuelsEditorImpl extends BorderPane implements FuelsEditor {
             ExitStatus.showErrorDialog("FXML Loading Exception", "FuelsEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
             Main.close(ExitStatus.FXMLLoadingExcp);
         }
-              
+        
+        this.cmbFuels.setVisibleRowCount(4);             
     }
 
     

@@ -74,8 +74,12 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
             ExitStatus.showErrorDialog("FXML Loading Exception", "ReservesEditor.fxml could not be loaded", "Exception message: " + exception.getMessage());
             Main.close(ExitStatus.FXMLLoadingExcp);
         }
-      
-       
+        
+        this.cmbEditFuelType.setVisibleRowCount(4);
+        this.cmbFuelType.setVisibleRowCount(4);
+        this.cmbReserveRefill.setVisibleRowCount(4);
+        this.cmbReserveRepair.setVisibleRowCount(4);
+        this.cmbReservesEdit.setVisibleRowCount(4);     
     }
 
     //Controller
