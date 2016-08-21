@@ -134,7 +134,7 @@ public class ReservesEditorImpl extends BorderPane implements ReservesEditor {
     //Getters/setters for modifying
     @Override
     public String getModifyReserve() {
-        return this.cmbEditFuelType.getValue();
+        return this.cmbReservesEdit.getValue();
     }
 
     @Override
