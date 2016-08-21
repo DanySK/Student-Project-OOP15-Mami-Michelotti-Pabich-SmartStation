@@ -41,7 +41,6 @@ public class StationEditorCtrlImpl implements StationEditorCtrl {
 	    final boolean free = this.areaFree(this.x, this.y);
 	    
 	    if(!free) {
-		System.out.println("sono dentro");
 		this.stationEditor.hideModifyErrorMessage();
 		this.stationEditor.showModifyngPanel();
 		
