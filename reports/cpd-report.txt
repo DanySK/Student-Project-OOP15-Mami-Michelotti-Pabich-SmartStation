@@ -1,0 +1,213 @@
+Found a 18 line (172 tokens) duplication in the following files: 
+Starting at line 312 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 673 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+
+    public void reconfiguration() {
+	this.overviewCtrl.loadData(this.getModel().getAreaManager().getAllAreas());
+        
+        this.stationEditorCtrl.loadData(this.getModel().getMaxAreas(), 
+                                        this.getModel().getMaxAreas(),
+                                        this.getModel().getPumpManager().getAllPumps(),
+                                        this.getModel().getAreaManager().getAllAreas());
+        
+        this.fuelsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels());
+        
+        this.reservesEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
+                                         this.getModel().getReserveManager().getAllReserves());
+        
+        this.pumpsEditorCtrl.loadData(this.getModel().getFuelManager().getAllFuels(),
+    	                          this.getModel().getPumpManager().getAllPumps());
+        
+        this.movementsViewerCtrl.loadData();
+    }
+=====================================================================
+Found a 12 line (81 tokens) duplication in the following files: 
+Starting at line 90 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/StationEditorCtrlImpl.java
+Starting at line 141 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/StationEditorCtrlImpl.java
+
+		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+		this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
+	    } else {
+		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
+	    }
+	} else {
+	    this.stationEditor.showInformationAlert("Error", "error of load", "Insert a number");
+	}
+    }
+
+    @Override
+    public void confirmPumps() {
+=====================================================================
+Found a 10 line (72 tokens) duplication in the following files: 
+Starting at line 347 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 418 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 558 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+
+	    while (eventReader.hasNext()) {
+		XMLEvent event = eventReader.nextEvent();
+		switch (event.getEventType()) {
+		    case XMLStreamConstants.START_ELEMENT:
+		    StartElement startElement = event.asStartElement();
+                    String sName = startElement.getName().getLocalPart();
+                    
+		    if (sName.equalsIgnoreCase("name")) {
+			name = true;
+		    } else if (sName.equalsIgnoreCase("open")) {
+=====================================================================
+Found a 7 line (68 tokens) duplication in the following files: 
+Starting at line 81 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/model/test/MyTest.java
+Starting at line 92 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/model/test/MyTest.java
+
+        assertEquals("there must be only one pump", 1, fManager.getAllFuels().size());
+        
+        //Insert second fuel, testing if it's there and if i can get it
+        fManager.addFuel("testFuel2", 125, 100, new Color(11, 11, 11, 1));
+        assertNotNull(fManager.getFuel("testFuel2"));
+        assertNotNull(fManager.getAllFuels());
+        assertEquals("there must be 2 pumps", 2, fManager.getAllFuels().size());
+=====================================================================
+Found a 6 line (64 tokens) duplication in the following files: 
+Starting at line 53 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/MovementsViewerCtrlImpl.java
+Starting at line 63 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/MovementsViewerCtrlImpl.java
+
+	    for (Movement m : this.mainController.getModel().getMoneyManager().getAllMovements()) {
+		this.movementsViewer.addElementToList(m.getType().toString());
+		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
+		this.movementsViewer.addElementToList(m.getDescription().toString());
+	    }
+	} else if (this.movementsViewer.getFilter() == "higher") {
+=====================================================================
+Found a 8 line (62 tokens) duplication in the following files: 
+Starting at line 61 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/MovementsViewerCtrlImpl.java
+Starting at line 72 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/MovementsViewerCtrlImpl.java
+
+	    list = this.orderAcrescing();
+	    
+	    for (Movement m : list) {
+		this.movementsViewer.addElementToList(m.getType().toString());
+		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
+		this.movementsViewer.addElementToList(m.getDescription().toString());
+	    }
+	} else if (this.movementsViewer.getFilter() == "lower") {
+=====================================================================
+Found a 10 line (59 tokens) duplication in the following files: 
+Starting at line 476 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 556 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+
+	int dDurab = 0, dPrice = 0, dRepair = 0;
+	
+	while (eventReader.hasNext()) {
+	    XMLEvent event = eventReader.nextEvent();
+	    switch (event.getEventType()) {
+	        case XMLStreamConstants.START_ELEMENT:
+		StartElement startElement = event.asStartElement();
+                String sName = startElement.getName().getLocalPart();
+                
+                if (sName.equalsIgnoreCase("maxDurability")) {
+=====================================================================
+Found a 10 line (58 tokens) duplication in the following files: 
+Starting at line 345 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 630 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+
+	    factory.createXMLEventReader(reader);
+	    
+	    while (eventReader.hasNext()) {
+		XMLEvent event = eventReader.nextEvent();
+		switch (event.getEventType()) {
+		    case XMLStreamConstants.START_ELEMENT:
+		    StartElement startElement = event.asStartElement();
+                    String sName = startElement.getName().getLocalPart();
+                    
+		    if (sName.equalsIgnoreCase("name")) {
+=====================================================================
+Found a 8 line (57 tokens) duplication in the following files: 
+Starting at line 347 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 418 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 478 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 558 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 632 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+
+	    while (eventReader.hasNext()) {
+		XMLEvent event = eventReader.nextEvent();
+		switch (event.getEventType()) {
+		    case XMLStreamConstants.START_ELEMENT:
+		    StartElement startElement = event.asStartElement();
+                    String sName = startElement.getName().getLocalPart();
+                    
+		    if (sName.equalsIgnoreCase("name")) {
+=====================================================================
+Found a 26 line (57 tokens) duplication in the following files: 
+Starting at line 78 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java
+Starting at line 115 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/view/tabs/reservesEditor/ReservesEditorImpl.java
+
+        fuels.forEach(f -> this.cmbFuels.getItems().add(f.getName()));      
+    }
+    
+    
+    
+    //Show/hide panel
+    @Override
+    public void showEditingPanel() {
+        this.vbxModifyingPanel.setVisible(true);
+    }
+
+    @Override
+    public void hideEditingPanel() {
+        this.vbxModifyingPanel.setVisible(false);
+    }
+
+    @Override
+    public boolean isEditingPanelVisible() {
+        return this.vbxModifyingPanel.isVisible();
+    }
+    
+    
+    
+    //Modifying
+    @Override
+    public String getSelectedFuel() {
+=====================================================================
+Found a 7 line (56 tokens) duplication in the following files: 
+Starting at line 138 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/StationEditorCtrlImpl.java
+Starting at line 156 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/StationEditorCtrlImpl.java
+
+		this.mainController.getModel().getAreaManager().addArea(tempX, tempY, list);
+		
+		//refresh areas
+		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+		this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
+	    } else {
+		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
+=====================================================================
+Found a 8 line (55 tokens) duplication in the following files: 
+Starting at line 486 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+Starting at line 570 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/MainControllerImpl.java
+
+                    maxDurability = true;
+                } else if (sName.equalsIgnoreCase("durability")) {
+                    durability = true;
+                } else if (sName.equalsIgnoreCase("price")) {
+                    price = true;
+                } else if (sName.equalsIgnoreCase("repairCost")) {
+                    repairCost = true;
+                } else if (sName.equalsIgnoreCase("type")) {
+=====================================================================
+Found a 4 line (55 tokens) duplication in the following files: 
+Starting at line 90 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/StationEditorCtrlImpl.java
+Starting at line 159 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/StationEditorCtrlImpl.java
+
+		this.stationEditor.refreshGrid(this.mainController.getModel().getAreaManager().getAllAreas());
+		this.mainController.getOverviewController().loadData(this.mainController.getModel().getAreaManager().getAllAreas());
+	    } else {
+		this.stationEditor.showModifyCoordsMessage("Area arleady occupied");
+=====================================================================
+Found a 6 line (54 tokens) duplication in the following files: 
+Starting at line 53 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/MovementsViewerCtrlImpl.java
+Starting at line 74 of /home/danysk/Dropbox/Didattica/2015-16/Programmazione ad Oggetti/Progetti/oop15-smartstation-pabich-michelotti-mami/src/application/controller/tabs/MovementsViewerCtrlImpl.java
+
+	    for (Movement m : this.mainController.getModel().getMoneyManager().getAllMovements()) {
+		this.movementsViewer.addElementToList(m.getType().toString());
+		this.movementsViewer.addElementToList(String.valueOf(m.getMoney()));
+		this.movementsViewer.addElementToList(m.getDescription().toString());
+	    }
+	} else if (this.movementsViewer.getFilter() == "higher") {

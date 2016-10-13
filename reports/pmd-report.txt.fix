@@ -1,0 +1,384 @@
+Violated encapsulation: 0
+
+Poor design: 75
+src/application/controller/MainControllerImpl.java:142:	The String literal "name" appears 8 times in this file; the first occurrence is on line 142
+src/application/controller/MainControllerImpl.java:171:	The String literal "fuel" appears 4 times in this file; the first occurrence is on line 171
+src/application/controller/MainControllerImpl.java:178:	The String literal "price" appears 6 times in this file; the first occurrence is on line 178
+src/application/controller/MainControllerImpl.java:203:	The String literal "durability" appears 4 times in this file; the first occurrence is on line 203
+src/application/controller/MainControllerImpl.java:211:	The String literal "repairCost" appears 4 times in this file; the first occurrence is on line 211
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:48:	The String literal "Error" appears 10 times in this file; the first occurrence is on line 48
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:48:	The String literal "error of load" appears 9 times in this file; the first occurrence is on line 48
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:73:	The String literal "Insert a number" appears 4 times in this file; the first occurrence is on line 73
+src/application/controller/tabs/PumpsEditorCtrlImpl.java:48:	The String literal "Error" appears 14 times in this file; the first occurrence is on line 48
+src/application/controller/tabs/PumpsEditorCtrlImpl.java:48:	The String literal "error of load" appears 12 times in this file; the first occurrence is on line 48
+src/application/controller/tabs/PumpsEditorCtrlImpl.java:74:	The String literal "Insert a number" appears 8 times in this file; the first occurrence is on line 74
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:66:	The String literal "Error" appears 15 times in this file; the first occurrence is on line 66
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:66:	The String literal "error of load" appears 12 times in this file; the first occurrence is on line 66
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:77:	The String literal "Insert a number" appears 9 times in this file; the first occurrence is on line 77
+src/application/model/StationImpl.java:28:	Avoid unused private fields such as 'isOpen'.
+src/application/model/buildables/BuildableImpl.java:24:	Avoid unused constructor parameters such as 'actualDurability'.
+src/application/model/test/MyTest.java:66:	The String literal "testFuel" appears 29 times in this file; the first occurrence is on line 66
+src/application/model/test/MyTest.java:84:	The String literal "testFuel2" appears 11 times in this file; the first occurrence is on line 84
+src/application/model/test/MyTest.java:87:	The String literal "there must be 2 pumps" appears 4 times in this file; the first occurrence is on line 87
+src/application/model/test/MyTest.java:180:	The String literal "pumpTest" appears 5 times in this file; the first occurrence is on line 180
+src/application/model/test/MyTest.java:202:	The String literal "pumpTest3" appears 14 times in this file; the first occurrence is on line 202
+src/application/view/MainContentImpl.java:32:	Avoid unused private fields such as 'tabContainer'.
+src/application/view/MainContentImpl.java:55:	Avoid unused private fields such as 'infoTab'.
+src/application/view/controls/areaViewer/AreaViewerImpl.java:22:	Avoid unused private fields such as 'defaultSpacing'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:32:	Avoid unused private fields such as 'lblEditTitle'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:181:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:186:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:191:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:196:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:201:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:206:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:212:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:129:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:134:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/overview/Overview.java:31:	Rather than using a lot of String arguments, consider using a container object for those values.
+src/application/view/tabs/overview/Overview.java:41:	Rather than using a lot of String arguments, consider using a container object for those values.
+src/application/view/tabs/overview/OverviewImpl.java:35:	Perhaps 'controller' could be replaced by a local variable.
+src/application/view/tabs/overview/OverviewImpl.java:67:	Rather than using a lot of String arguments, consider using a container object for those values.
+src/application/view/tabs/overview/OverviewImpl.java:72:	Rather than using a lot of String arguments, consider using a container object for those values.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:232:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:237:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:242:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:247:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:252:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:257:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:262:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:268:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:273:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:279:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:263:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:268:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:272:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:277:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:282:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:287:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:292:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:298:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:303:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:314:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:319:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:325:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:41:	Avoid unused private fields such as 'txfPrice'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:52:	Avoid unused private fields such as 'txfModifyPrice'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:358:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:363:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:368:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:373:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:379:	Avoid unused method parameters such as 'e'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:385:	Avoid unused method parameters such as 'e'.
+src/mnmlwindow/MinimalWindowImpl.java:29:	Perhaps 'controller' could be replaced by a local variable.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:349:	Avoid unused method parameters such as 'e'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:355:	Avoid unused method parameters such as 'e'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:361:	Avoid unused method parameters such as 'e'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:383:	Avoid unused method parameters such as 'e'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:401:	Avoid unused method parameters such as 'e'.
+
+Very bad code practices and potential bugs: 14
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:41:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:51:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:58:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:68:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:86:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:86:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/PumpsEditorCtrlImpl.java:40:	Use equals() to compare strings instead of '==' or '!='
+src/application/controller/tabs/PumpsEditorCtrlImpl.java:113:	Use equals() to compare strings instead of '==' or '!='
+src/application/view/controls/areaViewer/AreaViewerImpl.java:54:	Overridable method 'addPumps' called during object construction
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:50:	Overridable method 'setFuelName' called during object construction
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:51:	Overridable method 'setPrice' called during object construction
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:52:	Overridable method 'setRemain' called during object construction
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:53:	Overridable method 'setMaxReserve' called during object construction
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:54:	Overridable method 'setProgress' called during object construction
+
+Bad exception handling: 4
+src/application/controller/MainControllerImpl.java:409:	A method/constructor shouldnt explicitly throw java.lang.Exception
+src/application/controller/MainControllerImpl.java:466:	A method/constructor shouldnt explicitly throw java.lang.Exception
+src/application/controller/MainControllerImpl.java:545:	A method/constructor shouldnt explicitly throw java.lang.Exception
+src/application/controller/MainControllerImpl.java:624:	A method/constructor shouldnt explicitly throw java.lang.Exception
+
+Portability issues: 0
+
+Bad naming: 23
+src/application/model/moneyManager/MoneyManager.java:1:	Package name contains upper case characters
+src/application/model/moneyManager/MoneyManagerImpl.java:1:	Package name contains upper case characters
+src/application/model/moneyManager/Movement.java:1:	Package name contains upper case characters
+src/application/model/moneyManager/MovementImpl.java:1:	Package name contains upper case characters
+src/application/model/moneyManager/MovementType.java:1:	Package name contains upper case characters
+src/application/view/controls/areaViewer/AreaViewer.java:1:	Package name contains upper case characters
+src/application/view/controls/areaViewer/AreaViewerImpl.java:1:	Package name contains upper case characters
+src/application/view/controls/areasGrid/AreasGrid.java:1:	Package name contains upper case characters
+src/application/view/controls/areasGrid/AreasGridImpl.java:1:	Package name contains upper case characters
+src/application/view/controls/reserveStatus/ReserveStatus.java:1:	Package name contains upper case characters
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:1:	Package name contains upper case characters
+src/application/view/tabs/fuelsEditor/FuelsEditor.java:1:	Package name contains upper case characters
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:1:	Package name contains upper case characters
+src/application/view/tabs/movementsViewer/MovementsViewer.java:1:	Package name contains upper case characters
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:1:	Package name contains upper case characters
+src/application/view/tabs/pumpsEditor/PumpsEditor.java:1:	Package name contains upper case characters
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:1:	Package name contains upper case characters
+src/application/view/tabs/reservesEditor/ReservesEditor.java:1:	Package name contains upper case characters
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:1:	Package name contains upper case characters
+src/application/view/tabs/stationEditor/StationEditor.java:1:	Package name contains upper case characters
+src/application/view/tabs/stationEditor/StationEditorImpl.java:1:	Package name contains upper case characters
+src/mnmlwindow/view/WindowStatus.java:43:	A getX() method which returns a boolean should be named isX()
+src/mnmlwindow/view/WindowStatus.java:51:	A getX() method which returns a boolean should be named isX()
+
+Bad code practices: 22
+src/application/controller/MainControllerImpl.java:6:	Avoid unused imports such as 'java.io.FileReader'
+src/application/controller/MainControllerImpl.java:349:	A high ratio of statements to labels in a switch statement.  Consider refactoring.
+src/application/controller/MainControllerImpl.java:349:	Switch statements should have a default label
+src/application/controller/MainControllerImpl.java:420:	A high ratio of statements to labels in a switch statement.  Consider refactoring.
+src/application/controller/MainControllerImpl.java:420:	Switch statements should have a default label
+src/application/controller/MainControllerImpl.java:480:	A high ratio of statements to labels in a switch statement.  Consider refactoring.
+src/application/controller/MainControllerImpl.java:480:	Switch statements should have a default label
+src/application/controller/MainControllerImpl.java:560:	A high ratio of statements to labels in a switch statement.  Consider refactoring.
+src/application/controller/MainControllerImpl.java:560:	Switch statements should have a default label
+src/application/controller/MainControllerImpl.java:634:	A high ratio of statements to labels in a switch statement.  Consider refactoring.
+src/application/controller/MainControllerImpl.java:634:	Switch statements should have a default label
+src/application/model/buildables/area/Area.java:5:	Avoid unused imports such as 'application.model.buildables.Buildable'
+src/application/model/buildables/area/AreaImpl.java:7:	Avoid unused imports such as 'application.model.Station'
+src/application/model/buildables/pump/PumpManagerImpl.java:6:	Avoid unused imports such as 'application.model.buildables.area.AreaImpl'
+src/application/model/buildables/pump/PumpManagerImpl.java:7:	Avoid unused imports such as 'application.model.buildables.reserve.Reserve'
+src/application/model/buildables/reserve/ReserveManagerImpl.java:6:	Avoid unused imports such as 'application.model.buildables.pump.PumpImpl'
+src/application/model/moneyManager/MoneyManagerImpl.java:6:	Avoid unused imports such as 'application.model.buildables.area.AreaImpl'
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:64:	Avoid calling toString() on String objects; this is unnecessary.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:221:	Avoid calling toString() on String objects; this is unnecessary.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:300:	Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()
+src/mnmlwindow/controller/MinimalWindowCImpl.java:17:	Avoid unnecessary constructors - the compiler will generate these for you
+src/mnmlwindow/controller/MinimalWindowCImpl.java:17:	Document empty constructor
+
+Use modern Java: 0
+
+Performance and resource waste: 1
+src/application/controller/MainControllerImpl.java:349:	A switch with less than three branches is inefficient, use a if statement instead.
+
+Potentially dangerous side effects: 0
+
+Use final: 145
+src/application/controller/MainControllerImpl.java:133:	Local variable 'docFactory' could be declared final
+src/application/controller/MainControllerImpl.java:134:	Local variable 'docBuilder' could be declared final
+src/application/controller/MainControllerImpl.java:137:	Local variable 'doc' could be declared final
+src/application/controller/MainControllerImpl.java:138:	Local variable 'rootElement' could be declared final
+src/application/controller/MainControllerImpl.java:142:	Local variable 'name' could be declared final
+src/application/controller/MainControllerImpl.java:147:	Local variable 'open' could be declared final
+src/application/controller/MainControllerImpl.java:152:	Local variable 'maxareas' could be declared final
+src/application/controller/MainControllerImpl.java:157:	Local variable 'maxpumps' could be declared final
+src/application/controller/MainControllerImpl.java:162:	Local variable 'balance' could be declared final
+src/application/controller/MainControllerImpl.java:167:	Local variable 'fuels' could be declared final
+src/application/controller/MainControllerImpl.java:170:	Local variable 'f' could be declared final
+src/application/controller/MainControllerImpl.java:171:	Local variable 'fuel' could be declared final
+src/application/controller/MainControllerImpl.java:174:	Local variable 'fName' could be declared final
+src/application/controller/MainControllerImpl.java:178:	Local variable 'price' could be declared final
+src/application/controller/MainControllerImpl.java:182:	Local variable 'wholesaleprice' could be declared final
+src/application/controller/MainControllerImpl.java:186:	Local variable 'color' could be declared final
+src/application/controller/MainControllerImpl.java:192:	Local variable 'reserves' could be declared final
+src/application/controller/MainControllerImpl.java:195:	Local variable 'r' could be declared final
+src/application/controller/MainControllerImpl.java:196:	Local variable 'reserve' could be declared final
+src/application/controller/MainControllerImpl.java:199:	Local variable 'maxDur' could be declared final
+src/application/controller/MainControllerImpl.java:203:	Local variable 'dur' could be declared final
+src/application/controller/MainControllerImpl.java:207:	Local variable 'cost' could be declared final
+src/application/controller/MainControllerImpl.java:211:	Local variable 'repair' could be declared final
+src/application/controller/MainControllerImpl.java:215:	Local variable 'type' could be declared final
+src/application/controller/MainControllerImpl.java:219:	Local variable 'capacity' could be declared final
+src/application/controller/MainControllerImpl.java:223:	Local variable 'remaining' could be declared final
+src/application/controller/MainControllerImpl.java:229:	Local variable 'pumps' could be declared final
+src/application/controller/MainControllerImpl.java:232:	Local variable 'p' could be declared final
+src/application/controller/MainControllerImpl.java:233:	Local variable 'pump' could be declared final
+src/application/controller/MainControllerImpl.java:236:	Local variable 'pName' could be declared final
+src/application/controller/MainControllerImpl.java:240:	Local variable 'pFuel' could be declared final
+src/application/controller/MainControllerImpl.java:244:	Local variable 'speed' could be declared final
+src/application/controller/MainControllerImpl.java:248:	Local variable 'durability' could be declared final
+src/application/controller/MainControllerImpl.java:252:	Local variable 'pPrice' could be declared final
+src/application/controller/MainControllerImpl.java:256:	Local variable 'repairCost' could be declared final
+src/application/controller/MainControllerImpl.java:260:	Local variable 'actualDurability' could be declared final
+src/application/controller/MainControllerImpl.java:266:	Local variable 'areas' could be declared final
+src/application/controller/MainControllerImpl.java:269:	Local variable 'a' could be declared final
+src/application/controller/MainControllerImpl.java:270:	Local variable 'area' could be declared final
+src/application/controller/MainControllerImpl.java:273:	Local variable 'xpos' could be declared final
+src/application/controller/MainControllerImpl.java:277:	Local variable 'ypos' could be declared final
+src/application/controller/MainControllerImpl.java:282:	Local variable 'aPumps' could be declared final
+src/application/controller/MainControllerImpl.java:285:	Local variable 'ap' could be declared final
+src/application/controller/MainControllerImpl.java:286:	Local variable 'aPump' could be declared final
+src/application/controller/MainControllerImpl.java:289:	Local variable 'aPName' could be declared final
+src/application/controller/MainControllerImpl.java:296:	Local variable 'transformerFactory' could be declared final
+src/application/controller/MainControllerImpl.java:297:	Local variable 'transformer' could be declared final
+src/application/controller/MainControllerImpl.java:298:	Local variable 'source' could be declared final
+src/application/controller/MainControllerImpl.java:299:	Local variable 'result' could be declared final
+src/application/controller/MainControllerImpl.java:340:	Local variable 'in' could be declared final
+src/application/controller/MainControllerImpl.java:341:	Local variable 'reader' could be declared final
+src/application/controller/MainControllerImpl.java:343:	Local variable 'factory' could be declared final
+src/application/controller/MainControllerImpl.java:344:	Local variable 'eventReader' could be declared final
+src/application/controller/MainControllerImpl.java:348:	Local variable 'event' could be declared final
+src/application/controller/MainControllerImpl.java:351:	Local variable 'startElement' could be declared final
+src/application/controller/MainControllerImpl.java:352:	Local variable 'sName' could be declared final
+src/application/controller/MainControllerImpl.java:369:	Local variable 'characters' could be declared final
+src/application/controller/MainControllerImpl.java:419:	Local variable 'event' could be declared final
+src/application/controller/MainControllerImpl.java:422:	Local variable 'startElement' could be declared final
+src/application/controller/MainControllerImpl.java:423:	Local variable 'sName' could be declared final
+src/application/controller/MainControllerImpl.java:438:	Local variable 'characters' could be declared final
+src/application/controller/MainControllerImpl.java:457:	Local variable 'endElement' could be declared final
+src/application/controller/MainControllerImpl.java:479:	Local variable 'event' could be declared final
+src/application/controller/MainControllerImpl.java:482:	Local variable 'startElement' could be declared final
+src/application/controller/MainControllerImpl.java:483:	Local variable 'sName' could be declared final
+src/application/controller/MainControllerImpl.java:504:	Local variable 'characters' could be declared final
+src/application/controller/MainControllerImpl.java:535:	Local variable 'endElement' could be declared final
+src/application/controller/MainControllerImpl.java:559:	Local variable 'event' could be declared final
+src/application/controller/MainControllerImpl.java:562:	Local variable 'startElement' could be declared final
+src/application/controller/MainControllerImpl.java:563:	Local variable 'sName' could be declared final
+src/application/controller/MainControllerImpl.java:584:	Local variable 'characters' could be declared final
+src/application/controller/MainControllerImpl.java:615:	Local variable 'endElement' could be declared final
+src/application/controller/MainControllerImpl.java:633:	Local variable 'event' could be declared final
+src/application/controller/MainControllerImpl.java:636:	Local variable 'startElement' could be declared final
+src/application/controller/MainControllerImpl.java:637:	Local variable 'sName' could be declared final
+src/application/controller/MainControllerImpl.java:648:	Local variable 'characters' could be declared final
+src/application/controller/MainControllerImpl.java:658:	Local variable 'p' could be declared final
+src/application/controller/MainControllerImpl.java:667:	Local variable 'endElement' could be declared final
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:139:	Local variable 'r' could be declared final
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:145:	Local variable 'p' could be declared final
+src/application/controller/tabs/FuelsEditorCtrlImpl.java:167:	Local variable 'f' could be declared final
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:53:	Local variable 'm' could be declared final
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:63:	Local variable 'm' could be declared final
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:74:	Local variable 'm' could be declared final
+src/application/controller/tabs/MovementsViewerCtrlImpl.java:103:	Local variable 'm' could be declared final
+src/application/controller/tabs/OverviewCtrlImpl.java:34:	Local variable 'r' could be declared final
+src/application/controller/tabs/OverviewCtrlImpl.java:35:	Local variable 'progress' could be declared final
+src/application/controller/tabs/PumpsEditorCtrlImpl.java:204:	Local variable 'p' could be declared final
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:40:	Local variable 'r' could be declared final
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:116:	Local variable 'r' could be declared final
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:150:	Local variable 'r' could be declared final
+src/application/controller/tabs/ReservesEditorCtrlImpl.java:246:	Local variable 'r' could be declared final
+src/application/controller/tabs/StationEditorCtrlImpl.java:56:	Local variable 'p' could be declared final
+src/application/controller/tabs/StationEditorCtrlImpl.java:106:	Local variable 'p' could be declared final
+src/application/controller/tabs/StationEditorCtrlImpl.java:131:	Local variable 'p' could be declared final
+src/application/controller/tabs/StationEditorCtrlImpl.java:179:	Local variable 'a' could be declared final
+src/application/model/StationImpl.java:63:	Parameter 'address' is not assigned and could be declared final
+src/application/model/buildables/area/AreaManagerImpl.java:38:	Local variable 'a' could be declared final
+src/application/model/buildables/area/AreaManagerImpl.java:63:	Local variable 'a' could be declared final
+src/application/model/buildables/pump/PumpManagerImpl.java:37:	Local variable 'p' could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:31:	Local variable 'r' could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'actualCapacity' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'actualDurability' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'capacity' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'cost' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'maxDurability' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'repairCost' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:46:	Parameter 'type' is not assigned and could be declared final
+src/application/model/buildables/reserve/ReserveManagerImpl.java:51:	Parameter 'reserve' is not assigned and could be declared final
+src/application/model/moneyManager/MoneyManagerImpl.java:41:	Local variable 'm' could be declared final
+src/application/model/moneyManager/MoneyManagerImpl.java:48:	Parameter 'money' is not assigned and could be declared final
+src/application/model/moneyManager/MoneyManagerImpl.java:49:	Local variable 'm' could be declared final
+src/application/model/moneyManager/MovementType.java:24:	Parameter 'actualName' is not assigned and could be declared final
+src/application/model/services/FuelManagerImpl.java:57:	Local variable 'f' could be declared final
+src/application/model/test/MyTest.java:33:	Local variable 'station' could be declared final
+src/application/model/test/MyTest.java:55:	Local variable 'fManager' could be declared final
+src/application/model/test/MyTest.java:56:	Local variable 'rManager' could be declared final
+src/application/model/test/MyTest.java:57:	Local variable 'pManager' could be declared final
+src/application/model/test/MyTest.java:58:	Local variable 'aManager' could be declared final
+src/application/model/test/MyTest.java:59:	Local variable 'mManager' could be declared final
+src/application/model/test/MyTest.java:230:	Local variable 'pumps' could be declared final
+src/application/view/MainContentImpl.java:67:	Local variable 'loader' could be declared final
+src/application/view/controls/areaViewer/AreaViewerImpl.java:37:	Local variable 'fxmlLoader' could be declared final
+src/application/view/controls/areaViewer/AreaViewerImpl.java:63:	Local variable 'rectangle' could be declared final
+src/application/view/controls/areaViewer/AreaViewerImpl.java:78:	Local variable 'pump' could be declared final
+src/application/view/controls/areasGrid/AreasGridImpl.java:27:	Local variable 'fxmlLoader' could be declared final
+src/application/view/controls/areasGrid/AreasGridImpl.java:56:	Local variable 'a' could be declared final
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:27:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:50:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/info/InfoImpl.java:18:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:43:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/overview/OverviewImpl.java:42:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/overview/OverviewImpl.java:73:	Local variable 'rsv' could be declared final
+src/application/view/tabs/overview/OverviewImpl.java:85:	Local variable 'rsv' could be declared final
+src/application/view/tabs/overview/OverviewImpl.java:128:	Local variable 'node' could be declared final
+src/application/view/tabs/overview/OverviewImpl.java:130:	Local variable 'rsv' could be declared final
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:64:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:67:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/stationEditor/StationEditorImpl.java:72:	Local variable 'fxmlLoader' could be declared final
+src/application/view/tabs/stationEditor/StationEditorImpl.java:243:	Local variable 'tmpPumps' could be declared final
+src/application/view/tabs/stationEditor/StationEditorImpl.java:288:	Local variable 'tmpPumps' could be declared final
+src/mnmlwindow/view/MinimalWindowViewImpl.java:84:	Local variable 'loader' could be declared final
+src/mnmlwindow/view/MinimalWindowViewImpl.java:303:	Local variable 'screensForRectangle' could be declared final
+src/mnmlwindow/view/MinimalWindowViewImpl.java:306:	Local variable 'screen' could be declared final
+src/mnmlwindow/view/MinimalWindowViewImpl.java:307:	Local variable 'visualBounds' could be declared final
+
+Complex code: 0
+
+Concurrency issues: 0
+
+Testing issues: 6
+src/application/model/test/MyTest.java:76:	JUnit 4 tests that execute tests should use the @Test annotation
+src/application/model/test/MyTest.java:128:	JUnit 4 tests that execute tests should use the @Test annotation
+src/application/model/test/MyTest.java:177:	JUnit 4 tests that execute tests should use the @Test annotation
+src/application/model/test/MyTest.java:228:	JUnit 4 tests that execute tests should use the @Test annotation
+src/application/model/test/MyTest.java:271:	JUnit 4 tests that execute tests should use the @Test annotation
+src/application/model/test/MyTest.java:291:	JUnit 4 tests that execute tests should use the @Test annotation
+
+Android-specific issues: 0
+
+Minor issues: 12
+src/application/view/MainContentImpl.java:65:	It is a good practice to call super() in a constructor
+src/application/view/controls/areaViewer/AreaViewerImpl.java:36:	It is a good practice to call super() in a constructor
+src/application/view/controls/areasGrid/AreasGridImpl.java:26:	It is a good practice to call super() in a constructor
+src/application/view/controls/reserveStatus/ReserveStatusImpl.java:26:	It is a good practice to call super() in a constructor
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:49:	It is a good practice to call super() in a constructor
+src/application/view/tabs/info/InfoImpl.java:17:	It is a good practice to call super() in a constructor
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:42:	It is a good practice to call super() in a constructor
+src/application/view/tabs/overview/OverviewImpl.java:41:	It is a good practice to call super() in a constructor
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:63:	It is a good practice to call super() in a constructor
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:66:	It is a good practice to call super() in a constructor
+src/application/view/tabs/stationEditor/StationEditorImpl.java:70:	It is a good practice to call super() in a constructor
+src/mnmlwindow/view/MinimalWindowViewImpl.java:72:	It is a good practice to call super() in a constructor
+
+Other errors: 48
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:181:	Avoid unused private methods such as 'btnSelect_click(MouseEvent)'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:186:	Avoid unused private methods such as 'btnChangeName_click(MouseEvent)'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:191:	Avoid unused private methods such as 'btnChangePrice_click(MouseEvent)'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:196:	Avoid unused private methods such as 'btnChangeWPrice_click(MouseEvent)'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:201:	Avoid unused private methods such as 'btnChangeColor_click(MouseEvent)'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:206:	Avoid unused private methods such as 'btnDelete_click(MouseEvent)'.
+src/application/view/tabs/fuelsEditor/FuelsEditorImpl.java:212:	Avoid unused private methods such as 'btnAddFuel_click(MouseEvent)'.
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:129:	Avoid unused private methods such as 'btnApplyFilter_click(MouseEvent)'.
+src/application/view/tabs/movementsViewer/MovementsViewerImpl.java:134:	Avoid unused private methods such as 'btnAddMovement_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:232:	Avoid unused private methods such as 'btnSelectEdit_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:237:	Avoid unused private methods such as 'btnChangePumpName_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:242:	Avoid unused private methods such as 'btnChangeSpeed_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:247:	Avoid unused private methods such as 'btnChangeDurability_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:252:	Avoid unused private methods such as 'btnChangePrice_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:257:	Avoid unused private methods such as 'btnChangeRepairCost_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:262:	Avoid unused private methods such as 'btnDelete_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:268:	Avoid unused private methods such as 'btnSelectRepair_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:273:	Avoid unused private methods such as 'btnRepair_click(MouseEvent)'.
+src/application/view/tabs/pumpsEditor/PumpsEditorImpl.java:279:	Avoid unused private methods such as 'btnAddPump_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:263:	Avoid unused private methods such as 'btnSelectEdit_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:268:	Avoid unused private methods such as 'btnChangeFuelType_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:272:	Avoid unused private methods such as 'btnChangeCapacity_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:277:	Avoid unused private methods such as 'btnChangeRepairCost_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:282:	Avoid unused private methods such as 'btnChangePrice_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:287:	Avoid unused private methods such as 'btnChangeDurability_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:292:	Avoid unused private methods such as 'btnDelete_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:298:	Avoid unused private methods such as 'btnSelectRefill_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:303:	Avoid unused private methods such as 'btnRefill_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:314:	Avoid unused private methods such as 'btnSelectRepair_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:319:	Avoid unused private methods such as 'btnRepair_click(MouseEvent)'.
+src/application/view/tabs/reservesEditor/ReservesEditorImpl.java:325:	Avoid unused private methods such as 'btnAddReserve_click(MouseEvent)'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:358:	Avoid unused private methods such as 'btnOK_click(MouseEvent)'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:363:	Avoid unused private methods such as 'btnChangePosition_click(MouseEvent)'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:368:	Avoid unused private methods such as 'btnConfirmPumps_click(MouseEvent)'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:373:	Avoid unused private methods such as 'btnRemoveArea_click(MouseEvent)'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:379:	Avoid unused private methods such as 'btnInsertArea_click(MouseEvent)'.
+src/application/view/tabs/stationEditor/StationEditorImpl.java:385:	Avoid unused private methods such as 'btnSwtich_click(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:349:	Avoid unused private methods such as 'btnMin_click(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:355:	Avoid unused private methods such as 'btnMax_click(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:361:	Avoid unused private methods such as 'btnCls_click(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:370:	Avoid unused private methods such as 'root_onMousePressed(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:376:	Avoid unused private methods such as 'root_onMouseDragged(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:383:	Avoid unused private methods such as 'root_onMouseReleased(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:391:	Avoid unused private methods such as 'btnResize_onMouseClicked(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:396:	Avoid unused private methods such as 'btnResize_OnMouseReleased(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:401:	Avoid unused private methods such as 'btnResize_onMouseEntered(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:406:	Avoid unused private methods such as 'btnResize_onMouseExited(MouseEvent)'.
+src/mnmlwindow/view/MinimalWindowViewImpl.java:411:	Avoid unused private methods such as 'btnResize_onMouseDragged(MouseEvent)'.
+
